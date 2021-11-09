@@ -1,0 +1,104 @@
+/* 
+*** Font Information ***
+Dosis font has 800 (thick) weight and 400 (regular) weight
+
+*** Color Information ***
+Green - A4DF57
+Yellow - FADB6B
+Yellow accent - F5BF67
+Fire Opal Orange - E4695B
+Paradise Pink - E54865
+Purple - 923C60
+Violet - 53335D
+Violet accent - 3D2248
+bLue - 221c3b
+*/
+
+@keyframes pulse {
+    100% {
+        text-shadow:
+        /* White glow */
+        0 0 7px #E4695B,
+        0 0 11px #E4695B,
+        0 0 21px #E4695B,
+        /* Green glow */
+        0 0 42px #E54865,
+        0 0 82px #E54865,
+        0 0 92px #E54865,
+        0 0 102px #E54865,
+        0 0 151px #E54865;
+    }
+    0% {
+        text-shadow:
+        /* White glow */
+        0 0 6px #E54865,
+        0 0 10px #E54865,
+        0 0 17px #E54865,
+        /* Green glow */
+        0 0 36px #E54865,
+        0 0 73px #E54865,
+        0 0 80px #E54865,
+        0 0 93px #E54865,
+        0 0 140px #E54865;
+    }
+}
+
+/* Neon sign ideas from https://css-tricks.com/how-to-create-neon-text-with-css/ */
+#home_title {
+    text-align: center;
+    color: white;
+    animation: pulse 0.6s ease-in-out infinite alternate;    
+}
+
+#home_title {
+    font-size: 20vw;
+    margin: 10vh;
+}
+
+h1, h3, body {
+    font-family: 'Dosis', sans-serif;
+    font-weight: 200;
+}
+
+@media screen and (prefers-reduced-motion) {
+    h1 {
+        animation: none;
+    }
+    
+}
+
+#home_nav {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 10px;
+    display: table;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    border: 1px solid white;
+    box-shadow: 0 0 3px white,
+        0 0 3px white,
+        0 0 2px #FADB6B,
+        0 0 2px #FADB6B,
+        0 0 3px #FADB6B,
+        0 0 4px #F5BF67,
+        0 0 5px #F5BF67,
+        0 0 48px #F5BF67,
+        inset 0 0 21px #F5BF67;
+}
+
+/* Starry background from https://projects.verou.me/css3patterns/#starry-night */
+
+body {
+    color:white;
+    background-color: #221c3b;
+    background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 5px),
+    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2.5px),
+    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 5px),
+    radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 2.5px);
+    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+}
