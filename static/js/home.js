@@ -13,11 +13,6 @@ function projectsAction() {
     header.style.color = 'pink';
 }
 
-function skillsAction() {
-    var header = document.getElementById('test');
-    header.style.color = 'pink';
-}
-
 function resumeAction() {
     var header = document.getElementById('test');
     header.style.color = 'pink';

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Asha Ivey - Portfolio Website</title>
+        <link rel='stylesheet' href='../static/css/home.css'>
+        <script src='../static/js/home.js'></script>
+
+        <!-- Font Stuff -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;400;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+      
+    <body class='beginning'>
+        <nav> 
+            <button class='nav_button' onclick='aboutAction()'>About</button>
+            <button class='nav_button' onclick='experienceAction()'>Experience</button>
+            <button class='nav_button' onclick='projectsAction()'>Projects</button>
+            <button class='nav_button' onclick='resumeAction()'>Resume</button>
+            <button class='nav_button' onclick='contactAction()'>Contact</button>
+        </nav> 
+
+        <div class='fullscreen home_style'>
+            <h1 id='home_title'>Asha Ivey</h1>
+            <h1 onclick='aboutAction()' class='arrow cloud'>▼</h1>
+        </div>   
+        
+        <div class='fullscreen about_style'>
+            <h2>About Asha</h2>
+        </div>
+
+        <div id='socials'>
+            <i class='fa fa-github' style='font-size:20vw'></i>
+        </div>
+    </body>
+</html>

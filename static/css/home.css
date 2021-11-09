@@ -14,6 +14,11 @@ Violet accent - 3D2248
 bLue - 221c3b
 */
 
+html, body, div{
+    width:100vw;
+    margin: 0;
+}
+
 @keyframes pulse {
     100% {
         text-shadow:
@@ -48,11 +53,31 @@ bLue - 221c3b
     text-align: center;
     color: white;
     animation: pulse 0.6s ease-in-out infinite alternate;    
+    font-size: 20vw;
+    margin: 6vh;
 }
 
-#home_title {
-    font-size: 20vw;
-    margin: 10vh;
+.arrow {
+    text-align: center;
+    color: white;
+    animation: pulse 0.6s ease-in-out infinite alternate;    
+    font-size: 10vw;
+    margin: 6vh;
+    bottom: 100vh - 20px;
+}
+
+.cloud {
+    animation: pulse 0.6s ease-in-out infinite alternate,
+    MoveUpDown 2s linear infinite;
+}
+
+@keyframes MoveUpDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 h1, h3, body {
@@ -67,38 +92,64 @@ h1, h3, body {
     
 }
 
-#home_nav {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    border-radius: 20px;
-    padding: 10px;
-    display: table;
-    padding-left: 30px;
-    padding-right: 30px;
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
 
-    border: 1px solid white;
-    box-shadow: 0 0 3px white,
-        0 0 3px white,
-        0 0 2px #FADB6B,
-        0 0 2px #FADB6B,
-        0 0 3px #FADB6B,
-        0 0 4px #F5BF67,
-        0 0 5px #F5BF67,
-        0 0 48px #F5BF67,
-        inset 0 0 21px #F5BF67;
+    /* Stick to top */
+    top: 0;
+    position: sticky;
 }
 
-/* Starry background from https://projects.verou.me/css3patterns/#starry-night */
+.nav_button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    flex: 1;
+}
 
-body {
-    color:white;
+/* Body Beginning and End Styles */
+.beginning {
     background-color: #221c3b;
+    display: flex;
+    flex-direction: column;
+}
+.end {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+
+    /* Starry background from https://projects.verou.me/css3patterns/#starry-night */
+    /* To get stars of verying brightness on the background */
     background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 5px),
     radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2.5px),
     radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 5px),
     radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 2.5px);
     background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
-background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+}
+
+div {
+    margin: 0;
+}
+
+.home_style {
+    color:white;
+    background: None;
+}
+
+.fullscreen {
+    height:100vh;
+}
+
+/* Content */
+
+.about_style {
+    background: #E54865;
 }
