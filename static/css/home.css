@@ -140,7 +140,7 @@ div {
     margin: 0;
 }
 
-.home_style {
+#home {
     color:white;
     background: None;
 }
@@ -149,8 +149,23 @@ div {
     height:100vh;
 }
 
-/* Content */
+/* ABOUT SECTION */
 
-.about_style {
+#about {
     background: #E54865;
+}
+
+/* PROJECTS & EXPERIENCE SECTION */
+#projects {
+    background: #FADB6B;
+}
+
+/* RESUME SECTION */
+#resume {
+    background: #A4DF57;
+}
+
+/* CONTACT SECTION */
+#contact {
+    background: none;
 }

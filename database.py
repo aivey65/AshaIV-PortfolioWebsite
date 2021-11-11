@@ -3,7 +3,10 @@ from flask import jsonify
 
 client = datastore.Client()
 
-def getAbout():
-    query = client.query(kind='about_description')
-    results = list(query.fetch())
+def getData():
+    results = {}
+
+    results["about"] = list(client.query(kind="about_description").fetch())
+    results["projects"] = list(client.query(kind="projects").fetch())
+
     return jsonify({"data":results})

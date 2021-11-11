@@ -13,32 +13,38 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
       
-    <body class='beginning'>
+    <body class='beginning' onload="loadData()">
         <nav> 
             <button class='nav_button' onclick='homeAction()'>Home</button>
             <button class='nav_button' onclick='aboutAction()'>About</button>
-            <button class='nav_button' onclick='projectsAction()'>Projects & Experience</button>
+            <button class='nav_button' onclick='projectAction()'>Projects</button>
             <button class='nav_button' onclick='resumeAction()'>Resume</button>
             <button class='nav_button' onclick='contactAction()'>Contact</button>
         </nav> 
 
-        <div class='fullscreen home_style' id='home'>
+        <div id='home' class='fullscreen'>
             <h1 id='home_title'>Asha Ivey</h1>
             <h1 onclick='aboutAction()' class='arrow cloud'>▼</h1>
         </div>   
         
-        <div class='fullscreen about_style' id='about'>
+        <div id='about' class='fullscreen'>
             <h2>About Asha</h2>
             <div id='about-container'>
                 <!-- Ideally, I want there to be a short version and a long version -->
                 <!-- so that people can chose whether or not they want to read the -->
                 <!-- whole page or just scroll through. -->
-                <p id='about-long'></p>
-                <p id='about-short'></p>
+                <p id='about-description'></p>
             </div>
         </div>
 
-        <div id='socials'>
+        <div id='projects' class='fullscreen'>
+            <div id='projects-container'></div>
+        </div>
+
+        <div id='resume' class='fullscreen'>
+        </div>
+
+        <div id='contact' class='fullscreen'>
             <i class='fa fa-github' style='font-size:20vw'></i>
         </div>
     </body>

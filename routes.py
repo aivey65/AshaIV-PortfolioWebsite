@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from database import getAbout
+from database import getData
 
 app = Flask(__name__)
 
@@ -7,6 +7,6 @@ app = Flask(__name__)
 def renderHome():
     return render_template('home.html')
 
-@app.route("/about")
-def renderAbout():    
-    return getAbout()
+@app.route("/load-data")
+def loadDatabaseData():    
+    return getData()

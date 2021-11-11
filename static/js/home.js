@@ -1,30 +1,80 @@
-function homeAction() {
-    document.getElementById('home').scrollIntoView()
-}
-
-function aboutAction() {
-    fetch('/about').then(response => response.json()).then((responseData) => {
-        const aboutContainer = document.getElementById('about-long');
-        
-        aboutInfo = responseData.data[0]
-        aboutContainer.innerHTML = aboutInfo.long
-        
-        document.getElementById('about').scrollIntoView()
+// Get and populate page with all the data. This is better than loading each 
+// section separately since it is all technically on one page.
+function loadData() {
+    fetch('/load-data').then(response => response.json()).then((responseData) => {
+        loadAbout(responseData.data.about);
+        loadProjects(responseData.data.projects);
+        console.log(responseData.data.projects);
     })
 }
 
-function experienceAction() {
-    var header = document.getElementById('test');
-    header.style.color = 'pink';
+function loadAbout(aboutData) {
+    const aboutContainer = document.getElementById('about-description');
+    aboutContainer.innerHTML = aboutData[0].description;
 }
 
-function projectsAction() {
-    var header = document.getElementById('test');
-    header.style.color = 'pink';
+function loadProjects(projectsData) {
+    const projectsContainer = document.getElementById('projects-container');
+
+    for (const project of projectsData) {
+        const name = document.createElement('h2');
+        name.innerHTML = project.name;
+
+        const year = document.createElement('h4');
+        year.innerHTML = project.year;
+        
+        const des = document.createElement('p');
+        des.innerHTML = project.description;
+
+        const git = document.createElement('a')
+        if (project.github != "") {
+            git.innerHTML = "Github";
+            git.href = project.github;
+        }
+
+        const live = document.createElement('a')
+        if (project.live != "") {
+            live.innerHTML = "See it Live";
+            live.href = project.live;
+        }
+
+        const skills = document.createElement('div');
+        for (const skill of project.skills) {
+            const s = document.createElement('h3');
+            s.innerHTML = skill;
+            skills.appendChild(s);
+        }
+
+        projectDiv = document.createElement('div');
+        projectDiv.classList.add('projects');
+        projectDiv.append(name, year, des, git, live, skills);
+        
+        projectsContainer.appendChild(projectDiv);
+    }
+}
+/////////////////////////////////////////
+// Scroll functions for page navigation//
+/////////////////////////////////////////
+function homeAction() {
+    document.getElementById('home').scrollIntoView();
+}
+
+function aboutAction() {
+    document.getElementById('about').scrollIntoView();
+
+}
+
+function projectAction() {
+    document.getElementById('projects').scrollIntoView();
+
 }
 
 function resumeAction() {
-    var header = document.getElementById('test');
-    header.style.color = 'pink';
+    document.getElementById('resume').scrollIntoView();
+
 }
 
+function contactAction() {
+    document.getElementById('contact').scrollIntoView();
+
+}
