@@ -17,6 +17,7 @@ bLue - 221c3b
 html, body, div{
     width:100vw;
     margin: 0;
+    scroll-behavior: smooth;
 }
 
 @keyframes pulse {

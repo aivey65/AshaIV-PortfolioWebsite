@@ -4,6 +4,7 @@
         <title>Asha Ivey - Portfolio Website</title>
         <link rel='stylesheet' href='../static/css/home.css'>
         <script src='../static/js/home.js'></script>
+        <link rel='shortcut icon' sizes='256x256' href='../static/images/ashaiv-favicon-32x32.png'>
 
         <!-- Font Stuff -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,20 +15,27 @@
       
     <body class='beginning'>
         <nav> 
+            <button class='nav_button' onclick='homeAction()'>Home</button>
             <button class='nav_button' onclick='aboutAction()'>About</button>
-            <button class='nav_button' onclick='experienceAction()'>Experience</button>
-            <button class='nav_button' onclick='projectsAction()'>Projects</button>
+            <button class='nav_button' onclick='projectsAction()'>Projects & Experience</button>
             <button class='nav_button' onclick='resumeAction()'>Resume</button>
             <button class='nav_button' onclick='contactAction()'>Contact</button>
         </nav> 
 
-        <div class='fullscreen home_style'>
+        <div class='fullscreen home_style' id='home'>
             <h1 id='home_title'>Asha Ivey</h1>
             <h1 onclick='aboutAction()' class='arrow cloud'>▼</h1>
         </div>   
         
-        <div class='fullscreen about_style'>
+        <div class='fullscreen about_style' id='about'>
             <h2>About Asha</h2>
+            <div id='about-container'>
+                <!-- Ideally, I want there to be a short version and a long version -->
+                <!-- so that people can chose whether or not they want to read the -->
+                <!-- whole page or just scroll through. -->
+                <p id='about-long'></p>
+                <p id='about-short'></p>
+            </div>
         </div>
 
         <div id='socials'>
