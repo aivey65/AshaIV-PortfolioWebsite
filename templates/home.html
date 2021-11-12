@@ -28,7 +28,7 @@
         </div>   
         
         <div id='about' class='fullscreen'>
-            <h2>About Asha</h2>
+            <h2 id='about-title'>About Asha</h2>
             <div id='about-container'>
                 <!-- Ideally, I want there to be a short version and a long version -->
                 <!-- so that people can chose whether or not they want to read the -->
@@ -38,14 +38,41 @@
         </div>
 
         <div id='projects' class='fullscreen'>
+            <div class='shadow-top'></div>
+            <h2>Projects</h2>
+            <div class='shadow-bottom'></div>
             <div id='projects-container'></div>
         </div>
 
         <div id='resume' class='fullscreen'>
+            <h2>Resume</h2>
+            <p id='resume-date'>Last Updated 11/11/2021</p>
+            <div id='resume-container'>
+                <iframe id='most-recent-resume' src='../static/documents/Asha Ivey_9-20-2021_Resume.pdf'></iframe>
+            </div>
         </div>
 
         <div id='contact' class='fullscreen'>
-            <i class='fa fa-github' style='font-size:20vw'></i>
+            <h2>Contact Me</h2>
+            <div id='contact-methods'>
+                <div>
+                    <h3 style='font-size:20vw'>✉</h3>
+                    <p>Email: 
+                        <span id='email-text'>ashavivey@gmail.com</span> 
+                    </p>
+                    <button id='contact-button' onclick='copyEmail()'>Copy Email</button>
+                    </button>
+                </div>
+                
+                <div>
+                    <a href='https://github.com/aivey65'>
+                        <i class='fa fa-github' style='font-size:20vw'></i>
+                        <p>Github</p>
+                    </a>
+                </div>
+                
+            </div>
+            
         </div>
     </body>
 </html>
