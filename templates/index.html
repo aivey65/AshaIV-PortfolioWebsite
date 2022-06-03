@@ -15,36 +15,34 @@
       
     <body class='beginning' onload="loadData()">
         <nav> 
-            <button class='nav_button' onclick='homeAction()'>Home</button>
             <button class='nav_button' onclick='aboutAction()'>About</button>
             <button class='nav_button' onclick='projectAction()'>Projects</button>
             <button class='nav_button' onclick='resumeAction()'>Resume</button>
             <button class='nav_button' onclick='contactAction()'>Contact</button>
         </nav> 
-
-        <div id='home' class='fullscreen'>
-            <h1 id='home_title'>Asha Ivey</h1>
-            <h1 onclick='aboutAction()' class='arrow cloud'>▼</h1>
-        </div>   
         
-        <div id='about' class='fullscreen'>
-            <h2 id='about-title'>About Asha</h2>
-            <div id='about-container'>
+        <div id='about' class="container">
+            <h1 id='home_title' class='large-title'>Asha Ivey</h1>
+            <div id='about-text'>
                 <!-- Ideally, I want there to be a short version and a long version -->
                 <!-- so that people can chose whether or not they want to read the -->
                 <!-- whole page or just scroll through. -->
                 <p id='about-description'></p>
+            </div> 
+            <div id="about-image">
+                <p class='center-align'>
+                    <img src='../static/images/profile_pic.jpg'>
+                </p>
             </div>
+            <h1 onclick='aboutAction()' class='arrow cloud large-title'>▼</h1>
         </div>
 
-        <div id='projects' class='fullscreen'>
-            <div class='shadow-top'></div>
+        <div id='projects'>
             <h2>Projects</h2>
-            <div class='shadow-bottom'></div>
             <div id='projects-container'></div>
         </div>
 
-        <div id='resume' class='fullscreen'>
+        <div id='resume'>
             <h2>Resume</h2>
             <p id='resume-date'>Last Updated 11/11/2021</p>
             <div id='resume-container'>
@@ -52,7 +50,7 @@
             </div>
         </div>
 
-        <div id='contact' class='fullscreen'>
+        <div id='contact'>
             <h2>Contact Me</h2>
             <div id='contact-methods'>
                 <div>
@@ -69,10 +67,8 @@
                         <i class='fa fa-github' style='font-size:20vw'></i>
                         <p>Github</p>
                     </a>
-                </div>
-                
-            </div>
-            
+                </div> 
+            </div> 
         </div>
     </body>
 </html>

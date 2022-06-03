@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def renderHome():
-    return render_template('home.html')
+    return render_template('index.html')
 
 @app.route("/load-data")
 def loadDatabaseData():    

@@ -1,4 +1,4 @@
-from google.cloud import datastore
+import google.cloud.datastore as datastore
 from flask import jsonify
 
 client = datastore.Client()
@@ -11,7 +11,5 @@ def getData():
     projectQuery = client.query(kind="projects")
     projectQuery.order = ["-year"]
     results["projects"] = list(projectQuery.fetch())
-
-    # Download current 
 
     return jsonify({"data":results})

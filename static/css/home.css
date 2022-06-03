@@ -2,18 +2,18 @@
 *** Font Information ***
 Dosis font has 800 (thick) weight and 400 (regular) weight
 
-*** Color Information ***
-Green - A4DF57
-Yellow - FADB6B
-Yellow accent - F5BF67
-Fire Opal Orange - E4695B
-Paradise Pink - E54865
-Purple - 923C60
-Violet - 53335D
-Violet accent - 3D2248
-bLue - 221c3b
+*** Color Information***
+Defining color values to make it easier to change later on 
 */
+:root {
+    --DMain: #2B061E;
+    --LMain: #875053;
+    --Light: #FFEED6;
+    --Dark: #12020D;
+    --DAccent: #D2BF55;
+    --LAccent: #FBBFCA;
 
+}
 * {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -29,28 +29,28 @@ html, body {
     100% {
         text-shadow:
         /* White glow */
-        0 0 7px #E4695B,
-        0 0 11px #E4695B,
-        0 0 21px #E4695B,
+        0 0 7px var(--Light),
+        0 0 11px var(--Light),
+        0 0 21px var(--Light),
         /* Green glow */
-        0 0 42px #E54865,
-        0 0 82px #E54865,
-        0 0 92px #E54865,
-        0 0 102px #E54865,
-        0 0 151px #E54865;
+        0 0 42px var(--LAccent),
+        0 0 82px var(--LAccent),
+        0 0 92px var(--LAccent),
+        0 0 102px var(--LAccent),
+        0 0 151px var(--LAccent);
     }
     0% {
         text-shadow:
         /* White glow */
-        0 0 6px #E54865,
-        0 0 10px #E54865,
-        0 0 17px #E54865,
+        0 0 6px var(--Light),
+        0 0 10px var(--Light),
+        0 0 17px var(--Light),
         /* Green glow */
-        0 0 36px #E54865,
-        0 0 73px #E54865,
-        0 0 80px #E54865,
-        0 0 93px #E54865,
-        0 0 140px #E54865;
+        0 0 36px var(--LAccent),
+        0 0 73px var(--LAccent),
+        0 0 80px var(--LAccent),
+        0 0 93px var(--LAccent),
+        0 0 140px var(--LAccent);
     }
 }
 
@@ -59,19 +59,14 @@ html, body {
     text-align: center;
     color: white;
     animation: pulse 0.6s ease-in-out infinite alternate;    
-    font-size: 20vh;
-    margin: 6vh;
 }
 
 .arrow {
     text-align: center;
     color: white;
     animation: pulse 0.6s ease-in-out infinite alternate;    
-    font-size: 10vh;
     margin: 6vh;
-    bottom: 100vh - 20px;
     cursor: pointer;
-    width: fit-content;
 }
 
 .cloud {
@@ -91,6 +86,10 @@ html, body {
 h1, h2, h3, h4, body {
     font-family: 'Dosis', sans-serif;
     font-weight: 200;
+}
+
+.large-title {
+    font-size: 4em;
 }
 
 @media screen and (prefers-reduced-motion) {
@@ -127,41 +126,13 @@ button {
 
 /* Body Beginning and End Styles */
 .beginning {
-    background-color: #221c3b;
+    background-color: var(--DMain);
     display: flex;
     flex-direction: column;
-}
-.end {
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-
-    /* Starry background from https://projects.verou.me/css3patterns/#starry-night */
-    /* To get stars of verying brightness on the background */
-    background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 5px),
-    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2.5px),
-    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 5px),
-    radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 2.5px);
-    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
-    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
 }
 
 div {
     margin: 0;
-}
-
-#home {
-    color:white;
-    background: None;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 4%;
-}
-
-.fullscreen {
-    height:100vh;
 }
 
 h2 {
@@ -169,17 +140,38 @@ h2 {
     margin:40px;
 }
 
+.container {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100vh;
+}
+
 /* ABOUT SECTION */
 
 #about {
-    background: #E54865;
     padding: 20px;
     color: white;
 }
 
+#about-text, #about-image {
+    width: 47.3%;
+    display: inline-block;
+}
+
+img {
+    margin-top: 20px;
+    height: auto;
+    width: 100%;
+}
+
+.center-align {
+    text-align: center;
+}
+
 /* PROJECTS & EXPERIENCE SECTION */
 #projects {
-    background: #FADB6B;
+    background: var(--LMain);
     padding: 20px;
 }
 
@@ -190,7 +182,7 @@ h2 {
     padding-left: 20px;
     padding-right: 20px;
     scrollbar-color: black white;
-    background-color: #F5BF67;
+    background-color: var(--DMain);
 }
 
 .project-card {

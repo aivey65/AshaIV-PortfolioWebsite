@@ -4,7 +4,6 @@ function loadData() {
     fetch('/load-data').then(response => response.json()).then((responseData) => {
         loadAbout(responseData.data.about);
         loadProjects(responseData.data.projects);
-        console.log(responseData.data.projects);
     })
 }
 
