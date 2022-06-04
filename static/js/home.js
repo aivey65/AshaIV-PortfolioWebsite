@@ -61,10 +61,6 @@ function loadProjects(projectsData) {
 /////////////////////////////////////////
 // Scroll functions for page navigation//
 /////////////////////////////////////////
-function homeAction() {
-    document.getElementById('home').scrollIntoView();
-}
-
 function aboutAction() {
     document.getElementById('about').scrollIntoView();
 

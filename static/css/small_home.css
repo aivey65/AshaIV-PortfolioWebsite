@@ -7,7 +7,7 @@ Defining color values to make it easier to change later on
 */
 :root {
     --DMain: #2B061E;
-    --LMain: #85B79D;
+    --LMain: #875053;
     --Light: #FFEED6;
     --Dark: #12020D;
     --DAccent: #D2BF55;
@@ -57,13 +57,13 @@ html, body {
 /* Neon sign ideas from https://css-tricks.com/how-to-create-neon-text-with-css/ */
 #home_title {
     text-align: center;
-    color: var(--Light);
+    color: white;
     animation: pulse 0.6s ease-in-out infinite alternate;    
 }
 
 .arrow {
     text-align: center;
-    color: var(--Light);
+    color: white;
     animation: pulse 0.6s ease-in-out infinite alternate;    
     margin: 6vh;
     cursor: pointer;
@@ -84,13 +84,12 @@ html, body {
 }
 
 h1, h2, h3, h4, body {
-    font-family: 'Alegreya Sans', sans-serif;
-    font-weight: 300;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 200;
 }
 
 .large-title {
-    font-size: 10vh;
-    margin:20px
+    font-size: 4em;
 }
 
 @media screen and (prefers-reduced-motion) {
@@ -104,8 +103,7 @@ nav {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    color: var(--Light);
-    background-color: var(--DMain);
+    color: white;
 
     /* Stick to top */
     top: 0;
@@ -147,22 +145,18 @@ h2 {
     margin-left: auto;
     margin-right: auto;
     min-height: 100vh;
-    padding: 50px;
 }
 
 /* ABOUT SECTION */
 
 #about {
-    color: var(--Light);
+    padding: 20px;
+    color: white;
 }
 
 #about-text, #about-image {
     width: 47.3%;
     display: inline-block;
-}
-
-#about-image {
-    padding-left: 60px;
 }
 
 img {
@@ -171,35 +165,28 @@ img {
     width: 100%;
 }
 
-#headshot {
-    height:350px;
-    width:350px;
-    object-fit: cover;
-    object-position: 0 15%;
-    border-radius: 50%;
-}
-
 .center-align {
     text-align: center;
 }
 
 /* PROJECTS & EXPERIENCE SECTION */
 #projects {
-    background: var(--LAccent);
+    background: var(--LMain);
+    padding: 20px;
 }
 
 #projects-container {
     overflow-y: scroll;
     height: 75vh;
-    border: solid var(--Dark) 2px;
+    border: solid black 2px;
     padding-left: 20px;
     padding-right: 20px;
-    scrollbar-color: var(--Dark) var(--Light);
+    scrollbar-color: black white;
     background-color: var(--DMain);
 }
 
 .project-card {
-    background: var(--DAccent);
+    background: #FADB6B;
     padding: 20px;
     margin-top: 20px;
     margin-bottom: 10px;
@@ -212,7 +199,7 @@ h3 {
 }
 
 p, a {
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .skill-div {
@@ -230,7 +217,8 @@ h4 {
 
 /* RESUME SECTION */
 #resume {
-    background: var(--LMain);
+    background: #53335D;
+    padding: 20px;
     align-items: center;
 }
 
@@ -252,7 +240,7 @@ h4 {
 /* CONTACT SECTION */
 #contact {
     background: none;
-    color: var(--Light);
+    color: white;
 }
 
 #contact-methods {
@@ -264,5 +252,5 @@ h4 {
 }
 
 #contact-button {
-    color: var(--LAccent);
+    color: #E4695B;
 }
