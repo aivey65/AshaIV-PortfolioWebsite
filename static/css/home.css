@@ -93,17 +93,9 @@ h1, h2, h3, h4, body {
     margin:20px
 }
 
-@media screen and (prefers-reduced-motion) {
-    h1 {
-        animation: none;
-    }
-    
-}
-
 nav {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
     color: var(--Light);
     background-color: var(--DMain);
 
@@ -120,13 +112,40 @@ button {
     cursor: pointer;
     outline: inherit;
 }
+
 .read-more-button {
-    color: var(--LAccent)
+    font-weight: bolder;
+    text-decoration: none;
+    color: var(--LAccent);
+    background-color: var(--Light);
+    border-radius: 8px;
+    color: var(--Dark);
+    padding: 10px 25px 10px 25px;
+    transition: .3s;
+
+}
+
+.read-more-button:hover {
+    top: -2px;
+    transform: translateY(-5px);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden!important;
+}
+
+.read-more-button:focus {
+    box-shadow: none;
+    border: 2px solid var(--LAccent);
 }
 
 .nav_button {
     color: inherit;
     flex: 1;
+    padding: 20px;
+    transition: .8s;
+}
+
+.nav_button:hover {
+    background-color: #12020D;
 }
 
 /* Body Beginning and End Styles */
@@ -175,8 +194,8 @@ img {
 }
 
 .project-img-icon {
-    width:100px;
-    height: 100px;
+    width:100%;
+    height: auto;
     object-fit: cover;
 }
 
@@ -198,26 +217,33 @@ img {
 }
 
 #projects-container {
-    overflow-y: scroll;
-    height: 75vh;
-    border: solid var(--Dark) 2px;
     padding-left: 20px;
-    padding-right: 20px;
-    scrollbar-color: var(--Dark) var(--Light);
-    background-color: var(--DMain);
+    display: grid;
+    grid-template-columns: 48.3% auto;
 }
 
 .project-card {
-    background: var(--DAccent);
+    border: solid var(--Light) 2px;
+    background: var(--Dark);
+    color: var(--Light);
     padding: 20px;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    margin: 20px;
+    border-radius: 5%;
+}
+
+.project-card-condensed-info {
+    display: grid;
+    grid-template-columns: 40% auto;
 }
 
 h3 {
-    font-size: 5vh;
-    margin:20px;
-    text-align: center;
+    font-size: 35px;
+    margin-bottom:10px;
+    text-align: left;
+    margin-top:10px;
+    background-color: var(--Dark);
+    z-index: 1;
+    position: relative;
 }
 
 p, a {
@@ -232,9 +258,9 @@ p, a {
 }
 
 h4 {
-    text-align: center;
     font-size: 25px;
     margin:5px;
+    font-weight: lighter;
 }
 
 /* RESUME SECTION */

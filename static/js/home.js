@@ -16,32 +16,46 @@ function loadProjects(projectsData) {
     const projectsContainer = document.getElementById('projects-container');
 
     for (const project of projectsData) {
+        const basicInfo = document.createElement('div');
+        
         const name = document.createElement('h3');
         name.innerHTML = project.name;
+        widthOfContainer = basicInfo.offsetWidth
+        if (width > widthOfContainer) {
+            name.style.fontsize = '25px'
+        }
+        basicInfo.appendChild(name);
+
 
         const year = document.createElement('h4');
         year.innerHTML = project.year;
-        
+        basicInfo.appendChild(year);
+
+        const img = document.createElement('img')
+        if (project.img1 != "") {
+            img.src = project.img1;
+            img.classList.add('project-img-icon');
+        } else {
+            img.display = 'None';
+        }
+
+        const condense = document.createElement('div');
+        condense.append(basicInfo, img);
+        condense.classList.add('project-card-condensed-info');
+
         const des = document.createElement('p');
         des.innerHTML = project.blurb;
 
         const more = document.createElement('button');
-        more.innerHTML = "Read More"
+        more.innerHTML = "Read More";
         more.classList.add('read-more-button');
         more.onclick = function() {
-            showMoreProjectInfo(project.projectNum)
-        }
-        const img = document.createElement('img')
-        if (project.img1 != "") {
-            img.src = project.img1
-            img.classList.add('project-img-icon')
-        } else {
-            img.display = 'None'
+            showMoreProjectInfo(project.projectNum);
         }
         
         projectDiv = document.createElement('div');
         projectDiv.classList.add('project-card');
-        projectDiv.append(name, year, des, more, img);
+        projectDiv.append(condense, des, more);
         
         projectsContainer.appendChild(projectDiv);
     }
