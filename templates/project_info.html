@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Asha Ivey - Portfolio Website</title>
+        <link rel='stylesheet' href='../static/css/project_info.css'>
+        <script src='../static/js/project_info.js'></script>
+        <link rel='shortcut icon' sizes='256x256' href='../static/images/ashaiv-favicon-32x32.png'>
+
+        <!-- Font Stuff -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;200;300;400;700&display=swap" rel="stylesheet">
+    </head>
+
+    <body class='beginning' onload="loadData()">
+        <nav> 
+            <button class='nav_button' onclick='aboutAction()'>About</button>
+            <button class='nav_button' onclick='projectAction()'>Projects</button>
+            <button class='nav_button' onclick='resumeAction()'>Resume</button>
+            <button class='nav_button' onclick='contactAction()'>Contact</button>
+        </nav> 
+
+        <div id='projects' class="container">
+            <h2>Projects</h2>
+            <div id='projects-container'></div>
+        </div>
+    </body>
+</html>

@@ -13,3 +13,12 @@ def getData():
     results["projects"] = list(projectQuery.fetch())
 
     return jsonify({"data":results})
+
+def getProject(projectID):
+    results = {}
+    
+    projectQuery = client.query(kind="projects")
+    projectQuery.add_filter("projectNum", "=", projectID)
+    results["project"] = list(projectQuery.fetch())
+
+    return jsonify({"data":results})

@@ -62,16 +62,7 @@ html, body {
 }
 
 .arrow {
-    text-align: center;
-    color: var(--Light);
-    animation: pulse 0.6s ease-in-out infinite alternate;    
-    margin: 6vh;
-    cursor: pointer;
-}
-
-.cloud {
-    animation: pulse 0.6s ease-in-out infinite alternate,
-    MoveUpDown 2s linear infinite;
+    display: none;
 }
 
 @keyframes MoveUpDown {
@@ -119,9 +110,6 @@ button {
     font: inherit;
     cursor: pointer;
     outline: inherit;
-}
-.read-more-button {
-    color: var(--LAccent)
 }
 
 .nav_button {
@@ -172,12 +160,6 @@ img {
     margin-top: 20px;
     height: auto;
     width: 100%;
-}
-
-.project-img-icon {
-    width:100px;
-    height: 100px;
-    object-fit: cover;
 }
 
 #headshot {

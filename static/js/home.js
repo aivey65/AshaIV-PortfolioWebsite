@@ -23,37 +23,25 @@ function loadProjects(projectsData) {
         year.innerHTML = project.year;
         
         const des = document.createElement('p');
-        des.innerHTML = project.description;
+        des.innerHTML = project.blurb;
 
-        const git = document.createElement('a')
-        if (project.github != "") {
-            git.innerHTML = "Github";
-            git.href = project.github;
+        const more = document.createElement('button');
+        more.innerHTML = "Read More"
+        more.classList.add('read-more-button');
+        more.onclick = function() {
+            showMoreProjectInfo(project.projectNum)
         }
-
-        const breakpoint = document.createElement('br');
-
-        const live = document.createElement('a')
-        if (project.live != "") {
-            live.innerHTML = "See it Live";
-            live.href = project.live;
+        const img = document.createElement('img')
+        if (project.img1 != "") {
+            img.src = project.img1
+            img.classList.add('project-img-icon')
+        } else {
+            img.display = 'None'
         }
-
-        const skillHead = document.createElement('h4');
-        skillHead.innerHTML = "Skills";
-
-        const skills = document.createElement('div');
-        for (const skill of project.skills) {
-            const s = document.createElement('p');
-            s.innerHTML = skill;
-            skills.appendChild(s);
-            
-        }
-        skills.classList.add('skill-div');
         
         projectDiv = document.createElement('div');
         projectDiv.classList.add('project-card');
-        projectDiv.append(name, year, des, git, breakpoint, live, skillHead, skills);
+        projectDiv.append(name, year, des, more, img);
         
         projectsContainer.appendChild(projectDiv);
     }
@@ -87,4 +75,11 @@ function contactAction() {
 function copyEmail() {
     var email = document.getElementById('email-text');
     navigator.clipboard.writeText(email.innerHTML);
+}
+
+////////////////////////////////////////////////////////////////////
+// Change to 'show more' page, with info about a specific project //
+////////////////////////////////////////////////////////////////////
+function showMoreProjectInfo(projectID) {
+    location.href = '/project/' + projectID
 }
