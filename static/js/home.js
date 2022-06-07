@@ -21,9 +21,9 @@ function loadProjects(projectsData) {
         const name = document.createElement('h3');
         name.innerHTML = project.name;
         widthOfContainer = basicInfo.offsetWidth
-        if (width > widthOfContainer) {
-            name.style.fontsize = '25px'
-        }
+        // if (width > widthOfContainer) {
+        //     name.style.fontsize = '25px'
+        // }
         basicInfo.appendChild(name);
 
 
@@ -33,7 +33,7 @@ function loadProjects(projectsData) {
 
         const img = document.createElement('img')
         if (project.img1 != "") {
-            img.src = project.img1;
+            img.src = project.images[0];
             img.classList.add('project-img-icon');
         } else {
             img.display = 'None';

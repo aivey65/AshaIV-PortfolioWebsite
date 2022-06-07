@@ -12,10 +12,10 @@ function loadProjects(projectsData) {
     const projectsContainer = document.getElementById('projects-container');
 
     for (const project of projectsData) {
-        const name = document.createElement('h3');
+        const name = document.createElement('h2');
         name.innerHTML = project.name;
 
-        const year = document.createElement('h4');
+        const year = document.createElement('h3');
         year.innerHTML = project.year;
         
         const des = document.createElement('p');
@@ -35,7 +35,31 @@ function loadProjects(projectsData) {
             live.href = project.live;
         }
 
-        const skillHead = document.createElement('h4');
+        // Image slideshow
+        const images = document.createElement('div');
+        for (const img of project.images) {
+            const i = document.createElement('img');
+            i.src = img;
+            i.classList.add("img_slides")
+
+            skills.appendChild(i);
+            
+        }
+        images.classList.add('images-div');
+
+        // Add dots for slideshow
+        const dots = document.createElement('div');
+        for (let dotNum = 0; dotNum < project.images.length; dotNum++) {
+            const i = document.createElement('img');
+            i.src = img;
+            i.classList.add("img_slides")
+
+            skills.appendChild(i);
+            
+        }
+        images.classList.add('images-div');
+
+        const skillHead = document.createElement('h3');
         skillHead.innerHTML = "Skills";
 
         const skills = document.createElement('div');

@@ -98,6 +98,7 @@ nav {
     justify-content: space-between;
     color: var(--Light);
     background-color: var(--DMain);
+    z-index: 2;
 
     /* Stick to top */
     top: 0;
@@ -242,7 +243,6 @@ h3 {
     text-align: left;
     margin-top:10px;
     background-color: var(--Dark);
-    z-index: 1;
     position: relative;
 }
 

@@ -1,5 +1,170 @@
-body {
-    background-color: blue;
+/* 
+*** Font Information ***
+Dosis font has 800 (thick) weight and 400 (regular) weight
+
+*** Color Information***
+Defining color values to make it easier to change later on 
+*/
+:root {
+    --DMain: #2B061E;
+    --LMain: #85B79D;
+    --Light: #FFEED6;
+    --Dark: #12020D;
+    --DAccent: #D2BF55;
+    --LAccent: #FBBFCA;
+
+}
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+
+html, body {
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+@keyframes pulse {
+    100% {
+        text-shadow:
+        /* White glow */
+        0 0 7px var(--Light),
+        0 0 11px var(--Light),
+        0 0 21px var(--Light),
+        /* Green glow */
+        0 0 42px var(--LAccent),
+        0 0 82px var(--LAccent),
+        0 0 92px var(--LAccent),
+        0 0 102px var(--LAccent),
+        0 0 151px var(--LAccent);
+    }
+    0% {
+        text-shadow:
+        /* White glow */
+        0 0 6px var(--Light),
+        0 0 10px var(--Light),
+        0 0 17px var(--Light),
+        /* Green glow */
+        0 0 36px var(--LAccent),
+        0 0 73px var(--LAccent),
+        0 0 80px var(--LAccent),
+        0 0 93px var(--LAccent),
+        0 0 140px var(--LAccent);
+    }
+}
+
+/* Neon sign ideas from https://css-tricks.com/how-to-create-neon-text-with-css/ */
+#home_title {
+    text-align: center;
+    color: var(--Light);
+    animation: pulse 0.6s ease-in-out infinite alternate;    
+}
+
+.arrow {
+    text-align: center;
+    color: var(--Light);
+    animation: pulse 0.6s ease-in-out infinite alternate;    
+    margin: 6vh;
+    cursor: pointer;
+}
+
+.cloud {
+    animation: pulse 0.6s ease-in-out infinite alternate,
+    MoveUpDown 2s linear infinite;
+}
+
+@keyframes MoveUpDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+h1, h2, h3, h4, body {
     font-family: 'Alegreya Sans', sans-serif;
     font-weight: 300;
+    color: var(--Light);
+}
+
+.large-title {
+    font-size: 10vh;
+    margin:20px
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    color: var(--Light);
+    background-color: var(--DMain);
+    z-index: 2;
+
+    /* Stick to top */
+    top: 0;
+    position: sticky;
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.nav_button {
+    color: inherit;
+    flex: 1;
+    padding: 20px;
+    transition: .8s;
+}
+
+.nav_button:hover {
+    background-color: #12020D;
+}
+
+
+
+/* Body Beginning and End Styles */
+.beginning {
+    background-color: var(--DMain);
+    display: flex;
+    flex-direction: column;
+}
+
+div {
+    margin: 0;
+}
+
+h2 {
+    font-size: 6vh;
+    margin:40px 0px 40px 0px;
+}
+
+h3 {
+    font-size: 3vh;
+    margin: 0px 0px 20px 0px;
+}
+
+p {
+    font-size: 3vh;
+}
+
+.container {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100vh;
+    padding: 50px;
+}
+
+.images-div {
+    max-width: 100px;
+}
+
+.img_slides {
+    max-width: 100px;
 }
