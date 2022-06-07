@@ -12,6 +12,7 @@ Defining color values to make it easier to change later on
     --Dark: #12020D;
     --DAccent: #D2BF55;
     --LAccent: #FBBFCA;
+    --LAccent2: #A27080;
 
 }
 * {
@@ -141,7 +142,7 @@ div {
 
 h2 {
     font-size: 6vh;
-    margin:40px 0px 40px 0px;
+    margin:20px 0px 20px 0px;
 }
 
 h3 {
@@ -149,7 +150,7 @@ h3 {
     margin: 0px 0px 20px 0px;
 }
 
-p {
+p, a {
     font-size: 3vh;
 }
 
@@ -161,10 +162,59 @@ p {
     padding: 50px;
 }
 
+/* Image slideshow */
 .images-div {
-    max-width: 100px;
+    height: 400px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .img_slides {
-    max-width: 100px;
+    width: 70%;
+    max-height: 370px;
+    margin: auto;
+    object-fit: cover;
+    object-position: 0px 0px;
+}
+
+iframe {
+    height: 370px;
+}
+
+img {
+    height: auto;
+}
+
+.dots-div {
+    width:50%;
+    margin: auto;
+    text-align: center;
+}
+
+.dots {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: var(--LAccent);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.inactive-dot {
+    background-color: var(--LAccent); 
+}
+
+.active-dot {
+    background-color: var(--LAccent2);
+}
+
+.skill-div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
 }

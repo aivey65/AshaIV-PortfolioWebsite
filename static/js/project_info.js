@@ -18,6 +18,56 @@ function loadProjects(projectsData) {
         const year = document.createElement('h3');
         year.innerHTML = project.year;
         
+        //If there is at least 1 image in the database, show it
+        const images = document.createElement('div');
+        const dots = document.createElement('div');
+
+        if (project.images != "" && project.images.length != 0) {
+            let dotNum = 0
+            if (project.videoURL != "") {
+                // Embed video
+                const vid = document.createElement('iframe');
+                vid.src = project.videoURL;
+                vid.style.display = 'none';
+                vid.classList.add("img_slides");
+                vid.allow = 'fullscreen';
+
+                images.appendChild(vid);
+
+                // Add a dot for the video
+                const vidDot = document.createElement('div');
+                vidDot.onclick = function() {
+                    updateSlide(dotNum);
+                };
+                vidDot.classList.add("dots", "inactive-dot");
+
+                dots.appendChild(vidDot);
+                dotNum++
+            }
+            // Image slideshow
+            for (const img of project.images) {
+                const i = document.createElement('img');
+                i.src = img;
+                i.style.display = 'none';
+                i.classList.add("img_slides");
+
+                images.appendChild(i);
+            }
+            images.classList.add('images-div');
+
+            // Add dots for slideshow
+            for (let index = dotNum; index < project.images.length + dotNum; index++) {
+                const i = document.createElement('div');
+                i.onclick = function() {
+                    updateSlide(index);
+                };
+                i.classList.add("dots", "inactive-dot");
+
+                dots.appendChild(i);  
+            }
+            dots.classList.add('dots-div');
+        }
+        
         const des = document.createElement('p');
         des.innerHTML = project.description;
 
@@ -35,32 +85,9 @@ function loadProjects(projectsData) {
             live.href = project.live;
         }
 
-        // Image slideshow
-        const images = document.createElement('div');
-        for (const img of project.images) {
-            const i = document.createElement('img');
-            i.src = img;
-            i.classList.add("img_slides")
-
-            skills.appendChild(i);
-            
-        }
-        images.classList.add('images-div');
-
-        // Add dots for slideshow
-        const dots = document.createElement('div');
-        for (let dotNum = 0; dotNum < project.images.length; dotNum++) {
-            const i = document.createElement('img');
-            i.src = img;
-            i.classList.add("img_slides")
-
-            skills.appendChild(i);
-            
-        }
-        images.classList.add('images-div');
-
         const skillHead = document.createElement('h3');
-        skillHead.innerHTML = "Skills";
+        skillHead.innerHTML = "Skills/Tools";
+        skillHead.style.textAlign = 'center'
 
         const skills = document.createElement('div');
         for (const skill of project.skills) {
@@ -73,10 +100,11 @@ function loadProjects(projectsData) {
         
         projectDiv = document.createElement('div');
         projectDiv.classList.add('project-card');
-        projectDiv.append(name, year, des, git, breakpoint, live, skillHead, skills);
+        projectDiv.append(name, year, images, dots, des, git, breakpoint, live, skillHead, skills);
         
         projectsContainer.appendChild(projectDiv);
     }
+    updateSlide(0)
 }
 /////////////////////////////////////
 // Go back to home page and scroll //
@@ -103,4 +131,23 @@ function contactAction() {
 function copyEmail() {
     var email = document.getElementById('email-text');
     navigator.clipboard.writeText(email.innerHTML);
+}
+
+///////////////////
+// Switch Slides //
+///////////////////
+function updateSlide(newSlide) {    
+    let slides = document.getElementsByClassName('img_slides');
+    let dots = document.getElementsByClassName('dots');
+
+    for(let i = 0; i < slides.length; i++) {
+        if (i == newSlide) {
+            slides[i].style.display = 'block';
+            dots[i].classList.replace('inactive-dot', 'active-dot')
+        }
+        else {
+            slides[i].style.display = 'none';
+            dots[i].classList.replace('active-dot', 'inactive-dot')
+        } 
+    }
 }

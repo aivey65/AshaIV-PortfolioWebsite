@@ -64,9 +64,8 @@ html, body {
 .arrow {
     text-align: center;
     color: var(--Light);
-    animation: pulse 0.6s ease-in-out infinite alternate;    
-    margin: 6vh;
     cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .cloud {
@@ -90,7 +89,8 @@ h1, h2, h3, h4, body {
 
 .large-title {
     font-size: 10vh;
-    margin:20px
+    margin:20px;
+    font-weight: 200;
 }
 
 nav {
@@ -114,7 +114,7 @@ button {
     outline: inherit;
 }
 
-.read-more-button {
+.read-more-button, .contact-button, .back-button {
     font-weight: bolder;
     text-decoration: none;
     color: var(--LAccent);
@@ -126,7 +126,7 @@ button {
 
 }
 
-.read-more-button:hover {
+.read-more-button:hover, .contact-button:hover, .back-button:hover {
     top: -2px;
     transform: translateY(-5px);
     -webkit-backface-visibility: hidden;
@@ -248,13 +248,6 @@ h3 {
 
 p, a {
     font-size: 25px;
-}
-
-.skill-div {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
 }
 
 h4 {
