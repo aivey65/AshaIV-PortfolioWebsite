@@ -10,7 +10,7 @@ Defining color values to make it easier to change later on
     --LMain: #85B79D;
     --Light: #FFEED6;
     --Dark: #12020D;
-    --DAccent: #D2BF55;
+    --DAccent: #e6c613;
     --LAccent: #FBBFCA;
 
 }
@@ -23,6 +23,12 @@ Defining color values to make it easier to change later on
 html, body {
     margin: 0;
     scroll-behavior: smooth;
+}
+
+body {
+    background-image: url("../../static/images/backgroundDesign.png"), linear-gradient(var(--Dark), black);
+    background-attachment: scroll;
+    background-size: cover;
 }
 
 @keyframes pulse {
@@ -146,7 +152,7 @@ button {
 }
 
 .nav_button:hover {
-    background-color: #12020D;
+    background-color: var(--Dark);
 }
 
 /* Body Beginning and End Styles */
@@ -170,18 +176,20 @@ h2 {
     margin-left: auto;
     margin-right: auto;
     min-height: 100vh;
-    padding: 50px;
+    padding: 35px;
 }
 
 /* ABOUT SECTION */
 
 #about {
     color: var(--Light);
+    background-color: var(--DMain);
 }
 
 #about-text, #about-image {
     width: 47.3%;
     display: inline-block;
+    padding:30px;
 }
 
 #about-image {
@@ -260,11 +268,12 @@ h4 {
 #resume {
     background: var(--LMain);
     align-items: center;
+    width: 100%;
 }
 
 #most-recent-resume {
     height: 65vh;
-    width: 80vw;
+    width: 100%;
 }
 
 #resume-container {
@@ -279,11 +288,13 @@ h4 {
 
 /* CONTACT SECTION */
 #contact {
-    background: none;
+    background-color: #12020DCC;
+    backdrop-filter: blur(4px);
     color: var(--Light);
 }
 
 #contact-methods {
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
