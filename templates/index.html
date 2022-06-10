@@ -2,9 +2,13 @@
 <html>
     <head>
         <title>Asha Ivey - Portfolio Website</title>
-        <link rel='stylesheet' media='screen and (min-width:901px) and (min-height:781px)' href='../static/css/home.css'>
-        <link rel='stylesheet' media='screen and (max-height:780px)' href='../static/css/medium_home.css'>
-        <link rel='stylesheet' media='screen and (max-width:900px)' href='../static/css/medium_home.css'>
+
+        <!-- JQuery for one specific issue of getting plain text (rather than html) from database -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <link rel='stylesheet' media='screen and (min-width:901px) and (min-height:821px)' href='../static/css/home.css'>
+        <link rel='stylesheet' media='screen and (max-height:820px)' href='../static/css/medium_home.css'>
+        <link rel='stylesheet' media='screen and (max-width:900px)' href='../static/css/medium_skinny_home.css'>
         <link rel='stylesheet' media='screen and (max-width:500px)' href='../static/css/small_home.css'>
 
         <script src='../static/js/home.js'></script>
@@ -17,6 +21,7 @@
     </head>
       
     <body class='beginning' onload="loadData()">
+        <div id='top' display='none'></div>
         <nav> 
             <button class='nav_button' onclick='aboutAction()'>About</button>
             <button class='nav_button' onclick='projectAction()'>Projects</button>
@@ -50,26 +55,20 @@
             <h2>Resume</h2>
             <p id='resume-date'>Last Updated 6/7/2022</p>
             <div id='resume-container'>
-                <iframe id='most-recent-resume' src='../static/documents/Post-GradResume_Summer2022.pdf'></iframe>
+                <iframe id='most-recent-resume' src='../static/documents/Post-Grad_Resume_Summer2022.pdf'></iframe>
             </div>
         </div>
 
         <div id='contact' class="container">
             <h2>Contact Me</h2>
-            <div id='contact-methods'>
-                <div>
-                    <h3 style='font-size:20vw'>✉</h3>
-                    <p>Email: 
-                        <span id='email-text'>ashavivey@gmail.com</span> 
-                    </p>
-                    <button class='contact-button' onclick='copyEmail()'>Copy Email</button>
-                    </button>
-                </div>
-                
+
+            <iframe id="contact-form" src="//www.abcsubmit.com/view/id_1g550p0mh_140s?isEmbed=1&utm=abcsubmit" data-role="abcsubmit-form-embed" frameborder="0" scrolling="no" style="display: block; margin-left: auto; margin-right:auto; padding: 0 !important;" ></iframe>
+            
+            <div id='contact-methods'> 
                 <div>
                     <a href='https://github.com/aivey65'>
-                        <i class='fa fa-github' style='font-size:20vw'></i>
-                        <p>Github</p>
+                        <img src="../static/images/GitHub-Mark-Light-64px.png">
+                        <p class="link-bold">Github</p>
                     </a>
                 </div> 
             </div> 
@@ -77,7 +76,14 @@
 
         {% if scroll %}
         <script>
-            document.getElementById('{{scroll}}').scrollIntoView();
+            $(document).ready(() => {
+                // Handler for .ready() called.
+                setTimeout(() => {
+                    $('html, body').animate({
+                        scrollTop: $('#{{scroll}}').offset().top
+                    }, 'slow');
+                }, 700);
+            }); 
         </script>
         {% endif %}
     </body>

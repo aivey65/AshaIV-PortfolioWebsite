@@ -1,6 +1,6 @@
 /* 
 *** Font Information ***
-Dosis font has 800 (thick) weight and 400 (regular) weight
+font-family: 'Alegreya Sans', sans-serif;
 
 *** Color Information***
 Defining color values to make it easier to change later on 
@@ -152,6 +152,10 @@ h3 {
 
 p, a {
     font-size: 3vh;
+}
+
+.link-bold {
+    font-weight: bold;
 }
 
 .container {

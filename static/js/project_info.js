@@ -3,7 +3,6 @@
 function loadData() {
     const projectID = location.pathname.substring(location.pathname.lastIndexOf('/') + 1);
     fetch('/load-data/' + projectID).then(response => response.json()).then((responseData) => {
-        console.log(responseData.data.project)
         loadProjects(responseData.data.project);
     })
 }
@@ -12,8 +11,12 @@ function loadProjects(projectsData) {
     const projectsContainer = document.getElementById('projects-container');
 
     for (const project of projectsData) {
+        // Used to get rid of any html tags if necessary
+        var tempdiv = document.createElement("div");
+        tempdiv.innerHTML = project.name;
+
         const name = document.createElement('h2');
-        name.innerHTML = project.name;
+        name.innerHTML = tempdiv.textContent || tempdiv.innerText || project.name;
 
         const year = document.createElement('h3');
         year.innerHTML = project.year;
@@ -25,6 +28,7 @@ function loadProjects(projectsData) {
         if (project.images != "" && project.images.length != 0) {
             let dotNum = 0
             if (project.videoURL != "") {
+                dotNum = 1
                 // Embed video
                 const vid = document.createElement('iframe');
                 vid.src = project.videoURL;
@@ -36,13 +40,12 @@ function loadProjects(projectsData) {
 
                 // Add a dot for the video
                 const vidDot = document.createElement('div');
-                vidDot.onclick = function() {
-                    updateSlide(dotNum);
+                vidDot.onclick = () => {
+                    updateSlide(0);
                 };
                 vidDot.classList.add("dots", "inactive-dot");
 
                 dots.appendChild(vidDot);
-                dotNum++
             }
             // Image slideshow
             for (const img of project.images) {
@@ -56,9 +59,11 @@ function loadProjects(projectsData) {
             images.classList.add('images-div');
 
             // Add dots for slideshow
+            console.log(dotNum)
+            console.log(project.images.length)
             for (let index = dotNum; index < project.images.length + dotNum; index++) {
                 const i = document.createElement('div');
-                i.onclick = function() {
+                i.onclick = () => {
                     updateSlide(index);
                 };
                 i.classList.add("dots", "inactive-dot");
@@ -75,6 +80,7 @@ function loadProjects(projectsData) {
         if (project.github != "") {
             git.innerHTML = "Github";
             git.href = project.github;
+            git.classList.add("link-bold")
         }
 
         const breakpoint = document.createElement('br');
@@ -83,6 +89,7 @@ function loadProjects(projectsData) {
         if (project.live != "") {
             live.innerHTML = "See it Live";
             live.href = project.live;
+            live.classList.add("link-bold")
         }
 
         const skillHead = document.createElement('h3');
@@ -110,7 +117,7 @@ function loadProjects(projectsData) {
 // Go back to home page and scroll //
 /////////////////////////////////////
 function aboutAction() {
-    location.href = '/about'
+    location.href = '/top'
 }
 
 function projectAction() {
@@ -144,8 +151,7 @@ function updateSlide(newSlide) {
         if (i == newSlide) {
             slides[i].style.display = 'block';
             dots[i].classList.replace('inactive-dot', 'active-dot')
-        }
-        else {
+        } else {
             slides[i].style.display = 'none';
             dots[i].classList.replace('active-dot', 'inactive-dot')
         } 

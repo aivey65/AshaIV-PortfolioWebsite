@@ -3,7 +3,7 @@
 This is Asha Ivey's portfolio website with details about her and the projects she has worked on. 
 
 ## Development Workflow
-To test the website locally, you would need credentials for a service account with Google Cloud Datastore. You would need to set the credentials in the terminal:
+To test the website locally, you would need credentials for a service account with Google Cloud Datastore. You would need to set the credentials in the terminal, where "KEY_PATH" is the location of the credentials json file:
 
 > export GOOGLE_APPLICATION_CREDENTIALS="KEY_PATH"
 

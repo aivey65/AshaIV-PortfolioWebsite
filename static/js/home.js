@@ -20,10 +20,6 @@ function loadProjects(projectsData) {
         
         const name = document.createElement('h3');
         name.innerHTML = project.name;
-        widthOfContainer = basicInfo.offsetWidth
-        // if (width > widthOfContainer) {
-        //     name.style.fontsize = '25px'
-        // }
         basicInfo.appendChild(name);
 
 
@@ -64,7 +60,7 @@ function loadProjects(projectsData) {
 // Scroll functions for page navigation//
 /////////////////////////////////////////
 function aboutAction() {
-    document.getElementById('about').scrollIntoView();
+    document.getElementById('top').scrollIntoView();
 
 }
 
@@ -97,7 +93,6 @@ function copyEmail() {
 function showMoreProjectInfo(projectID) {
     location.href = '/project/' + projectID
 }
-
 
 ////////////////////
 // Scroll Paralax //
