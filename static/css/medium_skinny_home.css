@@ -96,16 +96,63 @@ h1, h2, h3, h4, body {
     font-weight: 200;
 }
 
-nav {
+.mobile-nav {
     display: flex;
     justify-content: space-between;
     color: var(--Light);
-    background-color: var(--DMain);
+    background-color: var(--Light);
     z-index: 2;
 
-    /* Stick to top */
     top: 0;
     position: sticky;
+}
+
+.mobile-nav button {
+    display: block;
+    height: auto;
+    padding: 10px;
+}
+
+#mobile-logo, #toggle-logo {
+    width: 25px;
+    height: auto;
+    margin: 0px;
+}
+
+nav {
+    display: grid;
+    position: fixed;
+    top: 50px;
+    left: -70%;
+    width: 70%;
+    height: 60%;
+    min-width: 180px;
+    background: var(--Dark);
+    transition: all 0.5s ease;
+    z-index: 1;
+    border-right: 1px solid black;
+    border-bottom: 1px solid rgba(247, 179, 179, 0.432);
+}
+
+nav .nav_button {
+    color: var(--Light);
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(247, 179, 179, 0.432);
+    transition: 0.4s;
+}
+
+.nav_button:hover .nav_button {
+    padding-left: 50px;
+}
+  
+nav .nav_button {
+    margin-right: 16px;
 }
 
 button {
@@ -149,7 +196,7 @@ button {
 }
 
 .nav_button:hover {
-    background-color: var(--Dark);
+    background-color: black;
 }
 
 /* Body Beginning and End Styles */
@@ -196,7 +243,6 @@ h2 {
 }
 
 img {
-    margin-top: 20px;
     height: auto;
     width: 100%;
 }
@@ -207,6 +253,7 @@ img {
     object-fit: cover;
     margin-right: auto;
     margin-left: auto;
+    margin-top: 20px;
 }
 
 #headshot {
@@ -234,7 +281,7 @@ img {
     color: var(--Light);
     padding: 20px;
     margin: 20px;
-    border-radius: 5%;
+    border-radius: 20px;
 }
 
 .project-card-condensed-info {
@@ -312,7 +359,7 @@ h4 {
 }
 
 #contact-form {
-    width: 70% !important; 
+    width: 100% !important; 
     height: 520px !important
 }
 

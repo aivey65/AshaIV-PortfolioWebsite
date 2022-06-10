@@ -22,13 +22,12 @@ function loadProjects(projectsData) {
         name.innerHTML = project.name;
         basicInfo.appendChild(name);
 
-
         const year = document.createElement('h4');
         year.innerHTML = project.year;
         basicInfo.appendChild(year);
 
         const img = document.createElement('img')
-        if (project.img1 != "") {
+        if (project.images != "") {
             img.src = project.images[0];
             img.classList.add('project-img-icon');
         } else {
@@ -59,24 +58,47 @@ function loadProjects(projectsData) {
 /////////////////////////////////////////
 // Scroll functions for page navigation//
 /////////////////////////////////////////
+function logoAction() {
+    document.getElementById('top').scrollIntoView();
+}
+
 function aboutAction() {
     document.getElementById('top').scrollIntoView();
-
+    toggleMenu()
 }
 
 function projectAction() {
     document.getElementById('projects').scrollIntoView();
-
+    toggleMenu()
 }
 
 function resumeAction() {
     document.getElementById('resume').scrollIntoView();
-
+    toggleMenu()
 }
 
 function contactAction() {
     document.getElementById('contact').scrollIntoView();
+    toggleMenu()
+}
 
+function toggleMenu() {
+    const navbar = document.getElementsByTagName('nav')[0]
+    const logo = document.getElementById('toggle-logo')
+
+    if(logo.display != 'none') {
+        if(logo.classList.contains('hamburg')) {
+            // Change to close
+            logo.src = "../static/images/mobile_nav_X.png";
+            logo.classList.replace('hamburg', 'close');
+            navbar.style.left = "0px";
+        } else {
+            // Change to hamburg
+            logo.src = "../static/images/mobile_nav_hamburg.png";
+            logo.classList.replace('close', 'hamburg');
+            navbar.style.left = '-70%';
+        }
+    }
 }
 
 ////////////////////
@@ -95,12 +117,24 @@ function showMoreProjectInfo(projectID) {
 }
 
 ////////////////////
-// Scroll Paralax //
+// Scroll Functions //
 ////////////////////
 // Paralax scrolling method adapted from https://stackoverflow.com/questions/29240028/css-make-a-background-image-scroll-slower-than-everything-else
+var prevScrollpos = window.pageYOffset;
 window.addEventListener('scroll', () => {
-    const scrolltotop = window.pageYOffset;
+    const currentScrollPos = window.pageYOffset;
     var factor = 0.5;
-    var yvalue = scrolltotop * factor;
+    var yvalue = currentScrollPos * factor;
     document.body.style.backgroundPosition = "center " + yvalue + "px";
+    
+    // Hide/show nav bar when scrolling
+    const logo = document.getElementById('toggle-logo')
+    if(logo.display != 'none' && logo.classList.contains('hamburg')) {
+        if (prevScrollpos > currentScrollPos) {
+            document.getElementsByClassName("mobile-nav")[0].style.top = "0";
+        } else {
+            document.getElementsByClassName("mobile-nav")[0].style.top = "-50px";
+        }
+        prevScrollpos = currentScrollPos;
+    }
 });

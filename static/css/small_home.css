@@ -1,16 +1,16 @@
 /* 
 *** Font Information ***
-Dosis font has 800 (thick) weight and 400 (regular) weight
+font-family: 'Alegreya Sans', sans-serif;
 
 *** Color Information***
 Defining color values to make it easier to change later on 
 */
 :root {
     --DMain: #2B061E;
-    --LMain: #875053;
+    --LMain: #85B79D;
     --Light: #FFEED6;
     --Dark: #12020D;
-    --DAccent: #D2BF55;
+    --DAccent: #e6c613;
     --LAccent: #FBBFCA;
 
 }
@@ -23,6 +23,13 @@ Defining color values to make it easier to change later on
 html, body {
     margin: 0;
     scroll-behavior: smooth;
+}
+
+body {
+    background-image: url("../../static/images/backgroundDesign.png"), linear-gradient(var(--Dark), black);
+    background-attachment: scroll;
+    background-size: cover;
+    min-width: 370px;
 }
 
 @keyframes pulse {
@@ -57,7 +64,7 @@ html, body {
 /* Neon sign ideas from https://css-tricks.com/how-to-create-neon-text-with-css/ */
 #home_title {
     text-align: center;
-    color: white;
+    color: var(--Light);
     animation: pulse 0.6s ease-in-out infinite alternate;    
 }
 
@@ -65,6 +72,10 @@ html, body {
     display: none;
 }
 
+.cloud {
+    animation: pulse 0.6s ease-in-out infinite alternate,
+    MoveUpDown 2s linear infinite;
+}
 
 @keyframes MoveUpDown {
     0%, 100% {
@@ -76,30 +87,73 @@ html, body {
 }
 
 h1, h2, h3, h4, body {
-    font-family: 'Dosis', sans-serif;
-    font-weight: 200;
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: 300;
 }
 
 .large-title {
-    font-size: 4em;
+    font-size: 80px;
+    margin:20px;
+    font-weight: 200;
 }
 
-@media screen and (prefers-reduced-motion) {
-    h1 {
-        animation: none;
-    }
-    
+.mobile-nav {
+    display: flex;
+    justify-content: space-between;
+    color: var(--Light);
+    background-color: var(--Light);
+    z-index: 2;
+
+    top: 0;
+    position: sticky;
+}
+
+.mobile-nav button {
+    display: block;
+    height: auto;
+    padding: 10px;
+}
+
+#mobile-logo, #toggle-logo {
+    width: 25px;
+    height: auto;
+    margin: 0px;
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    color: white;
+    display: grid;
+    position: fixed;
+    top: 50px;
+    left: -70%;
+    width: 70%;
+    height: 60%;
+    min-width: 180px;
+    background: var(--Dark);
+    transition: all 0.5s ease;
+    z-index: 1;
+    border-right: 1px solid rgba(247, 179, 179, 0.432);
+    border-bottom: 1px solid rgba(247, 179, 179, 0.432);
+}
 
-    /* Stick to top */
-    top: 0;
-    position: sticky;
+nav .nav_button {
+    color: var(--Light);
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(247, 179, 179, 0.432);
+    transition: 0.4s;
+}
+
+.nav_button:hover .nav_button {
+    padding-left: 50px;
+}
+  
+nav .nav_button {
+    margin-right: 16px;
 }
 
 button {
@@ -111,9 +165,39 @@ button {
     outline: inherit;
 }
 
+.read-more-button, .contact-button, .back-button {
+    font-weight: bolder;
+    text-decoration: none;
+    color: var(--LAccent);
+    background-color: var(--Light);
+    border-radius: 8px;
+    color: var(--Dark);
+    padding: 10px 25px 10px 25px;
+    transition: .3s;
+
+}
+
+.read-more-button:hover, .contact-button:hover, .back-button:hover {
+    top: -2px;
+    transform: translateY(-5px);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden!important;
+}
+
+.read-more-button:focus {
+    box-shadow: none;
+    border: 2px solid var(--LAccent);
+}
+
 .nav_button {
     color: inherit;
     flex: 1;
+    padding: 20px;
+    transition: .8s;
+}
+
+.nav_button:hover {
+    background-color: black;
 }
 
 /* Body Beginning and End Styles */
@@ -128,8 +212,8 @@ div {
 }
 
 h2 {
-    font-size: 10vh;
-    margin:40px;
+    font-size: 80px;
+    margin: 10px;
 }
 
 .container {
@@ -137,24 +221,48 @@ h2 {
     margin-left: auto;
     margin-right: auto;
     min-height: 100vh;
+    padding: 35px;
 }
 
 /* ABOUT SECTION */
 
 #about {
-    padding: 20px;
-    color: white;
+    color: var(--Light);
+    background-color: var(--DMain);
 }
 
-#about-text, #about-image {
-    width: 47.3%;
+#about-text {
     display: inline-block;
+    padding:0px 30px 0px 30px;
+}
+
+#about-image {
+    width: 100%;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 img {
-    margin-top: 20px;
     height: auto;
     width: 100%;
+}
+
+.project-img-icon {
+    height: 85px;
+    width:85px;
+    object-fit: cover;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+}
+
+#headshot {
+    height:300px;
+    width:300px;
+    object-fit: cover;
+    object-position: 0 15%;
+    border-radius: 50%;
 }
 
 .center-align {
@@ -163,60 +271,59 @@ img {
 
 /* PROJECTS & EXPERIENCE SECTION */
 #projects {
-    background: var(--LMain);
-    padding: 20px;
-}
-
-#projects-container {
-    overflow-y: scroll;
-    height: 75vh;
-    border: solid black 2px;
-    padding-left: 20px;
-    padding-right: 20px;
-    scrollbar-color: black white;
-    background-color: var(--DMain);
+    background: var(--LAccent);
+    color: var(--DMain);
+    width: 100%;
 }
 
 .project-card {
-    background: #FADB6B;
+    border: solid var(--Light) 2px;
+    background: var(--Dark);
+    color: var(--Light);
     padding: 20px;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    margin: 20px;
+    border-radius: 20px;
+}
+
+.project-card-condensed-info {
+    display: inline;
+    width:100%;
 }
 
 h3 {
-    font-size: 5vh;
-    margin:20px;
-    text-align: center;
+    font-size: 35px;
+    margin-bottom:10px;
+    text-align: left;
+    margin-top:10px;
+    background-color: var(--Dark);
+    position: relative;
 }
 
 p, a {
-    font-size: 20px;
+    font-size: 25px;
 }
 
-.skill-div {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
+.link-bold {
+    font-weight: bold;
 }
 
 h4 {
-    text-align: center;
     font-size: 25px;
     margin:5px;
+    font-weight: lighter;
 }
 
 /* RESUME SECTION */
 #resume {
-    background: #53335D;
-    padding: 20px;
+    background: var(--LMain);
     align-items: center;
+    width: 100%;
+    color: var(--DMain)
 }
 
 #most-recent-resume {
     height: 65vh;
-    width: 80vw;
+    width: 100%;
 }
 
 #resume-container {
@@ -231,11 +338,15 @@ h4 {
 
 /* CONTACT SECTION */
 #contact {
-    background: none;
-    color: white;
+    background-color: #2B061ECC;
+    backdrop-filter: blur(4px);
+    color: var(--Light);
+    width: 100%;
+    align-items: center;
 }
 
 #contact-methods {
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -244,5 +355,14 @@ h4 {
 }
 
 #contact-button {
-    color: #E4695B;
+    color: var(--LAccent);
+}
+
+#contact-form {
+    width: 100% !important; 
+    height: 520px !important
+}
+
+label {
+    font-family: 'Alegreya Sans', sans-serif;
 }

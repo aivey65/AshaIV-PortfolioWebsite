@@ -22,6 +22,16 @@
       
     <body class='beginning' onload="loadData()">
         <div id='top' display='none'></div>
+
+        <div class="mobile-nav">
+            <button class='mobile-nav' onclick='logoAction()'>
+                <img id='mobile-logo' src="../static/images/ashaiv-favicon-32x32.png">
+            </button>
+            <button class='nav_toggle mobile-nav' onclick='toggleMenu()'>
+                <img id='toggle-logo' class="hamburg" src="../static/images/mobile_nav_hamburg.png">
+            </button>
+        </div>
+        
         <nav> 
             <button class='nav_button' onclick='aboutAction()'>About</button>
             <button class='nav_button' onclick='projectAction()'>Projects</button>
@@ -55,7 +65,7 @@
             <h2>Resume</h2>
             <p id='resume-date'>Last Updated 6/7/2022</p>
             <div id='resume-container'>
-                <iframe id='most-recent-resume' src='../static/documents/Post-Grad_Resume_Summer2022.pdf'></iframe>
+                <iframe id='most-recent-resume' src='../static/documents/Post-Grad_Resume_Summer2022.pdf#view=FitH'></iframe>
             </div>
         </div>
 

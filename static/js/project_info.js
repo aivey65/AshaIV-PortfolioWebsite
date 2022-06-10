@@ -59,8 +59,6 @@ function loadProjects(projectsData) {
             images.classList.add('images-div');
 
             // Add dots for slideshow
-            console.log(dotNum)
-            console.log(project.images.length)
             for (let index = dotNum; index < project.images.length + dotNum; index++) {
                 const i = document.createElement('div');
                 i.onclick = () => {

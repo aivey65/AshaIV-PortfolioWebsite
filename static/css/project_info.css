@@ -107,6 +107,10 @@ nav {
     position: sticky;
 }
 
+.mobile-nav {
+    display: none;
+}
+
 button {
     background: none;
     border: none;
@@ -151,7 +155,7 @@ h3 {
 }
 
 p, a {
-    font-size: 3vh;
+    font-size: 25px;
 }
 
 .link-bold {

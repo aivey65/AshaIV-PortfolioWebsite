@@ -108,6 +108,10 @@ nav {
     position: sticky;
 }
 
+.mobile-nav {
+    display: none;
+}
+
 button {
     background: none;
     border: none;
@@ -238,7 +242,7 @@ img {
     color: var(--Light);
     padding: 20px;
     margin: 20px;
-    border-radius: 5%;
+    border-radius: 20px;
 }
 
 .project-card-condensed-info {
