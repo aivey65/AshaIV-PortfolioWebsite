@@ -10,3 +10,15 @@ To test the website locally, you would need credentials for a service account wi
 You also need to make sure that Flask knows where your app code is. You need to specify the file name of the flask app:
 
 > export FLASK_APP=main
+
+## Redeploying App
+To deploy/redeploy the flask app, follow the steps below in your terminal, at the location of your app.
+
+1. Login to Google Cloud. It will redirect you to a browser page where you can login with Google. Use this command:
+> gcloud auth login
+
+2. If you need to change the selected project, using the following with the correct project name:
+> gcloud config set project "PROJECT NAME"
+
+3. Deploy the app using the following:
+> gcloud app deploy
