@@ -10,9 +10,9 @@ Defining color values to make it easier to change later on
     --LMain: #85B79D;
     --Light: #FFEED6;
     --Dark: #12020D;
+    --DarkLight: #52474f;
     --DAccent: #e6c613;
     --LAccent: #FBBFCA;
-
 }
 * {
     box-sizing: border-box;
@@ -131,7 +131,7 @@ nav {
     transition: all 0.5s ease;
     z-index: 1;
     border-right: 1px solid black;
-    border-bottom: 1px solid rgba(247, 179, 179, 0.432);
+    border-bottom: 1px solid black;
 }
 
 nav .nav_button {
@@ -143,12 +143,17 @@ nav .nav_button {
     font-size: 20px;
     padding-left: 40px;
     box-sizing: border-box;
-    border-top: 1px solid rgba(247, 179, 179, 0.432);
     transition: 0.4s;
 }
 
-.nav_button:hover .nav_button {
+.nav_button {
     padding-left: 50px;
+}
+
+.nav_button:hover {
+    padding-left: 60px;
+    border-radius: 5%;
+    background-color: var(--DarkLight);
 }
   
 nav .nav_button {
@@ -233,6 +238,7 @@ h2 {
 #about-text {
     display: inline-block;
     padding:0px 30px 0px 30px;
+    width:100%;
 }
 
 #about-image {
@@ -240,6 +246,10 @@ h2 {
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
+}
+
+#about-image-mobile {
+    display: none;
 }
 
 img {

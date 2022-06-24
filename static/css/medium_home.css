@@ -201,6 +201,10 @@ h2 {
     width: 38.3%;
 }
 
+#about-image-mobile {
+    display: none;
+}
+
 img {
     margin-top: 20px;
     height: auto;

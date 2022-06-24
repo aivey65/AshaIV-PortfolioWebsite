@@ -10,6 +10,7 @@ Defining color values to make it easier to change later on
     --LMain: #85B79D;
     --Light: #FFEED6;
     --Dark: #12020D;
+    --Dark-Light: #52474f;
     --DAccent: #e6c613;
     --LAccent: #FBBFCA;
 
@@ -202,6 +203,10 @@ h2 {
 #about-image {
     padding-left: 40px;
     width: 38.3%;
+}
+
+#about-image-mobile {
+    display: none;
 }
 
 img {
