@@ -64,3 +64,8 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+# Additional files
+.DS_Store
+__pycache__/
+*.py[cod]
