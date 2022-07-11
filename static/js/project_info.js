@@ -114,25 +114,52 @@ function loadProjects(projectsData) {
 /////////////////////////////////////
 // Go back to home page and scroll //
 /////////////////////////////////////
+function logoAction() {
+    location.href = '/top'
+}
+
 function aboutAction() {
     location.href = '/top'
+    toggleMenu()
 }
 
 function projectAction() {
     location.href = '/projects'
+    toggleMenu()
 }
 
 function resumeAction() {
     location.href = '/resume'
+    toggleMenu()
 }
 
 function contactAction() {
     location.href = '/contact'
+    toggleMenu()
 }
 
 ////////////////////
 // Other Functions//
 ////////////////////
+function toggleMenu() {
+    const navbar = document.getElementsByTagName('nav')[0]
+    const logo = document.getElementById('toggle-logo')
+
+    if(logo.display != 'none') {
+        if(logo.classList.contains('hamburg')) {
+            // Change to close
+            logo.src = "../static/images/mobile_nav_X.png";
+            logo.classList.replace('hamburg', 'close');
+            navbar.style.left = "0px";
+        } else {
+            // Change to hamburg
+            logo.src = "../static/images/mobile_nav_hamburg.png";
+            logo.classList.replace('close', 'hamburg');
+            navbar.style.left = '-70%';
+        }
+    }
+}
+
 function copyEmail() {
     var email = document.getElementById('email-text');
     navigator.clipboard.writeText(email.innerHTML);

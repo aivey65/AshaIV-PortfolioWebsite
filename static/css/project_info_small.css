@@ -33,6 +33,7 @@ html, body {
     animation: pulse 0.6s ease-in-out infinite alternate;    
 }
 
+
 h1, h2, h3, h4, body {
     font-family: 'Alegreya Sans', sans-serif;
     font-weight: 300;
@@ -56,8 +57,73 @@ nav {
     position: sticky;
 }
 
+.mobile-nav-bar {
+    width: 100%;
+}
+
 .mobile-nav {
-    display: none;
+    display: flex;
+    justify-content: space-between;
+    color: var(--Light);
+    background-color: var(--Light);
+    z-index: 2;
+
+    top: 0;
+    position: sticky;
+}
+
+.mobile-nav button {
+    display: block;
+    height: auto;
+    padding: 10px;
+}
+
+#mobile-logo, #toggle-logo {
+    width: 25px;
+    height: auto;
+    margin: 0px;
+}
+
+nav {
+    display: grid;
+    position: fixed;
+    top: 50px;
+    left: -70%;
+    width: 70%;
+    min-height: 420px;
+    max-height: 60%;
+    min-width: 180px;
+    background: var(--Dark);
+    transition: all 0.5s ease;
+    z-index: 1;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+nav .nav_button {
+    color: var(--Light);
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    padding-left: 40px;
+    box-sizing: border-box;
+    transition: 0.4s;
+}
+
+.nav_button {
+    padding-left: 50px;
+}
+
+.nav_button:hover {
+    padding-left: 60px;
+    border-radius: 5%;
+    background-color: var(--DarkLight);
+}
+  
+nav .nav_button {
+    margin-right: 16px;
 }
 
 button {
@@ -68,19 +134,6 @@ button {
     cursor: pointer;
     outline: inherit;
 }
-
-.nav_button {
-    color: inherit;
-    flex: 1;
-    padding: 20px;
-    transition: .8s;
-}
-
-.nav_button:hover {
-    background-color: #12020D;
-}
-
-
 
 /* Body Beginning and End Styles */
 .beginning {

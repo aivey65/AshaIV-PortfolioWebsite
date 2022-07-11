@@ -2,7 +2,10 @@
 <html>
     <head>
         <title>Asha Ivey - Portfolio Website</title>
+        <meta name="viewport" content="width=device.width, initial-scale=1"/>
+
         <link rel='stylesheet' href='../static/css/project_info.css'>
+        <link rel='stylesheet' media='screen and (max-width:900px)' href='../static/css/project_info_small.css'>
         <script src='../static/js/project_info.js'></script>
         <link rel='shortcut icon' sizes='256x256' href='../static/images/ashaiv-favicon-32x32.png'>
         
@@ -13,6 +16,15 @@
     </head>
 
     <body class='beginning' onload="loadData()">
+        <div class="mobile-nav mobile-nav-bar">
+            <button class='mobile-nav' onclick='logoAction()'>
+                <img id='mobile-logo' src="../static/images/ashaiv-favicon-32x32.png">
+            </button>
+            <button class='nav_toggle mobile-nav' onclick='toggleMenu()'>
+                <img id='toggle-logo' class="hamburg" src="../static/images/mobile_nav_hamburg.png">
+            </button>
+        </div>
+
         <nav> 
             <button class='nav_button' onclick='aboutAction()'>About</button>
             <button class='nav_button' onclick='projectAction()'>Projects</button>
