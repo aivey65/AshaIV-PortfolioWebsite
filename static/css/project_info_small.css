@@ -152,12 +152,12 @@ h2 {
 }
 
 h3 {
-    font-size: 3vh;
+    font-size: 24px;
     margin: 0px 0px 20px 0px;
 }
 
 p, a {
-    font-size: 25px;
+    font-size: 16px;
 }
 
 .link-bold {
@@ -166,10 +166,8 @@ p, a {
 
 .container {
     max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
     min-height: 100vh;
-    padding: 50px;
+    padding: 10px;
 }
 
 /* Image slideshow */
@@ -182,7 +180,7 @@ p, a {
 }
 
 .img_slides {
-    width: 70%;
+    width: 100%;
     max-height: 370px;
     margin: auto;
     object-fit: cover;
@@ -227,4 +225,10 @@ img {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
+}
+
+.skill-bubble {
+    border-radius: 50px;
+    padding: 5px 10px 5px 10px;
+    background-color: var(--LAccent2);
 }

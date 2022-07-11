@@ -98,8 +98,8 @@ function loadProjects(projectsData) {
         for (const skill of project.skills) {
             const s = document.createElement('p');
             s.innerHTML = skill;
+            s.classList.add('skill-bubble')
             skills.appendChild(s);
-            
         }
         skills.classList.add('skill-div');
         

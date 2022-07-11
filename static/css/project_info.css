@@ -99,7 +99,7 @@ h2 {
 }
 
 h3 {
-    font-size: 3vh;
+    font-size: 24px;
     margin: 0px 0px 20px 0px;
 }
 
@@ -174,4 +174,10 @@ img {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
+}
+
+.skill-bubble {
+    border-radius: 50px;
+    padding: 5px 10px 5px 10px;
+    background-color: var(--LAccent2);
 }

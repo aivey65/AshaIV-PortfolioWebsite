@@ -226,10 +226,8 @@ h2 {
 
 .container {
     max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 0px;
     min-height: 0px;
-    padding: 15px;
 }
 
 /* ABOUT SECTION */
@@ -240,10 +238,12 @@ h2 {
 }
 
 #about-text {
-    padding:0px;
     width: 100%;
-    margin-bottom: 10px;
     display: inline;
+}
+
+#about-description {
+    padding: 10px;
 }
 
 #about-image {
@@ -265,19 +265,21 @@ img {
     height: 85px;
     width:85px;
     object-fit: cover;
-    margin-right: auto;
-    margin-left: auto;
+    margin-right: 20px;
     margin-top: 20px;
+    float: left;
+}
+
+.clear {
+    clear:both;
 }
 
 #headshot {
-    height:100px;
-    width:100px;
-    float: left;
+    min-height:350px;
+    width:100%;
     object-fit: cover;
     object-position: 0 12%;
     border-radius: 0%;
-    margin-right: 20px;
 }
 
 .center-align {
@@ -300,8 +302,9 @@ img {
     background: var(--Dark);
     color: var(--Light);
     padding: 20px;
-    margin: 20px;
+    margin: 10px;
     border-radius: 20px;
+    overflow: hidden;
 }
 
 .project-card-condensed-info {
