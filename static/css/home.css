@@ -13,7 +13,7 @@ Defining color values to make it easier to change later on
     --Dark-Light: #52474f;
     --DAccent: #e6c613;
     --LAccent: #FBBFCA;
-
+    --LAccent2: #A27080;
 }
 * {
     box-sizing: border-box;
@@ -225,7 +225,6 @@ img {
     height:300px;
     width:300px;
     object-fit: cover;
-    object-position: 0 15%;
     border-radius: 50%;
 }
 
@@ -268,7 +267,23 @@ h3 {
 }
 
 p, a {
-    font-size: 25px;
+    font-size: 20px;
+}
+
+a:link {
+    color: var(--LAccent);
+}
+
+a:visited {
+    color: var(--LAccent2);
+}
+
+a:hover {
+    color:var(--Dark-Light);
+}
+
+a:active {
+    color: var(--Light);
 }
 
 .link-bold {
@@ -321,6 +336,10 @@ h4 {
     justify-content: space-around;
     align-items: baseline;
     text-align: center;
+}
+
+.contact-icon {
+    max-width: 70px;
 }
 
 #contact-button {

@@ -1,3 +1,50 @@
+///////////////////
+// Switch Slides //
+///////////////////
+function updateSlide(newSlide) {    
+    let slides = document.getElementsByClassName('img_slides');
+    let dots = document.getElementsByClassName('dots');
+
+    for(let i = 0; i < slides.length; i++) {
+        if (i == newSlide) {
+            slides[i].style.display = 'block';
+            dots[i].classList.replace('inactive-dot', 'active-dot')
+        } else {
+            slides[i].style.display = 'none';
+            dots[i].classList.replace('active-dot', 'inactive-dot')
+        } 
+    }
+}
+
+function slideRight() {
+    let slides = document.getElementsByClassName('img_slides');
+
+    for(let i = 1; i < slides.length; i++) {
+        if (slides[i].style.display == 'block') {
+            updateSlide(i - 1);
+        }
+    }
+    return;
+}
+
+function slideLeft() {
+    let slides = document.getElementsByClassName('img_slides');
+
+    for(let i = 0; i < slides.length - 1; i++) {
+        if (slides[i].style.display == 'block') {
+            updateSlide(i + 1);
+        }
+    }
+    return;
+}
+
+var imageCarousel = document.getElementById('images-carousel');
+var hammer = new Hammer(imageCarousel);
+
+hammer.on("panleft", slideLeft());
+hammer.on("panright", slideRight());
+
+
 // Get and populate page with all the data. This is better than loading each 
 // section separately since it is all technically on one page.
 function loadData() {
@@ -23,9 +70,21 @@ function loadProjects(projectsData) {
         
         //If there is at least 1 image in the database, show it
         const images = document.createElement('div');
+        images.id = 'images-carousel'
         const dots = document.createElement('div');
 
         if (project.images != "" && project.images.length != 0) {
+            // Add image buttons
+            var leftButton = document.createElement('button');
+            leftButton.onclick = slideLeft();
+            leftButton.classList.add('side-buttons');
+
+            var rightButton = document.createElement('button')
+            rightButton.onclick = slideRight()
+            rightButton.classList.add('side-buttons');
+
+
+            // Add the images
             let dotNum = 0
             if (project.videoURL != "") {
                 dotNum = 1
@@ -91,7 +150,7 @@ function loadProjects(projectsData) {
         }
 
         const skillHead = document.createElement('h3');
-        skillHead.innerHTML = "Skills/Tools";
+        skillHead.innerHTML = "Relevant Skills/Tools";
         skillHead.style.textAlign = 'center'
 
         const skills = document.createElement('div');
@@ -163,22 +222,4 @@ function toggleMenu() {
 function copyEmail() {
     var email = document.getElementById('email-text');
     navigator.clipboard.writeText(email.innerHTML);
-}
-
-///////////////////
-// Switch Slides //
-///////////////////
-function updateSlide(newSlide) {    
-    let slides = document.getElementsByClassName('img_slides');
-    let dots = document.getElementsByClassName('dots');
-
-    for(let i = 0; i < slides.length; i++) {
-        if (i == newSlide) {
-            slides[i].style.display = 'block';
-            dots[i].classList.replace('inactive-dot', 'active-dot')
-        } else {
-            slides[i].style.display = 'none';
-            dots[i].classList.replace('active-dot', 'inactive-dot')
-        } 
-    }
 }

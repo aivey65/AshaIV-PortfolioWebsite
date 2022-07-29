@@ -104,7 +104,23 @@ h3 {
 }
 
 p, a {
-    font-size: 25px;
+    font-size: 20px;
+}
+
+a:link {
+    color: var(--LAccent);
+}
+
+a:visited {
+    color: var(--LAccent2);
+}
+
+a:hover {
+    color:var(--Dark-Light);
+}
+
+a:active {
+    color: var(--Light);
 }
 
 .link-bold {
@@ -179,5 +195,6 @@ img {
 .skill-bubble {
     border-radius: 50px;
     padding: 5px 10px 5px 10px;
-    background-color: var(--LAccent2);
+    color: var(--LMain);
+    border: solid 2px var(--LMain);
 }
