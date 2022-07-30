@@ -95,12 +95,12 @@ div {
 
 h2 {
     font-size: 6vh;
-    margin:20px 0px 20px 0px;
+    margin:0px;
 }
 
 h3 {
     font-size: 24px;
-    margin: 0px 0px 20px 0px;
+    margin: 30px 0px 30px 0px;
 }
 
 p, a {
@@ -116,11 +116,11 @@ a:visited {
 }
 
 a:hover {
-    color:var(--Dark-Light);
+    color:var(--Light);
 }
 
 a:active {
-    color: var(--Light);
+    color: var(--DMain);
 }
 
 .link-bold {
@@ -135,6 +135,43 @@ a:active {
     padding: 50px;
 }
 
+/* Buttons for image slideshow */
+#left-slide-button {
+    color: var(--Dark);
+    background-color: var(--LAccent);
+    height: 50px;
+    width: 50px;
+    margin-left: auto;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#left-slide-button:hover {
+    background-color: var(--LAccent2);
+}
+
+#left-slide-button:active {
+    background-color: var(--Light);
+}
+
+#right-slide-button {
+    color: var(--Dark);
+    background-color: var(--LAccent);
+    height: 50px;
+    width: 50px;
+    margin-right: auto;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#right-slide-button:hover {
+    background-color: var(--LAccent2);
+}
+
+#left-slide-button:active {
+    background-color: var(--Light);
+}
+
 /* Image slideshow */
 .images-div {
     height: 400px;
@@ -142,6 +179,10 @@ a:active {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#images-carousel {
+    background-color: var(--Dark);
 }
 
 .img_slides {
@@ -162,7 +203,9 @@ img {
 
 .dots-div {
     width:50%;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
     text-align: center;
 }
 

@@ -38,13 +38,6 @@ function slideLeft() {
     return;
 }
 
-var imageCarousel = document.getElementById('images-carousel');
-var hammer = new Hammer(imageCarousel);
-
-hammer.on("panleft", slideLeft());
-hammer.on("panright", slideRight());
-
-
 // Get and populate page with all the data. This is better than loading each 
 // section separately since it is all technically on one page.
 function loadData() {
@@ -72,19 +65,22 @@ function loadProjects(projectsData) {
         const images = document.createElement('div');
         images.id = 'images-carousel'
         const dots = document.createElement('div');
+        const leftButton = document.createElement('button');
+        const rightButton = document.createElement('button');
 
         if (project.images != "" && project.images.length != 0) {
             // Add image buttons
-            var leftButton = document.createElement('button');
-            leftButton.onclick = slideLeft();
-            leftButton.classList.add('side-buttons');
+            leftButton.onclick = function() { slideLeft();}
+            leftButton.id = 'left-slide-button';
+            leftButton.innerHTML = "ᐸ"
+            images.appendChild(leftButton);
+            images.appendChild(rightButton);
 
-            var rightButton = document.createElement('button')
-            rightButton.onclick = slideRight()
-            rightButton.classList.add('side-buttons');
+            rightButton.onclick = function() { slideRight();}
+            rightButton.id = 'right-slide-button';
+            rightButton.innerHTML = "ᐳ"
 
-
-            // Add the images
+            // Add the video and/or images
             let dotNum = 0
             if (project.videoURL != "") {
                 dotNum = 1
@@ -116,6 +112,9 @@ function loadProjects(projectsData) {
                 images.appendChild(i);
             }
             images.classList.add('images-div');
+
+            // Add the right button after all of the images
+            images.appendChild(rightButton);
 
             // Add dots for slideshow
             for (let index = dotNum; index < project.images.length + dotNum; index++) {
