@@ -153,7 +153,7 @@ h2 {
 
 h3 {
     font-size: 24px;
-    margin: 0px 0px 20px 0px;
+    margin: 30px 0px 30px 0px;
 }
 
 p, a {
@@ -169,11 +169,11 @@ a:visited {
 }
 
 a:hover {
-    color:var(--Dark-Light);
+    color:var(--Light);
 }
 
 a:active {
-    color: var(--Light);
+    color: var(--DMain);
 }
 
 .link-bold {
@@ -184,6 +184,50 @@ a:active {
     max-width: 1000px;
     min-height: 100vh;
     padding: 10px;
+}
+
+/* Buttons for image slideshow */
+#left-slide-button {
+    color: var(--LAccent);
+    position: absolute;
+    left: 10px;
+    background-color: transparent;
+    height: 50px;
+    width: 50px;
+    margin-left: auto;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#left-slide-button:hover {
+    background-color: transparent;
+}
+
+#left-slide-button:active {
+    background-color: transparent;
+}
+
+#right-slide-button {
+    color: var(--LAccent);
+    position: absolute;
+    right:10px;
+    background-color: transparent;
+    background-image: linear-gradient(to right, rgb(0,0,0,0), 80%, rgb(0,0,0,1));
+    height: inherit;
+    width: 100px;
+    margin-right: auto;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#right-slide-button:hover {
+    background-color: transparent;
+    background-image: linear-gradient(to right, rgb(0,0,0,0), 40%, rgb(0,0,0,1));
+}
+
+#right-slide-button:active {
+    background-color: transparent;
+    background-image: linear-gradient(to right, rgb(0,0,0,0), 90%, rgb(0,0,0,1));
 }
 
 /* Image slideshow */
@@ -213,8 +257,9 @@ img {
 
 .dots-div {
     width:50%;
-    margin: auto;
-    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;    text-align: center;
 }
 
 .dots {

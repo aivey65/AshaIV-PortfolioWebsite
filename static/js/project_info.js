@@ -22,6 +22,7 @@ function slideRight() {
     for(let i = 1; i < slides.length; i++) {
         if (slides[i].style.display == 'block') {
             updateSlide(i - 1);
+            return;
         }
     }
     return;
@@ -33,6 +34,7 @@ function slideLeft() {
     for(let i = 0; i < slides.length - 1; i++) {
         if (slides[i].style.display == 'block') {
             updateSlide(i + 1);
+            return;
         }
     }
     return;
@@ -70,13 +72,13 @@ function loadProjects(projectsData) {
 
         if (project.images != "" && project.images.length != 0) {
             // Add image buttons
-            leftButton.onclick = function() { slideLeft();}
+            leftButton.onclick = function() { slideRight();}
             leftButton.id = 'left-slide-button';
             leftButton.innerHTML = "ᐸ"
             images.appendChild(leftButton);
             images.appendChild(rightButton);
 
-            rightButton.onclick = function() { slideRight();}
+            rightButton.onclick = function() { slideLeft();}
             rightButton.id = 'right-slide-button';
             rightButton.innerHTML = "ᐳ"
 

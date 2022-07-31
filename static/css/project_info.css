@@ -181,10 +181,6 @@ a:active {
     align-items: center;
 }
 
-#images-carousel {
-    background-color: var(--Dark);
-}
-
 .img_slides {
     width: 70%;
     max-height: 370px;
