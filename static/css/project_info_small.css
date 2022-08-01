@@ -187,14 +187,31 @@ a:active {
 }
 
 /* Buttons for image slideshow */
-#left-slide-button {
-    color: var(--LAccent);
+#left-slide-div {
+    height: inherit;
+    width:100px;
     position: absolute;
+    display: flex;
     left: 10px;
-    background-color: transparent;
-    height: 50px;
-    width: 50px;
-    margin-left: auto;
+}
+
+#left-slide-div:hover {
+    background-color: rgb(0,0,0,0.3);
+    cursor: pointer;
+}
+
+#left-slide-div:active {
+    background-color: rgb(0,0,0,0.6);
+}
+
+#left-slide-button {
+    position: relative;
+    background-color: rgb(0,0,0,0.3);
+    color: var(--LAccent);
+    font-weight: bold;
+    height: 60px;
+    width: 60px;
+    margin: auto auto auto 10px;
     padding: 10px;
     border-radius: 5px;
 }
@@ -203,31 +220,57 @@ a:active {
     background-color: transparent;
 }
 
+#left-slide-div:hover > #left-slide-button {
+    background-color: transparent;
+}
+
 #left-slide-button:active {
     background-color: transparent;
 }
 
-#right-slide-button {
-    color: var(--LAccent);
-    position: absolute;
-    right:10px;
-    background-color: transparent;
-    background-image: linear-gradient(to right, rgb(0,0,0,0), 80%, rgb(0,0,0,1));
+#right-slide-div {
     height: inherit;
-    width: 100px;
-    margin-right: auto;
+    width:100px;
+    position: absolute;
+    display: flex;
+    right:10px;
+}
+
+#right-slide-div:hover {
+    cursor: pointer;
+    background-color: rgb(0,0,0,0.3);
+}
+
+#right-slide-div:active {
+    background-color: rgb(0,0,0,0.6);
+}
+
+#right-slide-button {
+    position: relative;
+    background-color: rgb(0,0,0,0.3);
+    color: var(--LAccent);
+    font-weight: bold;
+    height: 60px;
+    width: 60px;
+    margin: auto 10px auto auto;
     padding: 10px;
     border-radius: 5px;
 }
 
 #right-slide-button:hover {
     background-color: transparent;
-    background-image: linear-gradient(to right, rgb(0,0,0,0), 40%, rgb(0,0,0,1));
+}
+
+#right-slide-div:hover > #right-slide-button {
+    background-color: transparent;
 }
 
 #right-slide-button:active {
     background-color: transparent;
-    background-image: linear-gradient(to right, rgb(0,0,0,0), 90%, rgb(0,0,0,1));
+}
+
+#right-slide-button:active {
+    background-color: transparent;
 }
 
 /* Image slideshow */
@@ -237,6 +280,7 @@ a:active {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--Dark);
 }
 
 .img_slides {

@@ -67,20 +67,29 @@ function loadProjects(projectsData) {
         const images = document.createElement('div');
         images.id = 'images-carousel'
         const dots = document.createElement('div');
+
+        const leftButtonDiv = document.createElement('div');
+        const rightButtonDiv = document.createElement('div');
         const leftButton = document.createElement('button');
         const rightButton = document.createElement('button');
 
         if (project.images != "" && project.images.length != 0) {
             // Add image buttons
-            leftButton.onclick = function() { slideRight();}
+            leftButtonDiv.onclick = function() { slideRight();}
+            leftButtonDiv.id = 'left-slide-div';
+
             leftButton.id = 'left-slide-button';
             leftButton.innerHTML = "ᐸ"
-            images.appendChild(leftButton);
-            images.appendChild(rightButton);
+            leftButtonDiv.appendChild(leftButton);
 
-            rightButton.onclick = function() { slideLeft();}
+            rightButtonDiv.onclick = function() { slideLeft();}
+            rightButtonDiv.id = 'right-slide-div';
+
             rightButton.id = 'right-slide-button';
             rightButton.innerHTML = "ᐳ"
+            rightButtonDiv.appendChild(rightButton);
+
+            images.appendChild(leftButtonDiv);
 
             // Add the video and/or images
             let dotNum = 0
@@ -116,7 +125,7 @@ function loadProjects(projectsData) {
             images.classList.add('images-div');
 
             // Add the right button after all of the images
-            images.appendChild(rightButton);
+            images.appendChild(rightButtonDiv);
 
             // Add dots for slideshow
             for (let index = dotNum; index < project.images.length + dotNum; index++) {
