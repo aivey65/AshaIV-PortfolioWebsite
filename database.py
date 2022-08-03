@@ -12,6 +12,8 @@ def getData():
     projectQuery.order = ["-year"]
     results["projects"] = list(projectQuery.fetch())
 
+    results["skills"] = list(client.query(kind="about_skills").fetch())
+
     return jsonify({"data":results})
 
 def getProject(projectID):

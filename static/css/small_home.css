@@ -10,10 +10,12 @@ Defining color values to make it easier to change later on
     --LMain: #85B79D;
     --Light: #FFEED6;
     --Dark: #12020D;
-    --DarkLight: #52474f;
+    --Dark-Light: #52474f;
+    --Dark-Dark:#220518;
     --DAccent: #e6c613;
     --LAccent: #FBBFCA;
     --LAccent2: #A27080;
+    --faded: rgb(0, 0, 0, .2);
 }
 * {
     box-sizing: border-box;
@@ -62,12 +64,28 @@ body {
     }
 }
 
+#greetingA {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#greetingB {
+    display: none;
+}
+
+.highlight {
+    color: var(--LMain);
+}
+
+#about-content {
+    display:inline-block;
+}
+
 /* Neon sign ideas from https://css-tricks.com/how-to-create-neon-text-with-css/ */
 #home_title {
     text-align: center;
     font-size: 50px;
     padding-bottom: 0px;
-    margin-bottom: 0px;
     color: var(--Light);
     animation: pulse 0.6s ease-in-out infinite alternate;    
 }
@@ -158,7 +176,7 @@ nav .nav_button {
 .nav_button:hover {
     padding-left: 60px;
     border-radius: 5%;
-    background-color: var(--DarkLight);
+    background-color: var(--Dark-Light);
 }
   
 nav .nav_button {
@@ -245,6 +263,7 @@ h2 {
 
 #about-description {
     padding: 10px;
+    margin-top: 0px;
 }
 
 #about-image {
@@ -263,12 +282,11 @@ img {
 }
 
 .project-img-icon {
-    height: 85px;
-    width:85px;
+    height: auto;
+    max-height: 340px;
+    width:100%;
+    float:none;
     object-fit: cover;
-    margin-right: 20px;
-    margin-top: 20px;
-    float: left;
 }
 
 .clear {
@@ -287,6 +305,45 @@ img {
     text-align: center;
 }
 
+hr {
+    border-top: 1px solid var(--Dark-Light);
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    width:60%;
+}
+
+#about-skills {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.skill-div {
+    width: 150px;
+    padding:10px;
+    background-color: var(--faded);
+    border-radius: 10px;
+    margin: 10px 10px 50px 10px;
+    text-align: center;
+}
+
+/* Progess bar inspired by this tutorial: https://gist.github.com/WeiChiaChang/abe92ca2e8da86ef69560b63903e8764*/
+.progress-bar {
+    background-color: var(--Dark-Light);
+    border-radius: 4px;
+    width: 100%;
+}
+
+.progress-bar-fill {
+    background-color: var(--LMain);
+    border-radius: 5px;
+    display: block;
+    height: 10px;
+
+}
+
 /* PROJECTS & EXPERIENCE SECTION */
 #projects {
     background: var(--LAccent);
@@ -294,13 +351,16 @@ img {
     width: 100%;
 }
 
+#project-caption {
+    margin-left: 10px;
+}
+
 #projects-container {
     display: block;
 }
 
 .project-card {
-    border: solid var(--Light) 2px;
-    background: var(--Dark);
+    background: var(--DMain);
     color: var(--Light);
     padding: 20px;
     margin: 10px;
@@ -314,11 +374,10 @@ img {
 }
 
 h3 {
-    font-size: 35px;
+    font-size: 30px;
     margin-bottom:10px;
     text-align: left;
     margin-top:10px;
-    background-color: var(--Dark);
     position: relative;
 }
 
@@ -348,7 +407,7 @@ a:active {
 
 h4 {
     font-size: 25px;
-    margin:5px;
+    margin:5px 5px 5px 0px;
     font-weight: lighter;
 }
 

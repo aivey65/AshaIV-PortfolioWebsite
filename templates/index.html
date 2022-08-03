@@ -41,29 +41,38 @@
         </nav> 
         
         <div id='about' class="container">
+            <h4 id="greetingA">Hi, my name is </h4>
             <!-- Neon glow effect adapted from https://css-tricks.com/how-to-create-neon-text-with-css/ -->
             <h1 id='home_title' class='large-title'>Asha Ivey</h1>
-            <div id="about-image-mobile">
-                <p class='center-align'>
-                    <img id='headshot' src='../static/images/grad_pic_pink.jpg'>
-                </p>
+            <h4 id="greetingB"></h4>
+            <div id="about-content">
+                <div id="about-image-mobile">
+                    <p class='center-align'>
+                        <img id='headshot' src='../static/images/grad_pic_pink.jpg'>
+                    </p>
+                </div>
+                <div id='about-text'>
+                    <!-- Ideally, I want there to be a short version and a long version -->
+                    <!-- so that people can chose whether or not they want to read the -->
+                    <!-- whole page or just scroll through. -->
+                    <p id='about-description'></p>
+                </div> 
+                <div id="about-image">
+                    <p class='center-align'>
+                        <img id='headshot' src='../static/images/grad_pic_pink.jpg'>
+                    </p>
+                </div>
             </div>
-            <div id='about-text'>
-                <!-- Ideally, I want there to be a short version and a long version -->
-                <!-- so that people can chose whether or not they want to read the -->
-                <!-- whole page or just scroll through. -->
-                <p id='about-description'></p>
-            </div> 
-            <div id="about-image">
-                <p class='center-align'>
-                    <img id='headshot' src='../static/images/grad_pic_pink.jpg'>
-                </p>
+            <h4 id="skills-header">Things I Know How to Use:</h4>
+            <hr>
+            <div id="about-skills">
             </div>
             <h1 onclick='projectAction()' class='arrow cloud large-title'>▼</h1>
         </div>
 
         <div id='projects' class="container">
             <h2>Projects</h2>
+            <h4 id="project-caption">The best part of the portfolio</h3>
             <div id='projects-container'></div>
         </div>
 

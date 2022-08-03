@@ -26,6 +26,10 @@ html, body {
     scroll-behavior: smooth;
 }
 
+.highlight {
+    color: var(--LMain);
+}
+
 /* Neon sign ideas from https://css-tricks.com/how-to-create-neon-text-with-css/ */
 #home_title {
     text-align: center;

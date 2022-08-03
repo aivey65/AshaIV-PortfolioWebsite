@@ -3,29 +3,50 @@
 function loadData() {
     fetch('/load-data').then(response => response.json()).then((responseData) => {
         loadAbout(responseData.data.about);
+        loadSkills(responseData.data.skills);
         loadProjects(responseData.data.projects);
     })
 }
 
 function loadAbout(aboutData) {
+    const greetingContainer = document.getElementById('greetingB');
+    greetingContainer.innerHTML = aboutData[0].greeting;
+
     const aboutContainer = document.getElementById('about-description');
     aboutContainer.innerHTML = aboutData[0].description;
+}
+
+function loadSkills(skillsData) {
+    const skillsContainer = document.getElementById('about-skills');
+    for (const skill of skillsData) {
+        const skillName = document.createElement('p');
+        skillName.innerHTML = skill.skillName;
+        skillName.classList.add('skill-name')
+
+        const skillImage = document.createElement('img');
+        skillImage.src = skill.skillimage;
+        skillImage.classList.add('skill-images')
+
+        // Create skillbar and skillbar fill elements to show proficiency in each skill
+        const skillbar = document.createElement('div');
+        skillbar.classList.add("progress-bar");
+        const skillbarFill = document.createElement('span');
+        skillbarFill.classList.add("progress-bar-fill");
+        skillbarFill.style.width = skill.skillValue + "%";
+        skillbar.appendChild(skillbarFill);
+
+        const skillDiv = document.createElement('div');
+        skillDiv.classList.add('skill-div')
+
+        skillDiv.append(skillImage, skillName, skillbar);
+        skillsContainer.appendChild(skillDiv);
+    }
 }
 
 function loadProjects(projectsData) {
     const projectsContainer = document.getElementById('projects-container');
 
     for (const project of projectsData) {
-        const basicInfo = document.createElement('div');
-        
-        const name = document.createElement('h3');
-        name.innerHTML = project.name;
-        basicInfo.appendChild(name);
-
-        const year = document.createElement('h4');
-        year.innerHTML = project.year;
-        basicInfo.appendChild(year);
-
         const img = document.createElement('img')
         if (project.images != "") {
             img.src = project.images[0];
@@ -33,10 +54,12 @@ function loadProjects(projectsData) {
         } else {
             img.display = 'None';
         }
+        
+        const name = document.createElement('h3');
+        name.innerHTML = project.name;
 
-        const condense = document.createElement('div');
-        condense.append(basicInfo, img);
-        condense.classList.add('project-card-condensed-info');
+        const year = document.createElement('h4');
+        year.innerHTML = project.year;
 
         const des = document.createElement('p');
         des.innerHTML = project.blurb;
@@ -50,7 +73,7 @@ function loadProjects(projectsData) {
 
         projectDiv = document.createElement('div');
         projectDiv.classList.add('project-card');
-        projectDiv.append(condense, des, more);
+        projectDiv.append(img, name, year, des, more);
         
         projectsContainer.appendChild(projectDiv);
     }

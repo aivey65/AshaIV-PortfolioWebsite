@@ -10,10 +10,12 @@ Defining color values to make it easier to change later on
     --LMain: #85B79D;
     --Light: #FFEED6;
     --Dark: #12020D;
-    --DarkLight: #52474f;
+    --Dark-Light: #52474f;
+    --Dark-Dark:#220518;
     --DAccent: #e6c613;
     --LAccent: #FBBFCA;
     --LAccent2: #A27080;
+    --faded: rgb(0, 0, 0, .2);
 }
 * {
     box-sizing: border-box;
@@ -59,6 +61,26 @@ body {
         0 0 93px var(--LAccent),
         0 0 140px var(--LAccent);
     }
+}
+
+.highlight {
+    color: var(--LMain);
+}
+
+#greetingA {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#greetingB {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-left:20px;
+    margin-right: 20px;
+}
+
+#about-content {
+    display:inline-block;
 }
 
 /* Neon sign ideas from https://css-tricks.com/how-to-create-neon-text-with-css/ */
@@ -154,7 +176,7 @@ nav .nav_button {
 .nav_button:hover {
     padding-left: 60px;
     border-radius: 5%;
-    background-color: var(--DarkLight);
+    background-color: var(--Dark-Light);
 }
   
 nav .nav_button {
@@ -217,7 +239,7 @@ div {
 }
 
 h2 {
-    font-size: 80px;
+    font-size: 60px;
     margin: 10px;
 }
 
@@ -247,6 +269,7 @@ h2 {
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
+    padding:0px;
 }
 
 #about-image-mobile {
@@ -259,9 +282,11 @@ img {
 }
 
 .project-img-icon {
-    height: 85px;
-    width:85px;
+    height: auto;
+    max-height: 340px;
+    width:100%;
     object-fit: cover;
+    float: none;
     margin-right: auto;
     margin-left: auto;
     margin-top: 20px;
@@ -272,10 +297,50 @@ img {
     width:300px;
     object-fit: cover;
     border-radius: 50%;
+    margin:0px;
 }
 
 .center-align {
     text-align: center;
+}
+
+hr {
+    border-top: 1px solid var(--Dark-Light);
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    width:60%;
+}
+
+#about-skills {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.skill-div {
+    width: 150px;
+    padding:10px;
+    background-color: var(--faded);
+    border-radius: 10px;
+    margin: 10px 10px 50px 10px;
+    text-align: center;
+}
+
+/* Progess bar inspired by this tutorial: https://gist.github.com/WeiChiaChang/abe92ca2e8da86ef69560b63903e8764*/
+.progress-bar {
+    background-color: var(--Dark-Light);
+    border-radius: 4px;
+    width: 100%;
+}
+
+.progress-bar-fill {
+    background-color: var(--LMain);
+    border-radius: 5px;
+    display: block;
+    height: 10px;
+
 }
 
 /* PROJECTS & EXPERIENCE SECTION */
@@ -285,9 +350,12 @@ img {
     width: 100%;
 }
 
+#project-caption {
+    margin-left: 10px;
+}
+
 .project-card {
-    border: solid var(--Light) 2px;
-    background: var(--Dark);
+    background: var(--DMain);
     color: var(--Light);
     padding: 20px;
     margin: 20px;
@@ -301,11 +369,10 @@ img {
 }
 
 h3 {
-    font-size: 35px;
+    font-size: 30px;
     margin-bottom:10px;
     text-align: left;
     margin-top:10px;
-    background-color: var(--Dark);
     position: relative;
 }
 
@@ -335,7 +402,7 @@ a:active {
 
 h4 {
     font-size: 25px;
-    margin:5px;
+    margin:5px 5px 5px 0px;
     font-weight: lighter;
 }
 

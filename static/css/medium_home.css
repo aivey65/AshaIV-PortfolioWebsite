@@ -10,9 +10,12 @@ Defining color values to make it easier to change later on
     --LMain: #85B79D;
     --Light: #FFEED6;
     --Dark: #12020D;
+    --Dark-Light: #52474f;
+    --Dark-Dark:#220518;
     --DAccent: #e6c613;
     --LAccent: #FBBFCA;
     --LAccent2: #A27080;
+    --faded: rgb(0, 0, 0, .2);
 }
 * {
     box-sizing: border-box;
@@ -60,6 +63,24 @@ body {
     }
 }
 
+.highlight {
+    color: var(--LMain);
+}
+
+#greetingA {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#greetingB {
+    text-align: center;
+}
+
+#about-content {
+    display:flex;
+    align-items: center;
+}
+
 /* Neon sign ideas from https://css-tricks.com/how-to-create-neon-text-with-css/ */
 #home_title {
     text-align: center;
@@ -91,7 +112,7 @@ h1, h2, h3, h4, body {
 }
 
 .large-title {
-    font-size: 80px;
+    font-size: 60px;
     margin:20px;
     font-weight: 200;
 }
@@ -168,7 +189,7 @@ div {
 }
 
 h2 {
-    font-size: 80px;
+    font-size: 60px;
     margin: 10px;
 }
 
@@ -212,8 +233,11 @@ img {
 }
 
 .project-img-icon {
-    width:100%;
+    width:48%;
     height: auto;
+    float: left;
+    margin: 0px 10px 0px 0px;
+    max-height: 250px;
     object-fit: cover;
 }
 
@@ -228,10 +252,56 @@ img {
     text-align: center;
 }
 
+#skills-header {
+    text-align: center;
+}
+
+hr {
+    border-top: 1px solid var(--Dark-Light);
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    width:60%;
+}
+
+#about-skills {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.skill-div {
+    width: 150px;
+    padding:10px;
+    background-color: var(--faded);
+    border-radius: 10px;
+    margin: 10px 10px 50px 10px;
+    text-align: center;
+}
+
+/* Progess bar inspired by this tutorial: https://gist.github.com/WeiChiaChang/abe92ca2e8da86ef69560b63903e8764*/
+.progress-bar {
+    background-color: var(--Dark-Light);
+    border-radius: 4px;
+    width: 100%;
+}
+
+.progress-bar-fill {
+    background-color: var(--LMain);
+    border-radius: 5px;
+    display: block;
+    height: 10px;
+}
+
 /* PROJECTS & EXPERIENCE SECTION */
 #projects {
     background: var(--LAccent);
     color: var(--DMain)
+}
+
+#project-caption {
+    margin-left: 10px;
 }
 
 #projects-container {
@@ -240,8 +310,7 @@ img {
 }
 
 .project-card {
-    border: solid var(--Light) 2px;
-    background: var(--Dark);
+    background: var(--DMain);
     color: var(--Light);
     padding: 20px;
     margin: 20px;
@@ -258,7 +327,6 @@ h3 {
     margin-bottom:10px;
     text-align: left;
     margin-top:10px;
-    background-color: var(--Dark);
     position: relative;
 }
 
@@ -288,7 +356,7 @@ a:active {
 
 h4 {
     font-size: 25px;
-    margin:5px;
+    margin:5px 5px 5px 0px;
     font-weight: lighter;
 }
 
