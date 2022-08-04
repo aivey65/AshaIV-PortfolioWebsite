@@ -74,6 +74,7 @@ nav {
 
     top: 0;
     position: sticky;
+    transition: .3s;
 }
 
 .mobile-nav button {

@@ -119,6 +119,7 @@ h1, h2, h3, h4, body {
 
     top: 0;
     position: sticky;
+    transition: .3s;
 }
 
 .mobile-nav button {
@@ -247,6 +248,7 @@ h2 {
 #about {
     color: var(--Light);
     background-color: var(--DMain);
+    min-height: 1080px;
 }
 
 #about-text {
@@ -343,6 +345,7 @@ hr {
     background: var(--DMain);
     color: var(--Light);
     width: 100%;
+    min-height: 1050px;
 }
 
 #project-caption {
@@ -406,7 +409,8 @@ h4 {
     background: var(--LMain);
     align-items: center;
     width: 100%;
-    color: var(--DMain)
+    color: var(--DMain);
+    min-height: 570px;
 }
 
 #most-recent-resume {

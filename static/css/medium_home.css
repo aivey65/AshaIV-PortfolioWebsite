@@ -197,6 +197,7 @@ h2 {
 #about {
     color: var(--Light);
     background-color: var(--DMain);
+    min-height: 940px;
 }
 
 #about-text, #about-image {
@@ -288,7 +289,8 @@ hr {
 /* PROJECTS & EXPERIENCE SECTION */
 #projects {
     background: var(--DMain);
-    color: var(--Light)
+    color: var(--Light);
+    min-height: 1290px;
 }
 
 #project-caption {
@@ -356,7 +358,8 @@ h4 {
     background: var(--LMain);
     align-items: center;
     width: 100%;
-    color: var(--DMain)
+    color: var(--DMain);
+    min-height: 580px;
 }
 
 #most-recent-resume {

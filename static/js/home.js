@@ -154,9 +154,9 @@ window.addEventListener('scroll', () => {
     const logo = document.getElementById('toggle-logo')
     if(logo.display != 'none' && logo.classList.contains('hamburg')) {
         if (prevScrollpos > currentScrollPos) {
-            document.getElementsByClassName("mobile-nav")[0].style.top = "0";
+            document.getElementsByClassName("mobile-nav")[0].style.transform = "translateY(0px)";
         } else {
-            document.getElementsByClassName("mobile-nav")[0].style.top = "-50px";
+            document.getElementsByClassName("mobile-nav")[0].style.transform = "translateY(-50px)";
         }
         prevScrollpos = currentScrollPos;
     }

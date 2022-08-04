@@ -254,6 +254,7 @@ h2 {
 #about {
     color: var(--Light);
     background-color: var(--DMain);
+    min-height: 1180px;
 }
 
 #about-text {
@@ -354,6 +355,7 @@ hr {
     color: var(--Light);
     width: 100%;
     padding-bottom: 20px;
+    min-height: 2760px;
 }
 
 #project-caption {
@@ -423,6 +425,7 @@ h4 {
     width: 100%;
     color: var(--DMain);
     padding-bottom: 20px;
+    min-height: 570px;
 }
 
 #most-recent-resume {

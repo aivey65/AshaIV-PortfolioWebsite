@@ -229,6 +229,22 @@ function toggleMenu() {
     }
 }
 
+var prevScrollpos = window.pageYOffset;
+window.addEventListener('scroll', () => { 
+    const currentScrollPos = window.pageYOffset;
+ 
+    // Hide/show nav bar when scrolling
+    const logo = document.getElementById('toggle-logo')
+    if(logo.display != 'none' && logo.classList.contains('hamburg')) {
+        if (prevScrollpos > currentScrollPos) {
+            document.getElementsByClassName("mobile-nav")[0].style.transform = "translateY(0px)";
+        } else {
+            document.getElementsByClassName("mobile-nav")[0].style.transform = "translateY(-50px)";
+        }
+        prevScrollpos = currentScrollPos;
+    }
+});
+
 function copyEmail() {
     var email = document.getElementById('email-text');
     navigator.clipboard.writeText(email.innerHTML);
