@@ -12,7 +12,9 @@ def getData():
     projectQuery.order = ["-year"]
     results["projects"] = list(projectQuery.fetch())
 
-    results["skills"] = list(client.query(kind="about_skills").fetch())
+    skillsQuery = client.query(kind="about_skills")
+    skillsQuery.order = ['-skillValue']
+    results["skills"] = list(skillsQuery.fetch())
 
     return jsonify({"data":results})
 

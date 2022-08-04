@@ -7,7 +7,7 @@ Defining color values to make it easier to change later on
 */
 :root {
     --DMain: #2B061E;
-    --LMain: #85B79D;
+    --LMain: #7FD1B9;
     --Light: #FFEED6;
     --Dark: #12020D;
     --Dark-Light: #52474f;
@@ -90,15 +90,6 @@ body {
     animation: pulse 0.6s ease-in-out infinite alternate;    
 }
 
-.arrow {
-    display: none;
-}
-
-.cloud {
-    animation: pulse 0.6s ease-in-out infinite alternate,
-    MoveUpDown 2s linear infinite;
-}
-
 @keyframes MoveUpDown {
     0%, 100% {
         transform: translateY(0);
@@ -148,7 +139,7 @@ nav {
     top: 50px;
     left: -70%;
     width: 70%;
-    height: 60%;
+    max-height: 80%;
     min-width: 180px;
     background: var(--Dark);
     transition: all 0.5s ease;
@@ -195,17 +186,16 @@ button {
 .read-more-button, .contact-button, .back-button {
     font-weight: bolder;
     text-decoration: none;
-    color: var(--LAccent);
-    background-color: var(--Light);
+    background-color: var(--LAccent);
     border-radius: 8px;
     color: var(--Dark);
     padding: 10px 25px 10px 25px;
     transition: .3s;
-
 }
 
 .read-more-button:hover, .contact-button:hover, .back-button:hover {
     top: -2px;
+    background-color: var(--LAccent2);
     transform: translateY(-5px);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden!important;
@@ -239,8 +229,9 @@ div {
 }
 
 h2 {
-    font-size: 60px;
+    font-size: 80px;
     margin: 10px;
+    text-align: center;
 }
 
 .container {
@@ -304,6 +295,10 @@ img {
     text-align: center;
 }
 
+#skills-header {
+    text-align: center;
+}
+
 hr {
     border-top: 1px solid var(--Dark-Light);
     border-bottom: 0px;
@@ -345,8 +340,8 @@ hr {
 
 /* PROJECTS & EXPERIENCE SECTION */
 #projects {
-    background: var(--LAccent);
-    color: var(--DMain);
+    background: var(--DMain);
+    color: var(--Light);
     width: 100%;
 }
 
@@ -355,7 +350,7 @@ hr {
 }
 
 .project-card {
-    background: var(--DMain);
+    background: var(--faded);
     color: var(--Light);
     padding: 20px;
     margin: 20px;
