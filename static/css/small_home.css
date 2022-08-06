@@ -127,6 +127,7 @@ h1, h2, h3, h4, body {
 
     top: 0;
     position: sticky;
+    transition: .3s;
 }
 
 .mobile-nav button {
@@ -323,15 +324,22 @@ hr {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+    align-items: center;
 }
 
 .skill-div {
-    width: 150px;
+    width: 80px;
+    height: fit-content;
     padding:10px;
     background-color: var(--faded);
     border-radius: 10px;
     margin: 10px 10px 50px 10px;
     text-align: center;
+}
+
+.skill-images {
+    height: 40px;
+    width: auto;
 }
 
 /* Progess bar inspired by this tutorial: https://gist.github.com/WeiChiaChang/abe92ca2e8da86ef69560b63903e8764*/

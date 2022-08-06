@@ -24,8 +24,11 @@ function loadSkills(skillsData) {
         skillName.classList.add('skill-name')
 
         const skillImage = document.createElement('img');
-        skillImage.src = skill.skillimage;
-        skillImage.classList.add('skill-images')
+        skillImage.src = skill.image;
+        skillImage.classList.add('skill-images');
+        if (skill.contrast == true) {
+            skillImage.style.backgroundColor = 'white';
+        }
 
         // Create skillbar and skillbar fill elements to show proficiency in each skill
         const skillbar = document.createElement('div');

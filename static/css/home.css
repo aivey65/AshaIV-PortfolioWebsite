@@ -252,6 +252,10 @@ img {
 
 hr {
     border-top: 1px solid var(--Dark-Light);
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    width:60%;
 }
 
 #about-skills {
@@ -259,15 +263,22 @@ hr {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+    align-items: center;
 }
 
 .skill-div {
     width: 150px;
+    height: fit-content;
     padding:10px;
     background-color: var(--faded);
     border-radius: 10px;
     margin: 10px 10px 50px 10px;
     text-align: center;
+}
+
+.skill-images {
+    height: 60px;
+    width: auto;
 }
 
 /* Progess bar inspired by this tutorial: https://gist.github.com/WeiChiaChang/abe92ca2e8da86ef69560b63903e8764*/
