@@ -193,7 +193,7 @@ button {
     outline: inherit;
 }
 
-.read-more-button, .contact-button, .back-button {
+.read-more-button {
     font-weight: bolder;
     text-decoration: none;
     background-color: var(--LAccent);
@@ -203,7 +203,7 @@ button {
     transition: .3s;
 }
 
-.read-more-button:hover, .contact-button:hover, .back-button:hover {
+.read-more-button:hover {
     top: -2px;
     background-color: var(--LAccent2);
     transform: translateY(-5px);
@@ -247,7 +247,6 @@ h2 {
 .container {
     max-width: 1000px;
     padding: 0px;
-    min-height: 0px;
 }
 
 /* ABOUT SECTION */
@@ -255,7 +254,7 @@ h2 {
 #about {
     color: var(--Light);
     background-color: var(--DMain);
-    min-height: 1180px;
+    min-height: 1330px;
 }
 
 #about-text {
@@ -363,7 +362,7 @@ hr {
     color: var(--Light);
     width: 100%;
     padding-bottom: 20px;
-    min-height: 2760px;
+    min-height: 2755px;
 }
 
 #project-caption {
@@ -381,11 +380,6 @@ hr {
     margin: 10px;
     border-radius: 20px;
     overflow: hidden;
-}
-
-.project-card-condensed-info {
-    display: inline;
-    width:100%;
 }
 
 h3 {
@@ -433,11 +427,12 @@ h4 {
     width: 100%;
     color: var(--DMain);
     padding-bottom: 20px;
-    min-height: 570px;
+    min-height: 100vh;
+    padding-top: 40px;
 }
 
 #most-recent-resume {
-    height: 65vh;
+    height: 80vh;
     width: 100%;
 }
 
@@ -458,6 +453,8 @@ h4 {
     color: var(--Light);
     width: 100%;
     align-items: center;
+    min-height: 100vh;
+    padding-top: 40px;
 }
 
 #contact-methods {
@@ -471,10 +468,6 @@ h4 {
 
 .contact-icon {
     max-width: 70px;
-}
-
-#contact-button {
-    color: var(--LAccent);
 }
 
 #contact-form {

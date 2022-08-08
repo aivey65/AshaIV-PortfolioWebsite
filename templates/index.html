@@ -77,7 +77,7 @@
         <div id='resume' class="container">
             <h2>Resume</h2>
             <div id='resume-container'>
-                <iframe id='most-recent-resume' src='../static/documents/Post-Grad_Resume_Summer2022.pdf#view=FitV'></iframe>
+                <iframe id='most-recent-resume' src='../static/documents/Post-Grad_Resume_Summer2022.pdf#view=FitH'></iframe>
             </div>
         </div>
 
@@ -112,6 +112,7 @@
                     }, 'slow');
                 }, 700);
             }); 
+            window.history.replaceState({}, "", "/");
         </script>
         {% endif %}
     </body>

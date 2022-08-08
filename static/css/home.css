@@ -136,7 +136,7 @@ button {
     outline: inherit;
 }
 
-.read-more-button, .contact-button, .back-button {
+.read-more-button {
     font-weight: bolder;
     text-decoration: none;
     background-color: var(--LAccent);
@@ -146,7 +146,7 @@ button {
     transition: .3s;
 }
 
-.read-more-button:hover, .contact-button:hover, .back-button:hover {
+.read-more-button:hover {
     top: -2px;
     background-color: var(--LAccent2);
     transform: translateY(-5px);
@@ -191,7 +191,6 @@ h2 {
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
-    min-height: 100vh;
     padding: 35px;
 }
 
@@ -200,6 +199,7 @@ h2 {
 #about {
     color: var(--Light);
     background-color: var(--DMain);
+    min-height: 1270px;
 }
 
 #about-text, #about-image {
@@ -230,7 +230,7 @@ img {
     width:48%;
     height: auto;
     float: left;
-    margin: 0px 10px 0px 0px;
+    margin: 0px 20px 0px 0px;
     max-height: 250px;
     object-fit: cover;
 }
@@ -298,7 +298,8 @@ hr {
 /* PROJECTS & EXPERIENCE SECTION */
 #projects {
     background: var(--DMain);
-    color: var(--Light)
+    color: var(--Light);
+    min-height: 1330px;
 }
 
 #project-caption {
@@ -318,9 +319,9 @@ hr {
     border-radius: 20px;
 }
 
-.project-card-condensed-info {
-    display: grid;
-    grid-template-columns: 45% auto;
+.condensed-info {
+    width: 45%;
+    display: inline-block;
 }
 
 h3 {
@@ -366,11 +367,12 @@ h4 {
     background: var(--LMain);
     align-items: center;
     width: 100%;
-    color: var(--DMain)
+    color: var(--DMain);
+    min-height: 830px;
 }
 
 #most-recent-resume {
-    height: 65vh;
+    height: 75vh;
     width: 100%;
 }
 
@@ -392,6 +394,7 @@ h4 {
     color: var(--Light);
     width: 100%;
     align-items: center;
+    min-height: 100vh;
 }
 
 #contact-methods {

@@ -52,6 +52,24 @@ function loadData() {
 function loadProjects(projectsData) {
     const projectsContainer = document.getElementById('projects-container');
 
+    if (projectsData.length == 0) {
+        const notFoundTitle = document.createElement('h2');
+        notFoundTitle.classList.add('not-found');
+        notFoundTitle.innerHTML = 'Project Not Found.'
+
+        const notFoundDes = document.createElement('p');
+        notFoundDes.classList.add('not-found');
+        notFoundDes.innerHTML = 'The project you are looking for does not exist. Check your URL or go back to the projects page.'
+    
+        const backButton = document.createElement('button');
+        backButton.classList.add('not-found', 'back-button');
+        backButton.innerHTML = 'Back to Projects';
+        backButton.onclick = function() { projectAction();}
+
+        projectsContainer.append(notFoundTitle, notFoundDes, backButton);
+        return;
+    }
+
     for (const project of projectsData) {
         // Used to get rid of any html tags if necessary
         var tempdiv = document.createElement("div");

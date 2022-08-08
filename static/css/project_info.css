@@ -30,22 +30,10 @@ html, body {
     color: var(--LMain);
 }
 
-/* Neon sign ideas from https://css-tricks.com/how-to-create-neon-text-with-css/ */
-#home_title {
-    text-align: center;
-    color: var(--Light);
-    animation: pulse 0.6s ease-in-out infinite alternate;    
-}
-
 h1, h2, h3, h4, body {
     font-family: 'Alegreya Sans', sans-serif;
     font-weight: 300;
     color: var(--Light);
-}
-
-.large-title {
-    font-size: 10vh;
-    margin:20px
 }
 
 nav {
@@ -98,7 +86,7 @@ div {
 }
 
 h2 {
-    font-size: 6vh;
+    font-size: 80px;
     margin:0px;
 }
 
@@ -240,4 +228,32 @@ img {
     padding: 5px 10px 5px 10px;
     color: var(--LMain);
     border: solid 2px var(--LMain);
+}
+
+.not-found {
+    text-align: center;
+}
+
+.back-button {
+    margin-top: 30px;
+    font-weight: bolder;
+    text-decoration: none;
+    background-color: var(--LAccent);
+    border-radius: 8px;
+    color: var(--Dark);
+    padding: 10px 25px 10px 25px;
+    transition: .3s;
+}
+
+.back-button:hover {
+    top: -2px;
+    background-color: var(--LAccent2);
+    transform: translateY(-5px);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden!important;
+}
+
+.back-button:focus {
+    box-shadow: none;
+    border: 2px solid var(--LAccent);
 }

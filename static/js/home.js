@@ -57,12 +57,17 @@ function loadProjects(projectsData) {
         } else {
             img.display = 'None';
         }
+
+        const condense = document.createElement('div');
+        condense.classList.add('condensed-info');
         
         const name = document.createElement('h3');
         name.innerHTML = project.name;
 
         const year = document.createElement('h4');
         year.innerHTML = project.year;
+
+        condense.append(name, year)
 
         const des = document.createElement('p');
         des.innerHTML = project.blurb;
@@ -76,7 +81,7 @@ function loadProjects(projectsData) {
 
         projectDiv = document.createElement('div');
         projectDiv.classList.add('project-card');
-        projectDiv.append(img, name, year, des, more);
+        projectDiv.append(img, condense, des, more);
         
         projectsContainer.appendChild(projectDiv);
     }
@@ -86,6 +91,7 @@ function loadProjects(projectsData) {
 /////////////////////////////////////////
 function logoAction() {
     document.getElementById('top').scrollIntoView();
+    closeMenu()
 }
 
 function aboutAction() {
@@ -106,6 +112,23 @@ function resumeAction() {
 function contactAction() {
     document.getElementById('contact').scrollIntoView();
     toggleMenu()
+}
+
+function closeMenu() {
+    const navbar = document.getElementsByTagName('nav')[0]
+    const logo = document.getElementById('toggle-logo')
+
+    if(logo.display != 'none') {
+        if(logo.classList.contains('hamburg')) {
+            // The menu is already closed
+            return;
+        }
+
+        // The menu is 'close' (or the 'X' icon). Change to hamburg
+        logo.src = "../static/images/mobile_nav_hamburg.png";
+        logo.classList.replace('close', 'hamburg');
+        navbar.style.left = '-70%';
+    }
 }
 
 function toggleMenu() {
@@ -149,7 +172,7 @@ function showMoreProjectInfo(projectID) {
 var prevScrollpos = window.pageYOffset;
 window.addEventListener('scroll', () => {
     const currentScrollPos = window.pageYOffset;
-    var factor = 0.5;
+    var factor = 0.7;
     var yvalue = currentScrollPos * factor;
     document.body.style.backgroundPosition = "center " + yvalue + "px";
     
