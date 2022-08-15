@@ -168,13 +168,22 @@ function loadProjects(projectsData) {
             git.classList.add("link-bold")
         }
 
-        const breakpoint = document.createElement('br');
+        const breakpoint1 = document.createElement('br');
 
         const live = document.createElement('a')
         if (project.live != "") {
             live.innerHTML = "See it Live";
             live.href = project.live;
             live.classList.add("link-bold")
+        }
+
+        const breakpoint2 = document.createElement('br');
+
+        const documentation = document.createElement('a')
+        if (project.doc != "") {
+            documentation.innerHTML = "Documentation";
+            documentation.href = project.doc;
+            documentation.classList.add("link-bold")
         }
 
         const skillHead = document.createElement('h3');
@@ -192,7 +201,7 @@ function loadProjects(projectsData) {
         
         projectDiv = document.createElement('div');
         projectDiv.classList.add('project-card');
-        projectDiv.append(name, year, images, dots, des, git, breakpoint, live, skillHead, skills);
+        projectDiv.append(name, year, images, dots, des, git, breakpoint1, documentation, breakpoint2, live, skillHead, skills);
         
         projectsContainer.appendChild(projectDiv);
     }
