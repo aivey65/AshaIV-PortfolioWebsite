@@ -106,6 +106,11 @@ function contactAction() {
     toggleMenu()
 }
 
+function ctaAction() {
+    document.getElementById('projects').scrollIntoView();
+    closeMenu()
+}
+
 function closeMenu() {
     const navbar = document.getElementsByTagName('nav')[0]
     const logo = document.getElementById('toggle-logo')

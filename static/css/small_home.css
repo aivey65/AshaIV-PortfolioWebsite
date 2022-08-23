@@ -193,6 +193,10 @@ button {
     outline: inherit;
 }
 
+.cta {
+    display: none;
+}
+
 .read-more-button {
     font-weight: bolder;
     text-decoration: none;

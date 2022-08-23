@@ -133,6 +133,30 @@ button {
     outline: inherit;
 }
 
+.cta {
+    font-weight: bolder;
+    text-decoration: none;
+    background-color: var(--LMain);
+    border-radius: 8px;
+    color: var(--Dark);
+    padding: 10px 25px 10px 25px;
+    transition: .3s;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.cta:hover {
+    background-color: var(--LMain);
+    transform: scale(1.1);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden!important;
+}
+
+.cta:focus {
+    box-shadow: none;
+    border: 2px solid var(--LMain);
+}
+
 .read-more-button {
     font-weight: bolder;
     text-decoration: none;
