@@ -165,7 +165,9 @@ function loadProjects(projectsData) {
         if (project.github != "") {
             git.innerHTML = "Github";
             git.href = project.github;
-            git.classList.add("link-bold")
+            git.classList.add("link-bold");
+            git.target = "_blank";
+            git.rel = "noopener noreferrer";
         }
 
         const breakpoint1 = document.createElement('br');
@@ -174,7 +176,9 @@ function loadProjects(projectsData) {
         if (project.live != "") {
             live.innerHTML = "See it Live";
             live.href = project.live;
-            live.classList.add("link-bold")
+            live.classList.add("link-bold");
+            live.target = "_blank";
+            live.rel = "noopener noreferrer";
         }
 
         const breakpoint2 = document.createElement('br');
@@ -183,7 +187,9 @@ function loadProjects(projectsData) {
         if (project.doc != "") {
             documentation.innerHTML = "Documentation";
             documentation.href = project.doc;
-            documentation.classList.add("link-bold")
+            documentation.classList.add("link-bold");
+            documentation.target = "_blank";
+            documentation.rel = "noopener noreferrer";
         }
 
         const skillHead = document.createElement('h3');
@@ -194,7 +200,7 @@ function loadProjects(projectsData) {
         for (const skill of project.skills) {
             const s = document.createElement('p');
             s.innerHTML = skill;
-            s.classList.add('skill-bubble')
+            s.classList.add('skill-bubble');
             skills.appendChild(s);
         }
         skills.classList.add('skill-div');
