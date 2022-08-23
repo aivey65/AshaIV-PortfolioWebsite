@@ -30,18 +30,10 @@ function loadSkills(skillsData) {
             skillImage.style.backgroundColor = 'white';
         }
 
-        // Create skillbar and skillbar fill elements to show proficiency in each skill
-        const skillbar = document.createElement('div');
-        skillbar.classList.add("progress-bar");
-        const skillbarFill = document.createElement('span');
-        skillbarFill.classList.add("progress-bar-fill");
-        skillbarFill.style.width = skill.skillValue + "%";
-        skillbar.appendChild(skillbarFill);
-
         const skillDiv = document.createElement('div');
         skillDiv.classList.add('skill-div')
 
-        skillDiv.append(skillImage, skillName, skillbar);
+        skillDiv.append(skillImage, skillName);
         skillsContainer.appendChild(skillDiv);
     }
 }
