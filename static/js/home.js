@@ -86,24 +86,29 @@ function logoAction() {
     closeMenu()
 }
 
-function aboutAction() {
+function homeAction() {
     document.getElementById('top').scrollIntoView();
-    toggleMenu()
+    closeMenu()
+}
+
+function aboutAction() {
+    document.getElementById('about').scrollIntoView();
+    closeMenu()
 }
 
 function projectAction() {
     document.getElementById('projects').scrollIntoView();
-    toggleMenu()
+    closeMenu()
 }
 
 function resumeAction() {
     document.getElementById('resume').scrollIntoView();
-    toggleMenu()
+    closeMenu()
 }
 
 function contactAction() {
     document.getElementById('contact').scrollIntoView();
-    toggleMenu()
+    closeMenu()
 }
 
 function ctaAction() {
@@ -122,7 +127,7 @@ function closeMenu() {
         }
 
         // The menu is 'close' (or the 'X' icon). Change to hamburg
-        logo.src = "../static/images/mobile_nav_hamburg.png";
+        logo.src = "../static/images/hamburger-icon.svg";
         logo.classList.replace('close', 'hamburg');
         navbar.style.left = '-70%';
     }
@@ -135,12 +140,12 @@ function toggleMenu() {
     if(logo.display != 'none') {
         if(logo.classList.contains('hamburg')) {
             // Change to close
-            logo.src = "../static/images/mobile_nav_X.png";
+            logo.src = "../static/images/x-icon.svg";
             logo.classList.replace('hamburg', 'close');
             navbar.style.left = "0px";
         } else {
             // Change to hamburg
-            logo.src = "../static/images/mobile_nav_hamburg.png";
+            logo.src = "../static/images/hamburger-icon.svg";
             logo.classList.replace('close', 'hamburg');
             navbar.style.left = '-70%';
         }

@@ -1,112 +1,33 @@
-/* 
-*** Font Information ***
-font-family: 'Alegreya Sans', sans-serif;
-
-*** Color Information***
-Defining color values to make it easier to change later on 
-*/
-:root {
-    --DMain: #2B061E;
-    --LMain: #7FD1B9;
-    --Light: #FFEED6;
-    --Dark: #12020D;
-    --Dark-Light: #52474f;
-    --Dark-Dark:#220518;
-    --DAccent: #e6c613;
-    --LAccent: #FBBFCA;
-    --LAccent2: #A27080;
-    --faded: rgb(0, 0, 0, .2);
-}
-* {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-  }
-
-html, body {
-    margin: 0;
-    scroll-behavior: smooth;
-}
-
-body {
-    background-image: url("../../static/images/backgroundDesign.png"), linear-gradient(var(--Dark), black);
-    background-attachment: scroll;
-    background-size: cover;
-}
-
-@keyframes pulse {
-    100% {
-        text-shadow:
-        /* White glow */
-        0 0 7px var(--Light),
-        0 0 11px var(--Light),
-        0 0 21px var(--Light),
-        /* Green glow */
-        0 0 42px var(--LAccent),
-        0 0 82px var(--LAccent),
-        0 0 92px var(--LAccent),
-        0 0 102px var(--LAccent),
-        0 0 151px var(--LAccent);
-    }
-    0% {
-        text-shadow:
-        /* White glow */
-        0 0 6px var(--Light),
-        0 0 10px var(--Light),
-        0 0 17px var(--Light),
-        /* Green glow */
-        0 0 36px var(--LAccent),
-        0 0 73px var(--LAccent),
-        0 0 80px var(--LAccent),
-        0 0 93px var(--LAccent),
-        0 0 140px var(--LAccent);
-    }
-}
-
-.highlight {
-    color: var(--LMain);
-}
-
-#greetingA {
-    text-align: center;
-    margin-top: 30px;
-}
-
-#greetingB {
+/* GENERAL STYLES */
+h2 {
+    font-size: 80px;
+    margin: 80px 10px 10px 10px;
     text-align: center;
 }
 
-#about-content {
-    display:flex;
-    align-items: center;
+h3 {
+    font-size: 35px;
+    margin-bottom:10px;
+    text-align: left;
+    margin-top:10px;
+    position: relative;
 }
 
-/* Neon sign ideas from https://css-tricks.com/how-to-create-neon-text-with-css/ */
-#home_title {
-    text-align: center;
-    color: var(--Light);
-    animation: pulse 0.6s ease-in-out infinite alternate;    
+h4 {
+    font-size: 1.8rem;
+    margin:5px 5px 5px 0px;
+    font-weight: lighter;
 }
 
-@keyframes MoveUpDown {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
+p, a {
+    font-size: 20px;
 }
 
-h1, h2, h3, h4, body {
-    font-family: 'Alegreya Sans', sans-serif;
-    font-weight: 300;
+img {
+    margin-top: 20px;
 }
 
-.large-title {
-    font-size: 60px;
-    margin:20px;
-    font-weight: 200;
-}
+/* NAV STYLES */
 
 nav {
     display: flex;
@@ -124,62 +45,6 @@ nav {
     display: none;
 }
 
-button {
-    background: none;
-    border: none;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
-}
-
-.cta {
-    font-weight: bolder;
-    text-decoration: none;
-    background-color: var(--LMain);
-    border-radius: 8px;
-    color: var(--Dark);
-    padding: 10px 25px 10px 25px;
-    transition: .3s;
-    align-items: center;
-    margin-top: 50px;
-}
-
-.cta:hover {
-    background-color: var(--LMain);
-    transform: scale(1.1);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden!important;
-}
-
-.cta:focus {
-    box-shadow: none;
-    border: 2px solid var(--LMain);
-}
-
-.read-more-button {
-    font-weight: bolder;
-    text-decoration: none;
-    background-color: var(--LAccent);
-    border-radius: 8px;
-    color: var(--Dark);
-    padding: 10px 25px 10px 25px;
-    transition: .3s;
-}
-
-.read-more-button:hover {
-    top: -2px;
-    background-color: var(--LAccent2);
-    transform: translateY(-5px);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden!important;
-}
-
-.read-more-button:focus {
-    box-shadow: none;
-    border: 2px solid var(--LAccent);
-}
-
 .nav_button {
     color: inherit;
     flex: 1;
@@ -191,28 +56,33 @@ button {
     background-color: var(--Dark);
 }
 
-/* Body Beginning and End Styles */
+/* BODY CONTENT STYLES */
 .beginning {
     background-color: var(--DMain);
     display: flex;
     flex-direction: column;
 }
 
-div {
-    margin: 0;
-}
-
-h2 {
-    font-size: 80px;
-    margin: 10px;
-    text-align: center;
-}
-
 .container {
-    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
     padding: 35px;
+}
+
+/* HOME STYLES */
+#home {
+    grid-template-columns: 500px 1fr;
+}
+
+#home_title {
+    font-size: 10rem;
+    grid-column: span 2;    
+}
+
+.large-title {
+    font-size: 60px;
+    margin:20px;
+    font-weight: 200;
 }
 
 /* ABOUT SECTION */
@@ -221,6 +91,11 @@ h2 {
     color: var(--Light);
     background-color: var(--DMain);
     min-height: 1247px;
+}
+
+#about-content {
+    display:flex;
+    align-items: center;
 }
 
 #about-text, #about-image {
@@ -239,12 +114,6 @@ h2 {
 
 #about-image-mobile {
     display: none;
-}
-
-img {
-    margin-top: 20px;
-    height: auto;
-    width: 100%;
 }
 
 .project-img-icon {
@@ -269,14 +138,6 @@ img {
 
 #skills-header {
     text-align: center;
-}
-
-hr {
-    border-top: 1px solid var(--Dark-Light);
-    border-bottom: 0px;
-    border-left: 0px;
-    border-right: 0px;
-    width:60%;
 }
 
 #about-skills {
@@ -340,44 +201,6 @@ hr {
     border-radius: 20px;
 }
 
-h3 {
-    font-size: 35px;
-    margin-bottom:10px;
-    text-align: left;
-    margin-top:10px;
-    position: relative;
-}
-
-p, a {
-    font-size: 20px;
-}
-
-a:link {
-    color: var(--LAccent);
-}
-
-a:visited {
-    color: var(--LAccent2);
-}
-
-a:hover {
-    color:var(--Dark-Light);
-}
-
-a:active {
-    color: var(--Light);
-}
-
-.link-bold {
-    font-weight: bold;
-}
-
-h4 {
-    font-size: 25px;
-    margin:5px 5px 5px 0px;
-    font-weight: lighter;
-}
-
 /* RESUME SECTION */
 #resume {
     background: var(--LMain);
@@ -404,7 +227,7 @@ h4 {
 
 /* CONTACT SECTION */
 #contact {
-    background-color: #2B061ECC;
+    background-color: var(--DMainTransparent);
     backdrop-filter: blur(4px);
     color: var(--Light);
     width: 100%;
@@ -428,8 +251,4 @@ h4 {
 #contact-form {
     width: 70% !important; 
     height: 520px !important
-}
-
-label {
-    font-family: 'Alegreya Sans', sans-serif;
 }

@@ -6,14 +6,16 @@ font-family: 'Alegreya Sans', sans-serif;
 Defining color values to make it easier to change later on 
 */
 :root {
-    --DMain: #2B061E;
-    --LMain: #7FD1B9;
-    --Light: #FFEED6;
+    --DMain: #36091e;
+    --DMainTransparent: #36091ECC;
+    --LMain: #93f4d6;
+    --Light: #FFE2D1;
     --Dark: #12020D;
-    --DAccent: #D2BF55;
-    --LAccent: #FBBFCA;
+    --Dark-Light: #52474f;
+    --Dark-Dark:#220518;
+    --LAccent: #f6bebb;
     --LAccent2: #A27080;
-
+    --faded: rgb(0, 0, 0, .2);
 }
 * {
     box-sizing: border-box;
@@ -85,18 +87,23 @@ div {
     margin: 0;
 }
 
-h2 {
-    font-size: 80px;
-    margin:0px;
+h1 {
+    font-size: 4.5rem;
+    margin: 2rem 0px 1.2rem 0px;
+}
+
+h2{
+    font-size: 2rem;
+    margin: 3rem 0rem 1rem 0rem;
 }
 
 h3 {
-    font-size: 24px;
-    margin: 30px 0px 30px 0px;
+    font-size: 2rem;
+    margin: 1.2rem 0rem 1.2rem 0rem;
 }
 
 p, a {
-    font-size: 20px;
+    font-size: 1.2rem;
 }
 
 a:link {
@@ -165,7 +172,7 @@ a:active {
 }
 
 /* Image slideshow */
-.images-div {
+#images-div {
     height: 400px;
     max-width: 100%;
     display: flex;
@@ -189,7 +196,7 @@ img {
     height: auto;
 }
 
-.dots-div {
+#dots-div {
     width:50%;
     margin-left: auto;
     margin-right: auto;
