@@ -250,6 +250,10 @@ nav .nav_button {
     border-radius: 20px;
 }
 
+.project-card:hover {
+    cursor: pointer;
+}
+
 /* RESUME SECTION */
 #resume {
     background: var(--LMain);

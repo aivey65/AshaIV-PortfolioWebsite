@@ -74,6 +74,9 @@ function loadProjects(projectsData) {
         projectDiv = document.createElement('div');
         projectDiv.classList.add('project-card');
         projectDiv.append(img, condense, des, more);
+        projectDiv.onclick = function() {
+            showMoreProjectInfo(project.projectNum);
+        }
         
         projectsContainer.appendChild(projectDiv);
     }

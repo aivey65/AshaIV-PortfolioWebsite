@@ -115,15 +115,6 @@ nav {
     display: none;
 }
 
-.project-img-icon {
-    width:48%;
-    height: auto;
-    float: left;
-    margin: 0px 20px 0px 0px;
-    max-height: 250px;
-    object-fit: cover;
-}
-
 #headshot {
     height:300px;
     width:300px;
@@ -198,10 +189,43 @@ nav {
     padding: 20px;
     margin: 20px;
     border-radius: 20px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: .5fr .3fr .2fr;
+    align-items: start;
+    transition: .3s;
+}
+
+.project-card:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.project-card p {
+    grid-column: span 2;
+    grid-row: 2;
+}
+
+.project-card button {
+    grid-column: 1;
+    grid-row: 3;
+    width: fit-content;
+}
+
+.project-img-icon {
+    height: auto;
+    float: left;
+    padding: 0px 20px 0px 0px;
+    max-height: 250px;
+    object-fit: cover;
+    grid-row: 1;
+    grid-column: 1;
 }
 
 .condensed-info {
-    width: 45%;
+    grid-row: 1;
+    grid-column: 2;
     display: inline-block;
 }
 

@@ -53,7 +53,8 @@ function loadProjects(projectsData) {
     const projectsContainer = document.getElementById('projects-container');
 
     if (projectsData.length == 0) {
-        projectsContainer.append(createPageNotFound());
+        const [header, details, backButton] = createPageNotFound();
+        projectsContainer.append(header, details, backButton);
         return;
     }
 
@@ -158,7 +159,7 @@ function createPageNotFound() {
     backButton.innerHTML = 'Back to Projects';
     backButton.onclick = function() { projectAction();}
 
-    return notFoundTitle, notFoundDes, backButton;
+    return [notFoundTitle, notFoundDes, backButton];
 }
 
 function createImageSlideshow(imageList, videoLink) {
@@ -251,27 +252,22 @@ function logoAction() {
 
 function homeAction() {
     location.href = '/top'
-    toggleMenu()
 }
 
 function aboutAction() {
     location.href = '/about'
-    toggleMenu()
 }
 
 function projectAction() {
     location.href = '/projects'
-    toggleMenu()
 }
 
 function resumeAction() {
     location.href = '/resume'
-    toggleMenu()
 }
 
 function contactAction() {
     location.href = '/contact'
-    toggleMenu()
 }
 
 ////////////////////

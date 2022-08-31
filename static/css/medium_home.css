@@ -72,10 +72,11 @@ nav {
 /* HOME STYLES */
 #home {
     grid-template-columns: 500px 1fr;
+    min-height: 500px;
 }
 
 #home_title {
-    font-size: 10rem;
+    font-size: 25vh;
     grid-column: span 2;    
 }
 
@@ -83,6 +84,10 @@ nav {
     font-size: 60px;
     margin:20px;
     font-weight: 200;
+}
+
+#down-icon {
+    display: none;
 }
 
 /* ABOUT SECTION */
@@ -199,6 +204,12 @@ nav {
     padding: 20px;
     margin: 20px;
     border-radius: 20px;
+    transition: .3s;
+}
+
+.project-card:hover {
+    transform: scale(1.02);
+    cursor: pointer;
 }
 
 /* RESUME SECTION */
