@@ -170,9 +170,9 @@ function showMoreProjectInfo(projectID) {
     location.href = '/project/' + projectID
 }
 
-////////////////////
+//////////////////////
 // Scroll Functions //
-////////////////////
+//////////////////////
 // Paralax scrolling method adapted from https://stackoverflow.com/questions/29240028/css-make-a-background-image-scroll-slower-than-everything-else
 var prevScrollpos = window.pageYOffset;
 window.addEventListener('scroll', () => {
@@ -192,3 +192,10 @@ window.addEventListener('scroll', () => {
         prevScrollpos = currentScrollPos;
     }
 });
+
+//////////////////////////////////////////////
+// Get the height offset                    //
+// (to account for mobile device interface) //
+//////////////////////////////////////////////
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', vh + 'px')

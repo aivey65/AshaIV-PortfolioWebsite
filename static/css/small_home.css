@@ -114,6 +114,7 @@ nav .nav_button {
 #home {
     grid-template-columns: 1fr;
     padding: 10px 20px 10px 20px;
+    height: calc(var(--vh, 1vh) * 100 - 50px);
 }
 
 #home_title {
