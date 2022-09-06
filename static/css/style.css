@@ -30,7 +30,7 @@ html, body {
 }
 
 body {
-    background-image: url("../../static/images/backgroundDesign.png"), linear-gradient(var(--Dark), black);
+    background-color: var(--DMain);
     background-attachment: scroll;
     background-size: cover;
     min-width: 370px;

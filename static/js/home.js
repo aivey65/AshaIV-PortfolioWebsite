@@ -5,7 +5,8 @@ function loadData() {
         loadAbout(responseData.data.about);
         loadSkills(responseData.data.skills);
         loadProjects(responseData.data.projects);
-    })
+    });
+    iFrameResize( { log: true }, '#most-recent-resume');
 }
 
 function loadAbout(aboutData) {

@@ -131,20 +131,20 @@ nav {
 }
 
 #about-skills {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 
 .skill-div {
     width: 150px;
     height: fit-content;
-    padding:10px;
-    background-color: var(--faded);
-    border-radius: 10px;
-    margin: 10px 10px 50px 10px;
+    margin: 10px 10px 10px 10px;
     text-align: center;
 }
 
@@ -179,8 +179,10 @@ nav {
 }
 
 #projects-container {
-    display: grid;
-    grid-template-columns: 48.3% auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .project-card {
@@ -189,9 +191,12 @@ nav {
     padding: 20px;
     margin: 20px;
     border-radius: 20px;
+    width: 28%;
+    min-width: 270px;
+    max-width: 340px;
+    flex: 1;
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
     grid-template-rows: .5fr .3fr .2fr;
     align-items: start;
     transition: .3s;
@@ -203,13 +208,11 @@ nav {
 }
 
 .project-card p {
-    grid-column: span 2;
-    grid-row: 2;
+    grid-row: 3;
 }
 
 .project-card button {
-    grid-column: 1;
-    grid-row: 3;
+    grid-row: 4;
     width: fit-content;
 }
 
@@ -220,12 +223,10 @@ nav {
     max-height: 250px;
     object-fit: cover;
     grid-row: 1;
-    grid-column: 1;
 }
 
 .condensed-info {
-    grid-row: 1;
-    grid-column: 2;
+    grid-row: 2;
     display: inline-block;
 }
 
@@ -239,8 +240,8 @@ nav {
 }
 
 #most-recent-resume {
-    height: 75vh;
-    width: 100%;
+    min-height: 100vh;
+    min-width: 100%;
 }
 
 #resume-container {
