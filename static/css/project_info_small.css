@@ -6,14 +6,16 @@ font-family: 'Alegreya Sans', sans-serif;
 Defining color values to make it easier to change later on 
 */
 :root {
-    --DMain: #2B061E;
-    --LMain: #7FD1B9;
-    --Light: #FFEED6;
+    --DMain: #36091e;
+    --DMainTransparent: #36091ECC;
+    --LMain: #93f4d6;
+    --Light: #FFE2D1;
     --Dark: #12020D;
-    --DAccent: #D2BF55;
-    --LAccent: #FBBFCA;
+    --Dark-Light: #52474f;
+    --Dark-Dark:#220518;
+    --LAccent: #f6bebb;
     --LAccent2: #A27080;
-
+    --faded: rgb(0, 0, 0, .2);
 }
 * {
     box-sizing: border-box;
@@ -30,23 +32,10 @@ html, body {
     color: var(--LMain);
 }
 
-/* Neon sign ideas from https://css-tricks.com/how-to-create-neon-text-with-css/ */
-#home_title {
-    text-align: center;
-    color: var(--Light);
-    animation: pulse 0.6s ease-in-out infinite alternate;    
-}
-
-
 h1, h2, h3, h4, body {
     font-family: 'Alegreya Sans', sans-serif;
     font-weight: 300;
     color: var(--Light);
-}
-
-.large-title {
-    font-size: 10vh;
-    margin:20px
 }
 
 nav {
@@ -91,12 +80,15 @@ nav {
 
 nav {
     display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 5fr;
+    grid-template-columns: 100%;
+    justify-content: center;
+    justify-items: center;
     position: fixed;
     top: 50px;
     left: -70%;
     width: 70%;
-    min-height: 420px;
-    max-height: 60%;
+    height: 100%;
     min-width: 180px;
     background: var(--Dark);
     transition: all 0.5s ease;
@@ -115,20 +107,17 @@ nav .nav_button {
     padding-left: 40px;
     box-sizing: border-box;
     transition: 0.4s;
+    margin-right: 16px;
 }
 
 .nav_button {
     padding-left: 50px;
+    width: 100%;
 }
 
 .nav_button:hover {
     padding-left: 60px;
-    border-radius: 5%;
-    background-color: var(--DarkLight);
-}
-  
-nav .nav_button {
-    margin-right: 16px;
+    background-color: var(--Dark-Light);
 }
 
 button {
@@ -151,18 +140,23 @@ div {
     margin: 0;
 }
 
-h2 {
-    font-size: 6vh;
-    margin:20px 0px 20px 0px;
+h1 {
+    font-size: 2.5rem;
+    margin: 2rem 0px 1.2rem 0px;
+}
+
+h2{
+    font-size: 2rem;
+    margin: 3rem 0rem 1rem 0rem;
 }
 
 h3 {
-    font-size: 24px;
-    margin: 30px 0px 30px 0px;
+    font-size: 1.6rem;
+    margin: 1.2rem 0rem 1.2rem 0rem;
 }
 
 p, a {
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 a:link {
@@ -279,7 +273,7 @@ a:active {
 }
 
 /* Image slideshow */
-.images-div {
+#images-div {
     height: 400px;
     max-width: 100%;
     display: flex;
@@ -304,7 +298,7 @@ img {
     height: auto;
 }
 
-.dots-div {
+#dots-div {
     width:50%;
     margin-left: auto;
     margin-right: auto;
@@ -342,4 +336,31 @@ img {
     padding: 5px 10px 5px 10px;
     color: var(--LMain);
     border: solid 2px var(--LMain);
+}
+
+.not-found {
+    text-align: center;
+}
+
+.back-button {
+    font-weight: bolder;
+    text-decoration: none;
+    background-color: var(--LAccent);
+    border-radius: 8px;
+    color: var(--Dark);
+    padding: 10px 25px 10px 25px;
+    transition: .3s;
+}
+
+.back-button:hover {
+    top: -2px;
+    background-color: var(--LAccent2);
+    transform: translateY(-5px);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden!important;
+}
+
+.back-button:focus {
+    box-shadow: none;
+    border: 2px solid var(--LAccent);
 }

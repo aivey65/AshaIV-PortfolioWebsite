@@ -5,10 +5,11 @@
 
         <!-- JQuery for one specific issue of getting plain text (rather than html) from database -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <meta name="viewport" content="width=device.width, initial-scale=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-        <link rel='stylesheet' media='screen and (min-width:901px) and (min-height:821px)' href='../static/css/home.css'>
-        <link rel='stylesheet' media='screen and (max-height:820px)' href='../static/css/medium_home.css'>
+        <link rel='stylesheet' href='../static/css/style.css'>
+        <link rel='stylesheet' media='screen and (min-width:901px) and (min-height:551px)' href='../static/css/home.css'>
+        <link rel='stylesheet' media='screen and (max-height:550px)' href='../static/css/medium_home.css'>
         <link rel='stylesheet' media='screen and (max-width:900px)' href='../static/css/medium_skinny_home.css'>
         <link rel='stylesheet' media='screen and (max-width:768px)' href='../static/css/small_home.css'>
 
@@ -18,7 +19,7 @@
         <!-- Font Stuff -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;200;300;400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300;400;500&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">    
     </head>
       
     <body class='beginning' onload="loadData()">
@@ -29,22 +30,30 @@
                 <img id='mobile-logo' src="../static/images/ashaiv-favicon-32x32.png">
             </button>
             <button class='nav_toggle mobile-nav' onclick='toggleMenu()'>
-                <img id='toggle-logo' class="hamburg" src="../static/images/mobile_nav_hamburg.png">
+                <img id='toggle-logo' class="hamburg" src="../static/images/hamburger-icon.svg">
             </button>
         </div>
         
         <nav> 
+            <button class='nav_button' onclick='homeAction()'>Home</button>
             <button class='nav_button' onclick='aboutAction()'>About</button>
             <button class='nav_button' onclick='projectAction()'>Projects</button>
             <button class='nav_button' onclick='resumeAction()'>Resume</button>
             <button class='nav_button' onclick='contactAction()'>Contact</button>
         </nav> 
+
+        <div id='home' class='container'>
+            <h4 id="greetingA">Hi, my name is </h4>
+            <h1 id='home_title'>Asha Ivey</h1>
+            <h4 id="greetingB"></h4>
+            <button id="cta" onclick="ctaAction()">See Projects</button>
+            <div id="down-icon-container">
+                <img id='down-icon' onclick='aboutAction()' src="../static/images/down-icon-ashaiv.svg">
+            </div>
+        </div>
         
         <div id='about' class="container">
-            <h4 id="greetingA">Hi, my name is </h4>
-            <!-- Neon glow effect adapted from https://css-tricks.com/how-to-create-neon-text-with-css/ -->
-            <h1 id='home_title' class='large-title'>Asha Ivey</h1>
-            <h4 id="greetingB"></h4>
+            <h2>About</h2>
             <div id="about-content">
                 <div id="about-image-mobile">
                     <p class='center-align'>
@@ -65,8 +74,7 @@
             </div>
             <h4 id="skills-header">Things I Know How to Use:</h4>
             <hr>
-            <div id="about-skills">
-            </div>
+            <div id="about-skills"></div>
         </div>
 
         <div id='projects' class="container">
@@ -77,7 +85,7 @@
         <div id='resume' class="container">
             <h2>Resume</h2>
             <div id='resume-container'>
-                <iframe id='most-recent-resume' src='../static/documents/Post-Grad_Resume_Summer2022.pdf#view=FitV'></iframe>
+                <iframe id='most-recent-resume' src='../static/documents/Post-Grad_Resume_Summer2022.pdf#view=FitH'></iframe>
             </div>
         </div>
 
@@ -88,13 +96,13 @@
             
             <div id='contact-methods'> 
                 <div class='contact-icon'>
-                    <a href='https://github.com/aivey65'>
+                    <a target="_blank" rel="noopener noreferrer" href='https://github.com/aivey65'>
                         <img src="../static/images/GitHub-Mark-Light-64px.png">
                         <p class="link-bold">Github</p>
                     </a>
                 </div> 
                 <div class='contact-icon'>
-                    <a href='https://www.linkedin.com/in/ashaiv/'>
+                    <a target="_blank" rel="noopener noreferrer" href='https://www.linkedin.com/in/ashaiv/'>
                         <img src="../static/images/LI-In-Bug.png">
                         <p class="link-bold">LinkedIn</p>
                     </a>
@@ -112,6 +120,7 @@
                     }, 'slow');
                 }, 700);
             }); 
+            window.history.replaceState({}, "", "/");
         </script>
         {% endif %}
     </body>

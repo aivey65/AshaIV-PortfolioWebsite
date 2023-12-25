@@ -1,119 +1,29 @@
-/* 
-*** Font Information ***
-font-family: 'Alegreya Sans', sans-serif;
-
-*** Color Information***
-Defining color values to make it easier to change later on 
-*/
-:root {
-    --DMain: #2B061E;
-    --LMain: #7FD1B9;
-    --Light: #FFEED6;
-    --Dark: #12020D;
-    --Dark-Light: #52474f;
-    --Dark-Dark:#220518;
-    --DAccent: #e6c613;
-    --LAccent: #FBBFCA;
-    --LAccent2: #A27080;
-    --faded: rgb(0, 0, 0, .2);
-}
-* {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-  }
-
-html, body {
-    margin: 0;
-    scroll-behavior: smooth;
-}
-
-body {
-    background-image: url("../../static/images/backgroundDesign.png"), linear-gradient(var(--Dark), black);
-    background-attachment: scroll;
-    background-size: cover;
-    min-width: 370px;
-}
-
-@keyframes pulse {
-    100% {
-        text-shadow:
-        /* White glow */
-        0 0 7px var(--Light),
-        0 0 11px var(--Light),
-        0 0 21px var(--Light),
-        /* Green glow */
-        0 0 42px var(--LAccent),
-        0 0 82px var(--LAccent),
-        0 0 92px var(--LAccent),
-        0 0 102px var(--LAccent),
-        0 0 151px var(--LAccent);
-    }
-    0% {
-        text-shadow:
-        /* White glow */
-        0 0 6px var(--Light),
-        0 0 10px var(--Light),
-        0 0 17px var(--Light),
-        /* Green glow */
-        0 0 36px var(--LAccent),
-        0 0 73px var(--LAccent),
-        0 0 80px var(--LAccent),
-        0 0 93px var(--LAccent),
-        0 0 140px var(--LAccent);
-    }
-}
-
-#greetingA {
+/* GENERAL STYLES */
+h2 {
+    font-size: 3.75rem;
+    margin: 40px 0px 10px 0px;
     text-align: center;
-    margin-top: 30px;
 }
 
-#greetingB {
-    display: none;
+h3 {
+    font-size: 2.5rem;
+    margin-bottom:10px;
+    text-align: left;
+    margin-top:10px;
+    position: relative;
 }
 
-.highlight {
-    color: var(--LMain);
+h4 {
+    font-size: 1.5rem;
+    margin:5px 5px 5px 0px;
+    font-weight: lighter;
 }
 
-#about-content {
-    display:inline-block;
+p, a {
+    font-size: 1rem;
 }
 
-/* Neon sign ideas from https://css-tricks.com/how-to-create-neon-text-with-css/ */
-#home_title {
-    text-align: center;
-    font-size: 50px;
-    padding-bottom: 0px;
-    color: var(--Light);
-    animation: pulse 0.6s ease-in-out infinite alternate;    
-}
-
-.cloud {
-    animation: pulse 0.6s ease-in-out infinite alternate,
-    MoveUpDown 2s linear infinite;
-}
-
-@keyframes MoveUpDown {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-h1, h2, h3, h4, body {
-    font-family: 'Alegreya Sans', sans-serif;
-    font-weight: 300;
-}
-
-.large-title {
-    margin:20px;
-    font-weight: 200;
-}
-
+/* MOBILE NAV */
 .mobile-nav-bar {
     width: 100%;
 }
@@ -144,12 +54,15 @@ h1, h2, h3, h4, body {
 
 nav {
     display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 5fr;
+    grid-template-columns: 100%;
+    justify-content: center;
+    justify-items: center;
     position: fixed;
     top: 50px;
     left: -70%;
     width: 70%;
-    min-height: 420px;
-    max-height: 60%;
+    height: 100%;
     min-width: 180px;
     background: var(--Dark);
     transition: all 0.5s ease;
@@ -164,98 +77,63 @@ nav .nav_button {
     height: 100%;
     width: 100%;
     line-height: 65px;
-    font-size: 20px;
+    font-size: 1.2rem;
     padding-left: 40px;
     box-sizing: border-box;
     transition: 0.4s;
+    margin-right: 16px;
 }
 
 .nav_button {
     padding-left: 50px;
-}
-
-.nav_button:hover {
-    padding-left: 60px;
-    border-radius: 5%;
-    background-color: var(--Dark-Light);
-}
-  
-nav .nav_button {
-    margin-right: 16px;
-}
-
-button {
-    background: none;
-    border: none;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
-}
-
-.read-more-button, .contact-button, .back-button {
-    font-weight: bolder;
-    text-decoration: none;
-    background-color: var(--LAccent);
-    border-radius: 8px;
-    color: var(--Dark);
-    padding: 10px 25px 10px 25px;
-    transition: .3s;
-}
-
-.read-more-button:hover, .contact-button:hover, .back-button:hover {
-    top: -2px;
-    background-color: var(--LAccent2);
-    transform: translateY(-5px);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden!important;
-}
-
-.read-more-button:focus {
-    box-shadow: none;
-    border: 2px solid var(--LAccent);
-}
-
-.nav_button {
     color: inherit;
     flex: 1;
     padding: 20px;
     transition: .8s;
+    width: 100%;
 }
 
 .nav_button:hover {
-    background-color: black;
+    padding-left: 60px;
+    border-radius: 0px;
+    background-color: var(--Dark-Light);
 }
 
-/* Body Beginning and End Styles */
+/* BODY CONTENT STYLES */
 .beginning {
     background-color: var(--DMain);
     display: flex;
     flex-direction: column;
 }
 
-div {
+.container {
+    padding: 0px;
+}
+
+/* HOME SECTION */
+#home {
+    grid-template-columns: 1fr;
+    padding: 10px 20px 10px 20px;
+    height: calc(var(--vh, 1vh) * 100 - 50px);
+}
+
+#home_title {
+    font-size: 16vw;
+}
+
+#greetingB {
     margin: 0;
 }
 
-h2 {
-    font-size: 60px;
-    margin: 10px;
-    text-align: center;
-}
-
-.container {
-    max-width: 1000px;
-    padding: 0px;
-    min-height: 0px;
-}
-
 /* ABOUT SECTION */
-
 #about {
     color: var(--Light);
     background-color: var(--DMain);
-    min-height: 1180px;
+    min-height: 1330px;
+}
+
+#about-content {
+    display:inline-block;
 }
 
 #about-text {
@@ -278,11 +156,6 @@ h2 {
     margin-right: auto;
 }
 
-img {
-    height: auto;
-    width: 100%;
-}
-
 .project-img-icon {
     height: auto;
     max-height: 340px;
@@ -296,11 +169,10 @@ img {
 }
 
 #headshot {
-    width:100%;
-    height:auto;
+    height:300px;
+    width:300px;
     object-fit: cover;
-    object-position: 0 12%;
-    border-radius: 0%;
+    border-radius: 50%;
 }
 
 .center-align {
@@ -311,29 +183,20 @@ img {
     text-align: center;
 }
 
-hr {
-    border-top: 1px solid var(--Dark-Light);
-    border-bottom: 0px;
-    border-left: 0px;
-    border-right: 0px;
-    width:60%;
-}
-
 #about-skills {
+    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 
 .skill-div {
-    width: 80px;
+    width: 90px;
     height: fit-content;
-    padding:10px;
-    background-color: var(--faded);
     border-radius: 10px;
-    margin: 10px 10px 50px 10px;
+    margin: 10px 10px 10px 10px;
     text-align: center;
 }
 
@@ -363,7 +226,7 @@ hr {
     color: var(--Light);
     width: 100%;
     padding-bottom: 20px;
-    min-height: 2760px;
+    min-height: 2500px;
 }
 
 #project-caption {
@@ -383,47 +246,8 @@ hr {
     overflow: hidden;
 }
 
-.project-card-condensed-info {
-    display: inline;
-    width:100%;
-}
-
-h3 {
-    font-size: 30px;
-    margin-bottom:10px;
-    text-align: left;
-    margin-top:10px;
-    position: relative;
-}
-
-p, a {
-    font-size: 16px;
-}
-
-a:link {
-    color: var(--LAccent);
-}
-
-a:visited {
-    color: var(--LAccent2);
-}
-
-a:hover {
-    color:var(--Dark-Light);
-}
-
-a:active {
-    color: var(--Light);
-}
-
-.link-bold {
-    font-weight: bold;
-}
-
-h4 {
-    font-size: 25px;
-    margin:5px 5px 5px 0px;
-    font-weight: lighter;
+.project-card:hover {
+    cursor: pointer;
 }
 
 /* RESUME SECTION */
@@ -433,12 +257,13 @@ h4 {
     width: 100%;
     color: var(--DMain);
     padding-bottom: 20px;
-    min-height: 570px;
+    min-height: 100vh;
+    padding-top: 40px;
 }
 
 #most-recent-resume {
-    height: 65vh;
-    width: 100%;
+    min-height: 80vh;
+    min-width: 100%;
 }
 
 #resume-container {
@@ -453,11 +278,13 @@ h4 {
 
 /* CONTACT SECTION */
 #contact {
-    background-color: #2B061ECC;
+    background-color: var(--DMainTransparent);
     backdrop-filter: blur(4px);
     color: var(--Light);
     width: 100%;
     align-items: center;
+    min-height: 100vh;
+    padding-top: 40px;
 }
 
 #contact-methods {
@@ -473,15 +300,7 @@ h4 {
     max-width: 70px;
 }
 
-#contact-button {
-    color: var(--LAccent);
-}
-
 #contact-form {
     width: 100% !important; 
     height: 520px !important
-}
-
-label {
-    font-family: 'Alegreya Sans', sans-serif;
 }

@@ -5,7 +5,8 @@ function loadData() {
         loadAbout(responseData.data.about);
         loadSkills(responseData.data.skills);
         loadProjects(responseData.data.projects);
-    })
+    });
+    iFrameResize( { log: true }, '#most-recent-resume');
 }
 
 function loadAbout(aboutData) {
@@ -30,18 +31,10 @@ function loadSkills(skillsData) {
             skillImage.style.backgroundColor = 'white';
         }
 
-        // Create skillbar and skillbar fill elements to show proficiency in each skill
-        const skillbar = document.createElement('div');
-        skillbar.classList.add("progress-bar");
-        const skillbarFill = document.createElement('span');
-        skillbarFill.classList.add("progress-bar-fill");
-        skillbarFill.style.width = skill.skillValue + "%";
-        skillbar.appendChild(skillbarFill);
-
         const skillDiv = document.createElement('div');
         skillDiv.classList.add('skill-div')
 
-        skillDiv.append(skillImage, skillName, skillbar);
+        skillDiv.append(skillImage, skillName);
         skillsContainer.appendChild(skillDiv);
     }
 }
@@ -57,12 +50,17 @@ function loadProjects(projectsData) {
         } else {
             img.display = 'None';
         }
+
+        const condense = document.createElement('div');
+        condense.classList.add('condensed-info');
         
         const name = document.createElement('h3');
         name.innerHTML = project.name;
 
         const year = document.createElement('h4');
         year.innerHTML = project.year;
+
+        condense.append(name, year)
 
         const des = document.createElement('p');
         des.innerHTML = project.blurb;
@@ -76,7 +74,10 @@ function loadProjects(projectsData) {
 
         projectDiv = document.createElement('div');
         projectDiv.classList.add('project-card');
-        projectDiv.append(img, name, year, des, more);
+        projectDiv.append(img, condense, des, more);
+        projectDiv.onclick = function() {
+            showMoreProjectInfo(project.projectNum);
+        }
         
         projectsContainer.appendChild(projectDiv);
     }
@@ -86,26 +87,54 @@ function loadProjects(projectsData) {
 /////////////////////////////////////////
 function logoAction() {
     document.getElementById('top').scrollIntoView();
+    closeMenu()
+}
+
+function homeAction() {
+    document.getElementById('top').scrollIntoView();
+    closeMenu()
 }
 
 function aboutAction() {
-    document.getElementById('top').scrollIntoView();
-    toggleMenu()
+    document.getElementById('about').scrollIntoView();
+    closeMenu()
 }
 
 function projectAction() {
     document.getElementById('projects').scrollIntoView();
-    toggleMenu()
+    closeMenu()
 }
 
 function resumeAction() {
     document.getElementById('resume').scrollIntoView();
-    toggleMenu()
+    closeMenu()
 }
 
 function contactAction() {
     document.getElementById('contact').scrollIntoView();
-    toggleMenu()
+    closeMenu()
+}
+
+function ctaAction() {
+    document.getElementById('projects').scrollIntoView();
+    closeMenu()
+}
+
+function closeMenu() {
+    const navbar = document.getElementsByTagName('nav')[0]
+    const logo = document.getElementById('toggle-logo')
+
+    if(logo.display != 'none') {
+        if(logo.classList.contains('hamburg')) {
+            // The menu is already closed
+            return;
+        }
+
+        // The menu is 'close' (or the 'X' icon). Change to hamburg
+        logo.src = "../static/images/hamburger-icon.svg";
+        logo.classList.replace('close', 'hamburg');
+        navbar.style.left = '-70%';
+    }
 }
 
 function toggleMenu() {
@@ -115,12 +144,12 @@ function toggleMenu() {
     if(logo.display != 'none') {
         if(logo.classList.contains('hamburg')) {
             // Change to close
-            logo.src = "../static/images/mobile_nav_X.png";
+            logo.src = "../static/images/x-icon.svg";
             logo.classList.replace('hamburg', 'close');
             navbar.style.left = "0px";
         } else {
             // Change to hamburg
-            logo.src = "../static/images/mobile_nav_hamburg.png";
+            logo.src = "../static/images/hamburger-icon.svg";
             logo.classList.replace('close', 'hamburg');
             navbar.style.left = '-70%';
         }
@@ -142,14 +171,14 @@ function showMoreProjectInfo(projectID) {
     location.href = '/project/' + projectID
 }
 
-////////////////////
+//////////////////////
 // Scroll Functions //
-////////////////////
+//////////////////////
 // Paralax scrolling method adapted from https://stackoverflow.com/questions/29240028/css-make-a-background-image-scroll-slower-than-everything-else
 var prevScrollpos = window.pageYOffset;
 window.addEventListener('scroll', () => {
     const currentScrollPos = window.pageYOffset;
-    var factor = 0.5;
+    var factor = 0.7;
     var yvalue = currentScrollPos * factor;
     document.body.style.backgroundPosition = "center " + yvalue + "px";
     
@@ -163,4 +192,16 @@ window.addEventListener('scroll', () => {
         }
         prevScrollpos = currentScrollPos;
     }
+});
+
+//////////////////////////////////////////////
+// Get the height offset                    //
+// (to account for mobile device interface) //
+//////////////////////////////////////////////
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', vh + 'px');
+
+window.addEventListener('resize', () => {
+    vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', vh + 'px');
 });

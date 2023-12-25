@@ -9,7 +9,7 @@ def getData():
     results["about"] = list(client.query(kind="about_description").fetch())
     
     projectQuery = client.query(kind="projects")
-    projectQuery.order = ["-year"]
+    projectQuery.order = ["projectNum"]
     results["projects"] = list(projectQuery.fetch())
 
     skillsQuery = client.query(kind="about_skills")
