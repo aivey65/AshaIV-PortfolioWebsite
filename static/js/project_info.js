@@ -73,7 +73,7 @@ function loadProjects(projectsData) {
         const leftButton = document.createElement('button');
         const rightButton = document.createElement('button');
 
-        if (project.images != "" && project.images.length != 0) {
+        if ((project.images != "" && project.images.length != 0) || project.videoURL != "") {
             // Add image buttons
             leftButtonDiv.onclick = function() { slideRight();}
             leftButtonDiv.id = 'left-slide-div';
