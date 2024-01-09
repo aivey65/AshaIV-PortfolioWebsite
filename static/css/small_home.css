@@ -31,8 +31,8 @@ p, a {
 .mobile-nav {
     display: flex;
     justify-content: space-between;
-    color: var(--Light);
-    background-color: var(--Light);
+    color: var(--Dark);
+    background-color: var(--Dark);
     z-index: 2;
 
     top: 0;
@@ -72,7 +72,7 @@ nav {
 }
 
 nav .nav_button {
-    color: var(--Light);
+    color: var(--Dark);
     display: block;
     height: 100%;
     width: 100%;
@@ -101,7 +101,7 @@ nav .nav_button {
 
 /* BODY CONTENT STYLES */
 .beginning {
-    background-color: var(--DMain);
+    background-color: var(--Background);
     display: flex;
     flex-direction: column;
 }
@@ -127,8 +127,8 @@ nav .nav_button {
 
 /* ABOUT SECTION */
 #about {
-    color: var(--Light);
-    background-color: var(--DMain);
+    color: var(--Dark);
+    background-color: var(--Background);
     min-height: 1330px;
 }
 
@@ -222,8 +222,8 @@ nav .nav_button {
 
 /* PROJECTS & EXPERIENCE SECTION */
 #projects {
-    background: var(--DMain);
-    color: var(--Light);
+    background: var(--Background);
+    color: var(--Dark);
     width: 100%;
     padding-bottom: 20px;
     min-height: 2500px;
@@ -239,7 +239,7 @@ nav .nav_button {
 
 .project-card {
     background: var(--faded);
-    color: var(--Light);
+    color: var(--Dark);
     padding: 20px;
     margin: 10px;
     border-radius: 20px;
@@ -255,7 +255,7 @@ nav .nav_button {
     background: var(--LMain);
     align-items: center;
     width: 100%;
-    color: var(--DMain);
+    color: var(--Background);
     padding-bottom: 20px;
     min-height: 100vh;
     padding-top: 40px;
@@ -278,9 +278,9 @@ nav .nav_button {
 
 /* CONTACT SECTION */
 #contact {
-    background-color: var(--DMainTransparent);
+    background-color: var(--BackgroundTransparent);
     backdrop-filter: blur(4px);
-    color: var(--Light);
+    color: var(--Dark);
     width: 100%;
     align-items: center;
     min-height: 100vh;

@@ -6,7 +6,6 @@ function loadData() {
         loadSkills(responseData.data.skills);
         loadProjects(responseData.data.projects);
     });
-    iFrameResize( { log: true }, '#most-recent-resume');
 }
 
 function loadAbout(aboutData) {
@@ -72,7 +71,7 @@ function loadProjects(projectsData) {
             showMoreProjectInfo(project.projectNum);
         }
 
-        projectDiv = document.createElement('div');
+        const projectDiv = document.createElement('div');
         projectDiv.classList.add('project-card');
         projectDiv.append(img, condense, des, more);
         projectDiv.onclick = function() {
@@ -162,6 +161,10 @@ function toggleMenu() {
 function copyEmail() {
     var email = document.getElementById('email-text');
     navigator.clipboard.writeText(email.innerHTML);
+}
+
+function dist(x1, y1, x2, y2) {
+    return Math.sqrt(((x1 - x2) ** 2) + ((y1 - y2) ** 2))
 }
 
 ////////////////////////////////////////////////////////////////////

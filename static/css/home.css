@@ -1,6 +1,6 @@
 /* GENERAL STYLES */
 h2 {
-    font-size: 80px;
+    font-size: 40px;
     margin: 80px 10px 10px 10px;
     text-align: center;
 }
@@ -31,8 +31,8 @@ img {
 nav {
     display: flex;
     justify-content: space-between;
-    color: var(--Light);
-    background-color: var(--DMain);
+    color: var(--Dark);
+    background-color: var(--BackgroundL);
     z-index: 2;
 
     /* Stick to top */
@@ -57,7 +57,7 @@ nav {
 
 /* BODY CONTENT STYLES */
 .beginning {
-    background-color: var(--DMain);
+    background-color: var(--BackgroundL);
     display: flex;
     flex-direction: column;
 }
@@ -76,6 +76,7 @@ nav {
 #home_title {
     font-size: 10rem;
     grid-column: span 2;   
+    justify-self: center;
 }
 
 .large-title {
@@ -88,7 +89,7 @@ nav {
 
 #about {
     color: var(--Light);
-    background-color: var(--DMain);
+    background-color: var(--BackgroundD);
     min-height: 1270px;
 }
 
@@ -169,8 +170,8 @@ nav {
 
 /* PROJECTS & EXPERIENCE SECTION */
 #projects {
-    background: var(--DMain);
-    color: var(--Light);
+    background: var(--Background);
+    color: var(--Dark);
     min-height: 1330px;
 }
 
@@ -186,18 +187,14 @@ nav {
 }
 
 .project-card {
-    background: var(--faded);
-    color: var(--Light);
+    color: var(--Dark);
     padding: 20px;
     margin: 20px;
     border-radius: 20px;
-    width: 28%;
-    min-width: 270px;
-    max-width: 340px;
-    flex: 1;
 
     display: grid;
     grid-template-rows: .5fr .3fr .2fr;
+    grid-template-columns: 1fr 1fr;
     align-items: start;
     transition: .3s;
 }
@@ -208,11 +205,13 @@ nav {
 }
 
 .project-card p {
-    grid-row: 3;
+    grid-row: 2;
+    grid-column: 2;
 }
 
 .project-card button {
-    grid-row: 4;
+    grid-row: 3;
+    grid-column: 2;
     width: fit-content;
 }
 
@@ -222,11 +221,12 @@ nav {
     padding: 0px 20px 0px 0px;
     max-height: 250px;
     object-fit: cover;
-    grid-row: 1;
+    grid-row: 1/4;
+    grid-column: 1;
 }
 
 .condensed-info {
-    grid-row: 2;
+    grid-row: 1;
     display: inline-block;
 }
 
@@ -235,7 +235,7 @@ nav {
     background: var(--LMain);
     align-items: center;
     width: 100%;
-    color: var(--DMain);
+    color: var(--BackgroundD);
     min-height: 830px;
 }
 
@@ -257,9 +257,9 @@ nav {
 
 /* CONTACT SECTION */
 #contact {
-    background-color: var(--DMainTransparent);
+    background-color: var(--BackgroundTransparent);
     backdrop-filter: blur(4px);
-    color: var(--Light);
+    color: var(--Dark);
     width: 100%;
     align-items: center;
     min-height: 100vh;

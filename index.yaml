@@ -1,0 +1,11 @@
+indexes:
+
+- kind: projects
+  properties:
+  - name: projectNum
+    direction: asc
+
+- kind: about_skills
+  properties:
+  - name: skillValue
+    direction: desc

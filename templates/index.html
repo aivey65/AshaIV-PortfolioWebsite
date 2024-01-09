@@ -15,14 +15,289 @@
 
         <script src='../static/js/home.js'></script>
         <link rel='shortcut icon' sizes='256x256' href='../static/images/ashaiv-favicon-32x32.png'>
+
+        <script type="importmap">
+            {
+              "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/OrbitControls": "https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js"
+              }
+            }
+        </script>
           
         <!-- Font Stuff -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300;400;500&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">    
+        <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300;400;500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">    
     </head>
       
     <body class='beginning' onload="loadData()">
+        <script type="module">
+            import * as THREE from 'three';
+            import { OrbitControls } from 'three/addons/OrbitControls';
+
+            const renderer = new THREE.WebGLRenderer({antialias: true});
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.BasicShadowMap;
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0xEFEFEE);
+            document.getElementById("threejs-container").appendChild(renderer.domElement);
+
+            const scene = new THREE.Scene();
+            // scene.fog = new THREE.Fog(0x2E0F1F, 1, 100);
+
+            const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+            camera.position.z = 50;
+            scene.add(camera);
+
+            const controls = new OrbitControls( camera, renderer.domElement );
+            controls.update();
+
+            // Shape geometry
+            const shapeMaterialObject = {
+                color: 0xC16197,
+                emissive: 0xAFBFE8,
+                roughness: 0.15,
+                ior: 1.5,
+                reflectivity: 1,
+                iridescence: 1,
+            }
+            const shapeMaterial = new THREE.MeshPhysicalMaterial(shapeMaterialObject);
+
+            const boxGeometry = new THREE.BoxGeometry(20, 20, 20);
+            const cube = new THREE.Mesh(boxGeometry, shapeMaterial);
+            cube.receiveShadow = true;
+            cube.castShadow = true;
+            scene.add(cube);
+
+            const octoGeometry = new THREE.OctahedronGeometry(10, 0);
+            const octo = new THREE.Mesh(octoGeometry, shapeMaterial);
+            octo.receiveShadow = true;
+            octo.castShadow = true;
+            scene.add(octo);
+
+            const torusGeometry = new THREE.TorusGeometry(10, 2, 10, 80); 
+            const torus = new THREE.Mesh(torusGeometry, shapeMaterial); 
+            torus.receiveShadow = true;
+            torus.castShadow = true;
+            scene.add(torus);
+
+            const cylinderGeometry = new THREE.CylinderGeometry(10, 10, 28, 6); 
+            const cylinder = new THREE.Mesh(cylinderGeometry, shapeMaterial); 
+            cylinder.receiveShadow = true;
+            cylinder.castShadow = true;
+            scene.add(cylinder);
+
+            // Lights
+            // const light = new THREE.AmbientLight(0xE5FCFF); // soft white light
+            // scene.add(light);
+
+            const directionalLight = new THREE.DirectionalLight(0xAFBFE8, 1);
+            directionalLight.castShadow = true;
+            directionalLight.position.set(0, 100, 0);
+            scene.add(directionalLight);  
+
+            const pinkLight = new THREE.DirectionalLight(0xC16197, 1);
+            pinkLight.position.set(-100, 0, 0);
+            scene.add(pinkLight);  
+
+            const greenLight = new THREE.DirectionalLight(0x54F8A8, 1);
+            greenLight.position.set(0, -100, 0);
+            scene.add(greenLight);  
+
+            const hemisphereLight = new THREE.HemisphereLight(0xE5FCFF, 0x80254C, 1);
+            scene.add(hemisphereLight);
+
+            /////////////////////////////
+            // Animate Object Movement //
+            /////////////////////////////
+            var cubePosition = {
+                x: 0,
+                y: -20,
+                newX: 0,
+                newY: 0,
+            }
+
+            cube.position.x = cubePosition.x;
+            cube.position.y = cubePosition.y;
+            cube.position.z = 0;
+
+            var torusPosition = {
+                x: 40,
+                y: -30,
+                newX: 0,
+                newY: 0,
+            }
+
+            torus.position.x = torusPosition.x;
+            torus.position.y = torusPosition.y;
+            torus.position.z = -10;
+
+            var octoPosition = {
+                x: -55,
+                y: 30,
+                newX: 0,
+                newY: 0,
+            }
+
+            octo.position.x = octoPosition.x;
+            octo.position.y = octoPosition.y;
+            octo.position.z = -20;
+
+            var cylinderPosition = {
+                x: -50,
+                y: 5,
+                newX: 0,
+                newY: 0,
+            }
+
+            cylinder.position.x = cylinderPosition.x;
+            cylinder.position.y = cylinderPosition.y;
+            cylinder.position.z = -40;
+
+            var mousePosition = {
+                x: 0,
+                y: 0,
+            }
+
+            function animate() {
+                requestAnimationFrame(animate);
+
+                // Spin rate
+                var spinRate;
+
+                // Cube distance from mouse to determine movement speed
+                const cubeDistance = dist(cubePosition.newX, cubePosition.newY, cube.position.x, cube.position.y);
+                var cubeRate;
+                if (Math.abs(cubeDistance) > 20) {
+                    cubeRate = 0.08;
+                    spinRate = 0.2;
+                } else {
+                    cubeRate = 0.05;
+                    spinRate = 0.1;
+                }
+
+                cube.position.x += (cubePosition.newX - cube.position.x) * cubeRate;
+                cube.position.y += (cubePosition.newY - cube.position.y) * cubeRate;
+                cube.rotation.x = (cube.rotation.x + cubeRate * spinRate) % 360;
+                cube.rotation.y = (cube.rotation.x + cubeRate * spinRate) % 360;
+                cube.rotation.z = (cube.rotation.x + cubeRate * spinRate) % 360;
+
+                // octahedron distance from mouse to determine movement speed
+                const octoDistance = dist(octoPosition.newX, octoPosition.newY, octo.position.x, octo.position.y);
+                var octoRate;
+                if (Math.abs(octoDistance) > 20) {
+                    octoRate = 0.08;
+                    spinRate = 0.4;
+                } else {
+                    octoRate = 0.05;
+                    spinRate = 0.3;
+                }
+                
+                octo.position.x += (octoPosition.newX - octo.position.x) * octoRate;
+                octo.position.y += (octoPosition.newY - octo.position.y) * octoRate;
+                octo.rotation.x = (octo.rotation.x + octoRate * spinRate) % 360;
+                octo.rotation.y = (octo.rotation.x + octoRate * spinRate) % 360;
+                octo.rotation.z = (octo.rotation.x + octoRate * spinRate) % 360;
+
+                // Torus distance from mouse to determine movement speed
+                const torusDistance = dist(torusPosition.newX, torusPosition.newY, torus.position.x, torus.position.y);
+                var torusRate;
+                if (Math.abs(torusDistance) > 20) {
+                    torusRate = 0.08;
+                    spinRate = 0.3;
+                } else {
+                    torusRate = 0.05;
+                    spinRate = 0.05;
+                }
+                
+                torus.position.x += (torusPosition.newX - torus.position.x) * torusRate;
+                torus.position.y += (torusPosition.newY - torus.position.y) * torusRate;
+                torus.rotation.x = (torus.rotation.x + torusRate * spinRate) % 360;
+                torus.rotation.y = (torus.rotation.x + torusRate * spinRate) % 360;
+                torus.rotation.z = (torus.rotation.x + torusRate * spinRate) % 360;
+
+                // Cylinder distance from mouse to determine movement speed
+                const cylinderDistance = dist(cylinderPosition.newX, cylinderPosition.newY, cylinder.position.x, cylinder.position.y);
+                var cylinderRate;
+                if (Math.abs(cylinderDistance) > 20) {
+                    cylinderRate = 0.08;
+                    spinRate = 0.3;
+                } else {
+                    cylinderRate = 0.05;
+                    spinRate = 0.2;
+                }
+                
+                cylinder.position.x += (cylinderPosition.newX - cylinder.position.x) * cylinderRate;
+                cylinder.position.y += (cylinderPosition.newY - cylinder.position.y) * cylinderRate;
+                cylinder.rotation.x = (cylinder.rotation.x + cylinderRate * spinRate) % 360;
+                cylinder.rotation.y = (cylinder.rotation.x + cylinderRate * spinRate) % 360;
+                cylinder.rotation.z = (cylinder.rotation.x + cylinderRate * spinRate) % 360;
+
+                renderer.render(scene, camera);
+            }
+
+
+            function updateObjectLocations(clientX, clientY, mouseX, mouseY) {  
+                // Ratios determine how close to the mouse location should the object go
+                const cubeRatio = .2;
+                const torusRatio = .1;
+                const octoRatio = .15;
+                const cylinderRatio = .3;
+
+                // Set cube 'new' positions so that the object can be animated towards that location
+                cubePosition.newX = cubePosition.x + (cubeRatio * mouseX);
+                cubePosition.newY = cubePosition.y + (cubeRatio * mouseY);
+
+                // Set octo 'new' positions so that the object can be animated towards that location
+                octoPosition.newX = octoPosition.x + (octoRatio * mouseX);
+                octoPosition.newY = octoPosition.y + (octoRatio * mouseY);
+
+                // Set torus 'new' positions 
+                torusPosition.newX = torusPosition.x + (torusRatio * mouseX);
+                torusPosition.newY = torusPosition.y + (torusRatio * mouseY);
+
+                // Set cylinder 'new' positions 
+                cylinderPosition.newX = cylinderPosition.x + (cylinderRatio * mouseX);
+                cylinderPosition.newY = cylinderPosition.y + (cylinderRatio * mouseY);
+            }
+
+            window.addEventListener("mousemove", (event) => {
+                // Get mouse distance from center of window
+                const mouseX = event.clientX - (window.innerWidth / 2);
+                const mouseY = -1 * (event.clientY - (window.innerHeight / 2));
+
+                // Create a vector in 3d space for mouse coordinates
+                var mouseVector = new THREE.Vector3();
+                var mousePos = new THREE.Vector3();
+
+                mouseVector.set(mouseX, mouseY, 0);
+                mouseVector.unproject(camera);
+    
+                var distance = camera.position.z / mouseVector.z;
+    
+                mousePos.copy(camera.position).add(mouseVector.multiplyScalar(distance));
+
+                // Save new mouse coordinates
+                mousePosition.x = mousePos.getComponent(0);
+                mousePosition.y = mousePos.getComponent(1);
+
+                updateObjectLocations(event.clientX, event.clientY, mousePosition.x, mousePosition.y);
+            });
+
+            window.addEventListener("resize", () => {
+                const width = window.innerWidth;
+                const height = window.innerHeight;
+                
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                renderer.setSize(width, height);
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            });
+
+            animate();
+        </script>
+
         <div id='top' display='none'></div>
 
         <div class="mobile-nav mobile-nav-bar">
@@ -41,6 +316,8 @@
             <button class='nav_button' onclick='resumeAction()'>Resume</button>
             <button class='nav_button' onclick='contactAction()'>Contact</button>
         </nav> 
+
+        <div id="threejs-container"></div>
 
         <div id='home' class='container'>
             <h4 id="greetingA">Hi, my name is </h4>
@@ -90,9 +367,39 @@
         </div>
 
         <div id='contact' class="container">
+            <div>
+                <img id="plant1" class="hero-plants" src="../static/images/hero-leaves/leaf1.svg" alt="Hero Leaf 1">
+                <img id="plant2" class="hero-plants" src="../static/images/hero-leaves/leaf2.svg" alt="Hero Leaf 2">
+                <img id="plant3" class="hero-plants" src="../static/images/hero-leaves/leaf3.svg" alt="Hero Leaf 3">
+                <img id="plant4" class="hero-plants" src="../static/images/hero-leaves/leaf4.svg" alt="Hero Leaf 4">
+                <img id="plant5" class="hero-plants" src="../static/images/hero-leaves/leaf1.svg" alt="Hero Leaf 5">
+            </div>
             <h2>Contact Me</h2>
 
-            <iframe id="contact-form" src="//www.abcsubmit.com/view/id_1g550p0mh_140s?isEmbed=1&utm=abcsubmit" data-role="abcsubmit-form-embed" frameborder="0" scrolling="no" style="display: block; margin-left: auto; margin-right:auto; padding: 0 !important;" ></iframe>
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="5c5de659-ad1d-4cde-802b-b4372560e55b">
+                <input type="hidden" name="subject" value="New Submission from Web3Forms">
+            
+                <div id="name-div">
+                    <label class="required-input" for="name">Name</label>
+                    <input type="text" name="name" required>
+                </div>
+
+                <div id="email-div">
+                    <label class="required-input" for="email">Email</label>
+                    <input type="email" name="email" required>
+                </div>
+
+                <div id="message-div">
+                    <label class="required-input" for="message">Message</label>
+                    <textarea name="message" rows="4" cols="50" required></textarea>
+                </div>
+                
+                <button class="cta-button" type="submit">Submit</button>
+            
+            </form>
+            
+            <script src="https://web3forms.com/client/script.js" async defer></script>
             
             <div id='contact-methods'> 
                 <div class='contact-icon'>

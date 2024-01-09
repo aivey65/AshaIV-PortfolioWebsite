@@ -6,15 +6,15 @@ font-family: 'Alegreya Sans', sans-serif;
 Defining color values to make it easier to change later on 
 */
 :root {
-    --DMain: #36091e;
-    --DMainTransparent: #36091ECC;
-    --LMain: #93f4d6;
-    --Light: #FFE2D1;
-    --Dark: #12020D;
-    --Dark-Light: #52474f;
-    --Dark-Dark:#220518;
-    --LAccent: #f6bebb;
-    --LAccent2: #A27080;
+    --BackgroundD: #64393A;
+    --BackgroundL: #EFEFEE;
+    --LMain: #CA7D6C;
+    --Light: #EFEFEE;
+    --Dark: #412929;
+    --Dark-Light: #64393A;
+    --DAccent: #6A7D7E;
+    --LAccent: #B99571;
+    --LAccent2: #A47E64;
     --faded: rgb(0, 0, 0, .2);
 }
 * {
@@ -35,14 +35,14 @@ html, body {
 h1, h2, h3, h4, body {
     font-family: 'Alegreya Sans', sans-serif;
     font-weight: 300;
-    color: var(--Light);
+    color: var(--Dark);
 }
 
 nav {
     display: flex;
     justify-content: space-between;
-    color: var(--Light);
-    background-color: var(--DMain);
+    color: var(--Dark);
+    background-color: var(--Background);
     z-index: 2;
 
     /* Stick to top */
@@ -57,8 +57,8 @@ nav {
 .mobile-nav {
     display: flex;
     justify-content: space-between;
-    color: var(--Light);
-    background-color: var(--Light);
+    color: var(--Dark);
+    background-color: var(--Dark);
     z-index: 2;
 
     top: 0;
@@ -98,7 +98,7 @@ nav {
 }
 
 nav .nav_button {
-    color: var(--Light);
+    color: var(--Dark);
     display: block;
     height: 100%;
     width: 100%;
@@ -131,7 +131,7 @@ button {
 
 /* Body Beginning and End Styles */
 .beginning {
-    background-color: var(--DMain);
+    background-color: var(--Background);
     display: flex;
     flex-direction: column;
 }
@@ -168,11 +168,11 @@ a:visited {
 }
 
 a:hover {
-    color:var(--Light);
+    color:var(--Dark);
 }
 
 a:active {
-    color: var(--DMain);
+    color: var(--Background);
 }
 
 .link-bold {

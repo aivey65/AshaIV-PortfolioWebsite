@@ -7,15 +7,15 @@ font-family: 'Poppins', sans-serif;
 Defining color values to make it easier to change later on 
 */
 :root {
-    --DMain: #36091e;
-    --DMainTransparent: #36091ECC;
-    --LMain: #93f4d6;
-    --Light: #FFE2D1;
-    --Dark: #12020D;
-    --Dark-Light: #52474f;
-    --Dark-Dark:#220518;
-    --LAccent: #f6bebb;
-    --LAccent2: #A27080;
+    --BackgroundD: #2E0F1F;
+    --BackgroundL: #E5FCFF;
+    --LMain: #AE3C6F;
+    --Light: #E5FCFF;
+    --Dark: #2E0F1F;
+    --Dark-Light: #80254C;
+    --DAccent: #C16197;
+    --LAccent: #AFBFE8;
+    --LAccent2: #B48FC6;
     --faded: rgb(0, 0, 0, .2);
 }
 * {
@@ -30,10 +30,10 @@ html, body {
 }
 
 body {
-    background-color: var(--DMain);
     background-attachment: scroll;
     background-size: cover;
     min-width: 370px;
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, body {
@@ -58,7 +58,7 @@ a:hover {
 }
 
 a:active {
-    color: var(--Light);
+    color: var(--Dark);
 }
 
 .link-bold {
@@ -135,29 +135,80 @@ button {
     text-align: left;
     justify-items: left;
     align-items: end;
-    color: var(--Light);
-    background-color: var(--DMain);
+    color: var(--Dark);
+    background-color: var(--BackgroundL);
     display: grid;
     grid-template-rows: .4fr .1fr .3fr .1fr .1fr 1fr;
+}
+
+#threejs-container {
+    position: absolute;
+}
+
+.hero-plants {
+    width: auto;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+
+#plant1 {
+    top: 0%;
+    left: -30%;
+    height: 100vh;
+    width: 100%;
+}
+
+#plant2 {
+    top: -20%;
+    left: 0%;
+    width: 100%;
+    height: auto;
+    transform: rotate(10deg);
+}
+
+#plant3 {
+    top: 25%;
+    left: -5%;
+    transform: rotate(-20deg);
+}
+
+#plant4 {
+    top: 0%;
+    right: -20%;
+    transform: rotate(20deg);
+}
+
+#plant5 {
+    top: -10%;
+    left: -20%;
+    transform: rotate(75deg);
 }
 
 #greetingA {
     text-align: left;
     grid-row: 2;
+    z-index: +1;
+    color: var(--Dark);
+    font-weight: 300;
 }
 
 #greetingB {
     text-align: left;
     grid-row: 4;
+    z-index: +1;
+    color: var(--Dark);
+    font-weight: 300;
 }
 
 #home_title {
     grid-row: 3;
     font-family: 'Poppins', sans-serif;
-    font-weight: 400;
+    font-weight: 600;
     padding-bottom: 0px;
     margin: 0px;
-    color: var(--LAccent);
+    color: var(--Dark-Light);
+    z-index: +1;
 }
 
 @keyframes MoveUpDown {
@@ -169,17 +220,60 @@ button {
     }
 }
 
+/*
+*** Form styles
+*/
+input {
+    cursor: pointer;
+}
+
+input[type='text'], textarea, input[type='email'] {
+    background-color: var(--BackgroundL);
+    border-radius: 1em;
+    border: none;
+    padding: 1rem;
+
+}
+
+input[type='text'] {
+    width: 120px;
+}
+
+button:focus {
+    outline: 5px auto var(--blue);
+    outline: 5px auto -webkit-focus-ring-color;
+}
+
+.required-input::after {
+    content: " *";
+    color: var(--MainD);
+}
+
+.cta-button {
+    background-color: var(--ContrastL) !important;
+    color: var(--Dark);
+    border: none;
+}
+
+.label {
+    margin: 0px;
+    color: var(--MainL);
+    font-weight: 400;
+}
+
 #cta {
     font-weight: 500;
     text-decoration: none;
-    background-color: var(--LMain);
+    background-color: var(--DAccent);
     border-radius: 8px;
-    color: var(--Dark);
+    color: var(--BackgroundL);
     padding: 10px 25px 10px 25px;
     transition: .3s;
-    align-items: center;
+    justify-self: center;
     grid-row: 5;
+    grid-column: 2;
     margin-top: 30px;
+    z-index: +1;
 }
 
 #cta:hover {

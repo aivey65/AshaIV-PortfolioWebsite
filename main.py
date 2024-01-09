@@ -1,5 +1,6 @@
 from flask import Flask, redirect, render_template
 from database import getData, getProject
+import os
 
 app = Flask(__name__, template_folder="templates")
 
@@ -21,5 +22,8 @@ def loadProjectData(projectID):
     return getProject(projectID)
 
 @app.route("/load-data")
-def loadDatabaseData():    
-    return getData()
+def loadDatabaseData():  
+    try:  
+        return getData()
+    except Exception as e:
+        print(e)
