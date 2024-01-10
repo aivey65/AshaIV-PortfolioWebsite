@@ -168,6 +168,7 @@
 
                 // Spin rate
                 var spinRate;
+                const TAU = Math.PI * 2;
 
                 // Cube distance from mouse to determine movement speed
                 const cubeDistance = dist(cubePosition.newX, cubePosition.newY, cube.position.x, cube.position.y);
@@ -182,9 +183,9 @@
 
                 cube.position.x += (cubePosition.newX - cube.position.x) * cubeRate;
                 cube.position.y += (cubePosition.newY - cube.position.y) * cubeRate;
-                cube.rotation.x = (cube.rotation.x + cubeRate * spinRate) % 360;
-                cube.rotation.y = (cube.rotation.y + cubeRate * spinRate) % 360;
-                cube.rotation.z = (cube.rotation.z + cubeRate * spinRate) % 360;
+                cube.rotation.x = (cube.rotation.x + cubeRate * spinRate) % TAU;
+                cube.rotation.y = (cube.rotation.y + cubeRate * spinRate) % TAU;
+                cube.rotation.z = (cube.rotation.z + cubeRate * spinRate) % TAU;
 
                 // octahedron distance from mouse to determine movement speed
                 const octoDistance = dist(octoPosition.newX, octoPosition.newY, octo.position.x, octo.position.y);
@@ -199,9 +200,9 @@
                 
                 octo.position.x += (octoPosition.newX - octo.position.x) * octoRate;
                 octo.position.y += (octoPosition.newY - octo.position.y) * octoRate;
-                octo.rotation.x = (octo.rotation.x + octoRate * spinRate) % 360;
-                octo.rotation.y = (octo.rotation.y + octoRate * spinRate) % 360;
-                octo.rotation.z = (octo.rotation.z + octoRate * spinRate) % 360;
+                octo.rotation.x = (octo.rotation.x + octoRate * spinRate) % TAU;
+                octo.rotation.y = (octo.rotation.y + octoRate * spinRate) % TAU;
+                octo.rotation.z = (octo.rotation.z + octoRate * spinRate) % TAU;
 
                 // Torus distance from mouse to determine movement speed
                 const torusDistance = dist(torusPosition.newX, torusPosition.newY, torus.position.x, torus.position.y);
@@ -223,9 +224,9 @@
                     torus.rotation.y += ((0 - torus.rotation.y) * torusRate);
                     torus.rotation.z += ((0 - torus.rotation.z) * torusRate);
                 } else {
-                    torus.rotation.x = (torus.rotation.x - 0 + torusRate * spinRate) % 360;
-                    torus.rotation.y = (torus.rotation.y - 0 + torusRate * spinRate) % 360;
-                    torus.rotation.z = (torus.rotation.z - 0 + torusRate * spinRate) % 360;
+                    torus.rotation.x = (torus.rotation.x - 0 + torusRate * spinRate) % TAU;
+                    torus.rotation.y = (torus.rotation.y - 0 + torusRate * spinRate) % TAU;
+                    torus.rotation.z = (torus.rotation.z - 0 + torusRate * spinRate) % TAU;
                 }
 
                 // Cylinder distance from mouse to determine movement speed
@@ -241,9 +242,9 @@
                 
                 cylinder.position.x += (cylinderPosition.newX - cylinder.position.x) * cylinderRate;
                 cylinder.position.y += (cylinderPosition.newY - cylinder.position.y) * cylinderRate;
-                cylinder.rotation.x = (cylinder.rotation.x + cylinderRate * spinRate) % 360;
-                cylinder.rotation.y = (cylinder.rotation.y + cylinderRate * spinRate) % 360;
-                cylinder.rotation.z = (cylinder.rotation.z + cylinderRate * spinRate) % 360;
+                cylinder.rotation.x = (cylinder.rotation.x + cylinderRate * spinRate) % TAU;
+                cylinder.rotation.y = (cylinder.rotation.y + cylinderRate * spinRate) % TAU;
+                cylinder.rotation.z = (cylinder.rotation.z + cylinderRate * spinRate) % TAU;
 
                 renderer.render(scene, camera);
             }
