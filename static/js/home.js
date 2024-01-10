@@ -9,7 +9,7 @@ function loadData() {
 }
 
 function loadAbout(aboutData) {
-    const greetingContainer = document.getElementById('greetingB');
+    const greetingContainer = document.getElementById('greeting');
     greetingContainer.innerHTML = aboutData[0].greeting;
 
     const aboutContainer = document.getElementById('about-description');

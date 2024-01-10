@@ -8,10 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
         <link rel='stylesheet' href='../static/css/style.css'>
-        <link rel='stylesheet' media='screen and (min-width:901px) and (min-height:551px)' href='../static/css/home.css'>
-        <link rel='stylesheet' media='screen and (max-height:550px)' href='../static/css/medium_home.css'>
-        <link rel='stylesheet' media='screen and (max-width:900px)' href='../static/css/medium_skinny_home.css'>
-        <link rel='stylesheet' media='screen and (max-width:768px)' href='../static/css/small_home.css'>
+        <link rel='stylesheet' media='screen and (min-width:768px)' href='../static/css/home.css'>
+        <link rel='stylesheet' media='screen and (max-width:767px)' href='../static/css/home_small.css'>
 
         <script src='../static/js/home.js'></script>
         <link rel='shortcut icon' sizes='256x256' href='../static/images/ashaiv-favicon-32x32.png'>
@@ -41,26 +39,38 @@
             renderer.shadowMap.type = THREE.BasicShadowMap;
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.setClearColor(0xEFEFEE);
+            
             document.getElementById("threejs-container").appendChild(renderer.domElement);
 
             const scene = new THREE.Scene();
-            // scene.fog = new THREE.Fog(0x2E0F1F, 1, 100);
+            scene.fog = new THREE.Fog(0x2E0F1F, 100, 500);
 
-            const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
             camera.position.z = 50;
             scene.add(camera);
 
-            const controls = new OrbitControls( camera, renderer.domElement );
-            controls.update();
+            // const controls = new OrbitControls( camera, renderer.domElement );
+            // controls.update();
 
-            // Shape geometry
+            // SHAPE GEOMETRY //
+            const loader = new THREE.TextureLoader();
+            const occlusionMap = loader.load('/static/images/MetalTexture/AOMap.png');
+            const specularMap = loader.load('/static/images/MetalTexture/SpecularMap.png');
+
+            occlusionMap.colorSpace = THREE.SRGBColorSpace;
+            specularMap.colorSpace = THREE.SRGBColorSpace;
+
             const shapeMaterialObject = {
-                color: 0xC16197,
-                emissive: 0xAFBFE8,
-                roughness: 0.15,
+                color: 0xE5FCFF,
+                emissive: 0x2E0F1F,
+                roughness: .4,
                 ior: 1.5,
                 reflectivity: 1,
                 iridescence: 1,
+                aoMap: occlusionMap,
+                aoMapIntensity: 0.2,
+                lightMap: specularMap,
+                lightMapIntensity: 0.2,
             }
             const shapeMaterial = new THREE.MeshPhysicalMaterial(shapeMaterialObject);
 
@@ -76,36 +86,36 @@
             octo.castShadow = true;
             scene.add(octo);
 
-            const torusGeometry = new THREE.TorusGeometry(10, 2, 10, 80); 
+            const torusGeometry = new THREE.TorusGeometry(10, 2, 14, 80); 
             const torus = new THREE.Mesh(torusGeometry, shapeMaterial); 
             torus.receiveShadow = true;
             torus.castShadow = true;
             scene.add(torus);
 
-            const cylinderGeometry = new THREE.CylinderGeometry(10, 10, 28, 6); 
+            const cylinderGeometry = new THREE.CylinderGeometry(10, 10, 28, 30); 
             const cylinder = new THREE.Mesh(cylinderGeometry, shapeMaterial); 
             cylinder.receiveShadow = true;
             cylinder.castShadow = true;
             scene.add(cylinder);
 
-            // Lights
-            // const light = new THREE.AmbientLight(0xE5FCFF); // soft white light
-            // scene.add(light);
+            // LIGHTS //
+            const mainLight = new THREE.DirectionalLight(0xAFBFE8, 1.5);
+            mainLight.position.set(-100, 50, 0);
+            scene.add(mainLight);  
 
-            const directionalLight = new THREE.DirectionalLight(0xAFBFE8, 1);
-            directionalLight.castShadow = true;
-            directionalLight.position.set(0, 100, 0);
-            scene.add(directionalLight);  
+            const pinkLight = new THREE.DirectionalLight(0xC16197, 1.5);
+            pinkLight.position.set(-100, -50, 0);
+            scene.add(pinkLight); 
 
-            const pinkLight = new THREE.DirectionalLight(0xC16197, 1);
-            pinkLight.position.set(-100, 0, 0);
-            scene.add(pinkLight);  
+            const yellowLight = new THREE.DirectionalLight(0xF0E85B, 1.5);
+            yellowLight.position.set(100, -50, 0);
+            scene.add(yellowLight); 
 
-            const greenLight = new THREE.DirectionalLight(0x54F8A8, 1);
-            greenLight.position.set(0, -100, 0);
+            const greenLight = new THREE.DirectionalLight(0x15E066, 0.5);
+            greenLight.position.set(100, 50, 0);
             scene.add(greenLight);  
 
-            const hemisphereLight = new THREE.HemisphereLight(0xE5FCFF, 0x80254C, 1);
+            const hemisphereLight = new THREE.HemisphereLight(0xE5FCFF, 0xB48FC6, 2.5);
             scene.add(hemisphereLight);
 
             /////////////////////////////
@@ -118,8 +128,6 @@
                 newY: 0,
             }
 
-            cube.position.x = cubePosition.x;
-            cube.position.y = cubePosition.y;
             cube.position.z = 0;
 
             var torusPosition = {
@@ -129,8 +137,6 @@
                 newY: 0,
             }
 
-            torus.position.x = torusPosition.x;
-            torus.position.y = torusPosition.y;
             torus.position.z = -10;
 
             var octoPosition = {
@@ -140,8 +146,6 @@
                 newY: 0,
             }
 
-            octo.position.x = octoPosition.x;
-            octo.position.y = octoPosition.y;
             octo.position.z = -20;
 
             var cylinderPosition = {
@@ -151,8 +155,6 @@
                 newY: 0,
             }
 
-            cylinder.position.x = cylinderPosition.x;
-            cylinder.position.y = cylinderPosition.y;
             cylinder.position.z = -40;
 
             var mousePosition = {
@@ -180,25 +182,25 @@
                 cube.position.x += (cubePosition.newX - cube.position.x) * cubeRate;
                 cube.position.y += (cubePosition.newY - cube.position.y) * cubeRate;
                 cube.rotation.x = (cube.rotation.x + cubeRate * spinRate) % 360;
-                cube.rotation.y = (cube.rotation.x + cubeRate * spinRate) % 360;
-                cube.rotation.z = (cube.rotation.x + cubeRate * spinRate) % 360;
+                cube.rotation.y = (cube.rotation.y + cubeRate * spinRate) % 360;
+                cube.rotation.z = (cube.rotation.z + cubeRate * spinRate) % 360;
 
                 // octahedron distance from mouse to determine movement speed
                 const octoDistance = dist(octoPosition.newX, octoPosition.newY, octo.position.x, octo.position.y);
                 var octoRate;
                 if (Math.abs(octoDistance) > 20) {
                     octoRate = 0.08;
-                    spinRate = 0.4;
+                    spinRate = 0.3;
                 } else {
                     octoRate = 0.05;
-                    spinRate = 0.3;
+                    spinRate = 0.1;
                 }
                 
                 octo.position.x += (octoPosition.newX - octo.position.x) * octoRate;
                 octo.position.y += (octoPosition.newY - octo.position.y) * octoRate;
                 octo.rotation.x = (octo.rotation.x + octoRate * spinRate) % 360;
-                octo.rotation.y = (octo.rotation.x + octoRate * spinRate) % 360;
-                octo.rotation.z = (octo.rotation.x + octoRate * spinRate) % 360;
+                octo.rotation.y = (octo.rotation.y + octoRate * spinRate) % 360;
+                octo.rotation.z = (octo.rotation.z + octoRate * spinRate) % 360;
 
                 // Torus distance from mouse to determine movement speed
                 const torusDistance = dist(torusPosition.newX, torusPosition.newY, torus.position.x, torus.position.y);
@@ -214,29 +216,42 @@
                 torus.position.x += (torusPosition.newX - torus.position.x) * torusRate;
                 torus.position.y += (torusPosition.newY - torus.position.y) * torusRate;
                 torus.rotation.x = (torus.rotation.x + torusRate * spinRate) % 360;
-                torus.rotation.y = (torus.rotation.x + torusRate * spinRate) % 360;
-                torus.rotation.z = (torus.rotation.x + torusRate * spinRate) % 360;
+                torus.rotation.y = (torus.rotation.y + torusRate * spinRate) % 360;
+                torus.rotation.z = (torus.rotation.z + torusRate * spinRate) % 360;
 
                 // Cylinder distance from mouse to determine movement speed
                 const cylinderDistance = dist(cylinderPosition.newX, cylinderPosition.newY, cylinder.position.x, cylinder.position.y);
                 var cylinderRate;
                 if (Math.abs(cylinderDistance) > 20) {
                     cylinderRate = 0.08;
-                    spinRate = 0.3;
+                    spinRate = 0.1;
                 } else {
                     cylinderRate = 0.05;
-                    spinRate = 0.2;
+                    spinRate = 0.05;
                 }
                 
                 cylinder.position.x += (cylinderPosition.newX - cylinder.position.x) * cylinderRate;
                 cylinder.position.y += (cylinderPosition.newY - cylinder.position.y) * cylinderRate;
                 cylinder.rotation.x = (cylinder.rotation.x + cylinderRate * spinRate) % 360;
-                cylinder.rotation.y = (cylinder.rotation.x + cylinderRate * spinRate) % 360;
-                cylinder.rotation.z = (cylinder.rotation.x + cylinderRate * spinRate) % 360;
+                cylinder.rotation.y = (cylinder.rotation.y + cylinderRate * spinRate) % 360;
+                cylinder.rotation.z = (cylinder.rotation.z + cylinderRate * spinRate) % 360;
 
                 renderer.render(scene, camera);
             }
 
+            function unspreadObjects() {
+                cubePosition.newX = 0;
+                cubePosition.newY = 0;
+
+                octoPosition.newX = 0;
+                octoPosition.newY = 0;
+
+                torusPosition.newX = 0;
+                torusPosition.newY = 0;
+
+                cylinderPosition.newX = 0;
+                cylinderPosition.newY = 0;
+            }
 
             function updateObjectLocations(clientX, clientY, mouseX, mouseY) {  
                 // Ratios determine how close to the mouse location should the object go
@@ -262,27 +277,44 @@
                 cylinderPosition.newY = cylinderPosition.y + (cylinderRatio * mouseY);
             }
 
+            var spreadFlag = false;
+            window.addEventListener("mouseover", (event) => {
+                if (event.target.classList.contains("unspread")) {
+                    spreadFlag = false;
+                }
+            });
+
+            window.addEventListener("mouseout", (event) => {
+                if (event.target.classList.contains("unspread")) {
+                    spreadFlag = true;
+                }
+            });
+
             window.addEventListener("mousemove", (event) => {
-                // Get mouse distance from center of window
-                const mouseX = event.clientX - (window.innerWidth / 2);
-                const mouseY = -1 * (event.clientY - (window.innerHeight / 2));
+                if (spreadFlag) {
+                    // Get mouse distance from center of window
+                    const mouseX = event.clientX - (window.innerWidth / 2);
+                    const mouseY = -1 * (event.clientY - (window.innerHeight / 2));
 
-                // Create a vector in 3d space for mouse coordinates
-                var mouseVector = new THREE.Vector3();
-                var mousePos = new THREE.Vector3();
+                    // Create a vector in 3d space for mouse coordinates
+                    var mouseVector = new THREE.Vector3();
+                    var mousePos = new THREE.Vector3();
 
-                mouseVector.set(mouseX, mouseY, 0);
-                mouseVector.unproject(camera);
-    
-                var distance = camera.position.z / mouseVector.z;
-    
-                mousePos.copy(camera.position).add(mouseVector.multiplyScalar(distance));
+                    mouseVector.set(mouseX, mouseY, 0);
+                    mouseVector.unproject(camera);
+        
+                    var distance = camera.position.z / mouseVector.z;
+        
+                    mousePos.copy(camera.position).add(mouseVector.multiplyScalar(distance));
 
-                // Save new mouse coordinates
-                mousePosition.x = mousePos.getComponent(0);
-                mousePosition.y = mousePos.getComponent(1);
+                    // Save new mouse coordinates
+                    mousePosition.x = mousePos.getComponent(0);
+                    mousePosition.y = mousePos.getComponent(1);
 
-                updateObjectLocations(event.clientX, event.clientY, mousePosition.x, mousePosition.y);
+                    updateObjectLocations(event.clientX, event.clientY, mousePosition.x, mousePosition.y);
+                } else {
+                    unspreadObjects();
+                }
             });
 
             window.addEventListener("resize", () => {
@@ -310,20 +342,19 @@
         </div>
         
         <nav> 
-            <button class='nav_button' onclick='homeAction()'>Home</button>
-            <button class='nav_button' onclick='aboutAction()'>About</button>
-            <button class='nav_button' onclick='projectAction()'>Projects</button>
-            <button class='nav_button' onclick='resumeAction()'>Resume</button>
-            <button class='nav_button' onclick='contactAction()'>Contact</button>
+            <button class='nav_button unspread' onclick='homeAction()'>Home</button>
+            <button class='nav_button unspread' onclick='aboutAction()'>About</button>
+            <button class='nav_button unspread' onclick='projectAction()'>Projects</button>
+            <button class='nav_button unspread' onclick='resumeAction()'>Resume</button>
+            <button class='nav_button unspread' onclick='contactAction()'>Contact</button>
         </nav> 
 
         <div id="threejs-container"></div>
 
         <div id='home' class='container'>
-            <h4 id="greetingA">Hi, my name is </h4>
             <h1 id='home_title'>Asha Ivey</h1>
-            <h4 id="greetingB"></h4>
-            <button id="cta" onclick="ctaAction()">See Projects</button>
+            <h4 id="greeting"></h4>
+            <button id="cta" class="unspread" onclick="ctaAction()">See Projects</button>
             <div id="down-icon-container">
                 <img id='down-icon' onclick='aboutAction()' src="../static/images/down-icon-ashaiv.svg">
             </div>

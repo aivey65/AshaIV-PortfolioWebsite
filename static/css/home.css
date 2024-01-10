@@ -9,7 +9,7 @@ h3 {
     font-size: 35px;
     margin-bottom:10px;
     text-align: left;
-    margin-top:10px;
+    margin-top: 10px;
     position: relative;
 }
 
@@ -52,7 +52,7 @@ nav {
 }
 
 .nav_button:hover {
-    background-color: var(--Dark);
+    background-color: var(--LAccent2);
 }
 
 /* BODY CONTENT STYLES */

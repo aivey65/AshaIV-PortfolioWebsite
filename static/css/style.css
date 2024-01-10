@@ -16,6 +16,7 @@ Defining color values to make it easier to change later on
     --DAccent: #C16197;
     --LAccent: #AFBFE8;
     --LAccent2: #B48FC6;
+    --blue: #6176C2;
     --faded: rgb(0, 0, 0, .2);
 }
 * {
@@ -138,7 +139,7 @@ button {
     color: var(--Dark);
     background-color: var(--BackgroundL);
     display: grid;
-    grid-template-rows: .4fr .1fr .3fr .1fr .1fr 1fr;
+    grid-template-rows: .4fr 1fr 1fr .4fr auto;
 }
 
 #threejs-container {
@@ -185,29 +186,23 @@ button {
     transform: rotate(75deg);
 }
 
-#greetingA {
-    text-align: left;
-    grid-row: 2;
-    z-index: +1;
-    color: var(--Dark);
-    font-weight: 300;
-}
-
-#greetingB {
-    text-align: left;
-    grid-row: 4;
+#greeting {
+    justify-self: center;
+    align-self: start;
+    grid-row: 3;
+    grid-column: 1/3;
     z-index: +1;
     color: var(--Dark);
     font-weight: 300;
 }
 
 #home_title {
-    grid-row: 3;
+    grid-row: 2;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     padding-bottom: 0px;
     margin: 0px;
-    color: var(--Dark-Light);
+    color: var(--LAccent2);
     z-index: +1;
 }
 
@@ -270,7 +265,7 @@ button:focus {
     padding: 10px 25px 10px 25px;
     transition: .3s;
     justify-self: center;
-    grid-row: 5;
+    grid-row: 4;
     grid-column: 2;
     margin-top: 30px;
     z-index: +1;
@@ -302,7 +297,7 @@ button:focus {
 
 #down-icon-container {
     width: 100%;
-    grid-row: 6;
+    grid-row: 5;
     grid-column: span 2;
     display: flex;
     align-items: center;
