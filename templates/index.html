@@ -135,6 +135,7 @@
                 y: -30,
                 newX: 0,
                 newY: 0,
+                spin: true,
             }
 
             torus.position.z = -10;
@@ -215,9 +216,17 @@
                 
                 torus.position.x += (torusPosition.newX - torus.position.x) * torusRate;
                 torus.position.y += (torusPosition.newY - torus.position.y) * torusRate;
-                torus.rotation.x = (torus.rotation.x + torusRate * spinRate) % 360;
-                torus.rotation.y = (torus.rotation.y + torusRate * spinRate) % 360;
-                torus.rotation.z = (torus.rotation.z + torusRate * spinRate) % 360;
+
+                // Torus is used to emphasize CTA button. At that point, it needs to stop spinning
+                if (torus.position.spin == false) {
+                    torus.rotation.x += ((0 - torus.rotation.x) * torusRate);
+                    torus.rotation.y += ((0 - torus.rotation.y) * torusRate);
+                    torus.rotation.z += ((0 - torus.rotation.z) * torusRate);
+                } else {
+                    torus.rotation.x = (torus.rotation.x - 0 + torusRate * spinRate) % 360;
+                    torus.rotation.y = (torus.rotation.y - 0 + torusRate * spinRate) % 360;
+                    torus.rotation.z = (torus.rotation.z - 0 + torusRate * spinRate) % 360;
+                }
 
                 // Cylinder distance from mouse to determine movement speed
                 const cylinderDistance = dist(cylinderPosition.newX, cylinderPosition.newY, cylinder.position.x, cylinder.position.y);
@@ -253,6 +262,20 @@
                 cylinderPosition.newY = 0;
             }
 
+            function ctaObjects() {
+                cubePosition.newX = 0;
+                cubePosition.newY = 0;
+
+                octoPosition.newX = 0;
+                octoPosition.newY = 0;
+
+                torusPosition.newX = 35;
+                torusPosition.newY = -30;
+
+                cylinderPosition.newX = 0;
+                cylinderPosition.newY = 0;
+            }
+
             function updateObjectLocations(clientX, clientY, mouseX, mouseY) {  
                 // Ratios determine how close to the mouse location should the object go
                 const cubeRatio = .2;
@@ -277,21 +300,31 @@
                 cylinderPosition.newY = cylinderPosition.y + (cylinderRatio * mouseY);
             }
 
-            var spreadFlag = false;
+            /**
+             * Spread Flag determines which configuration to put the objects in
+             *     - 0: Spread out
+             *     - 1: Unspread (All in center behind rotating cube)
+             *     - 2: CTA Spread (All in center except torus, which rotates near the cta button)
+             **/
+            var spreadFlag = 1;
             window.addEventListener("mouseover", (event) => {
                 if (event.target.classList.contains("unspread")) {
-                    spreadFlag = false;
+                    spreadFlag = 1;
+                } else if (event.target.classList.contains("ctaSpread")) {
+                    spreadFlag = 2;
+                    torus.position.spin = false;
                 }
             });
 
             window.addEventListener("mouseout", (event) => {
-                if (event.target.classList.contains("unspread")) {
-                    spreadFlag = true;
+                if (event.target.classList.contains("unspread") || event.target.classList.contains("ctaSpread")) {
+                    spreadFlag = 0;
+                    torus.position.spin = true;
                 }
             });
 
             window.addEventListener("mousemove", (event) => {
-                if (spreadFlag) {
+                if (spreadFlag == 0) {
                     // Get mouse distance from center of window
                     const mouseX = event.clientX - (window.innerWidth / 2);
                     const mouseY = -1 * (event.clientY - (window.innerHeight / 2));
@@ -312,8 +345,10 @@
                     mousePosition.y = mousePos.getComponent(1);
 
                     updateObjectLocations(event.clientX, event.clientY, mousePosition.x, mousePosition.y);
-                } else {
+                } else if (spreadFlag == 1) {
                     unspreadObjects();
+                } else if (spreadFlag == 2) {
+                    ctaObjects();
                 }
             });
 
@@ -354,7 +389,7 @@
         <div id='home' class='container'>
             <h1 id='home_title'>Asha Ivey</h1>
             <h4 id="greeting"></h4>
-            <button id="cta" class="unspread" onclick="ctaAction()">See Projects</button>
+            <button id="cta" class="ctaSpread" onclick="ctaAction()">See Projects</button>
             <div id="down-icon-container">
                 <img id='down-icon' onclick='aboutAction()' src="../static/images/down-icon-ashaiv.svg">
             </div>
