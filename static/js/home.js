@@ -11,7 +11,15 @@ function loadData() {
 function loadAbout(aboutData) {
     document.getElementById('greeting').textContent = aboutData[0].greeting;
     document.getElementById('description-a').innerHTML = aboutData[0].description;
-    document.getElementById('description-b').innerHTML = aboutData[0].descriptionB;
+
+    const hobbyList = document.getElementById('ul-b');
+    
+    const hobbyData = aboutData[0].descriptionB;
+    for (var item of hobbyData) {
+        const newItem = document.createElement("li");
+        newItem.textContent = item;
+        hobbyList.append(newItem);
+    }
 }
 
 function loadSkills(skillsData) {

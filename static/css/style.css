@@ -129,8 +129,12 @@ img {
         font-weight: 400;
     }
 
-    p, a {
+    p, a, li {
         font-size: 1.2rem;
+    }
+
+    li {
+        margin: var(--smallPad) 0px;
     }
 
 
@@ -196,7 +200,7 @@ img {
         font-weight: lighter;
     }
     
-    p, a {
+    p, a, li {
         font-size: 1rem;
     }
 
