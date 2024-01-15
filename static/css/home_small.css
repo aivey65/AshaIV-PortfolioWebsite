@@ -40,7 +40,7 @@
     display: inline;
 }
 
-#about-description {
+.about-text {
     padding: 10px;
     margin-top: 0px;
 }

@@ -9,11 +9,9 @@ function loadData() {
 }
 
 function loadAbout(aboutData) {
-    const greetingContainer = document.getElementById('greeting');
-    greetingContainer.innerHTML = aboutData[0].greeting;
-
-    const aboutContainer = document.getElementById('about-description');
-    aboutContainer.innerHTML = aboutData[0].description;
+    document.getElementById('greeting').textContent = aboutData[0].greeting;
+    document.getElementById('description-a').innerHTML = aboutData[0].description;
+    document.getElementById('description-b').innerHTML = aboutData[0].descriptionB;
 }
 
 function loadSkills(skillsData) {

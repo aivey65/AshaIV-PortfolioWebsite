@@ -376,7 +376,7 @@ input {
 
 input[type='text'], textarea, input[type='email'] {
     background-color: var(--BackgroundL);
-    border-radius: 1em;
+    border-radius: .5em;
     border: none;
     padding: 1rem;
 
