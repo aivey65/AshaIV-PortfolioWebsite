@@ -187,9 +187,6 @@ function showMoreProjectInfo(projectID) {
 var prevScrollpos = window.pageYOffset;
 window.addEventListener('scroll', () => {
     const currentScrollPos = window.pageYOffset;
-    var factor = 0.7;
-    var yvalue = currentScrollPos * factor;
-    document.body.style.backgroundPosition = "center " + yvalue + "px";
     
     // Hide/show nav bar when scrolling
     const logo = document.getElementById('toggle-logo')
