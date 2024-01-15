@@ -6,16 +6,22 @@ font-family: 'Alegreya Sans', sans-serif;
 Defining color values to make it easier to change later on 
 */
 :root {
-    --BackgroundD: #64393A;
-    --BackgroundL: #EFEFEE;
-    --LMain: #CA7D6C;
-    --Light: #EFEFEE;
-    --Dark: #412929;
-    --Dark-Light: #64393A;
-    --DAccent: #6A7D7E;
-    --LAccent: #B99571;
-    --LAccent2: #A47E64;
+    --BackgroundD: #2E0F1F;
+    --BackgroundL: #E5FCFF;
+    --LMain: #AE3C6F;
+    --Light: #E5FCFF;
+    --Dark: #2E0F1F;
+    --Dark-Light: #80254C;
+    --DAccent: #C16197;
+    --LAccent: #AFBFE8;
+    --LAccent2: #B48FC6;
+    --blue: #6176C2;
     --faded: rgb(0, 0, 0, .2);
+
+    --smallGap: 5px;
+    --smallPad: 15px;
+    --medPad: 20px;
+    --lgPad: 30px;
 }
 * {
     box-sizing: border-box;
@@ -33,48 +39,8 @@ html, body {
 }
 
 h1, h2, h3, h4, body {
-    font-family: 'Alegreya Sans', sans-serif;
-    font-weight: 300;
     color: var(--Dark);
 }
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    color: var(--Dark);
-    background-color: var(--Background);
-    z-index: 2;
-
-    /* Stick to top */
-    top: 0;
-    position: sticky;
-}
-
-.mobile-nav {
-    display: none;
-}
-
-button {
-    background: none;
-    border: none;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
-}
-
-.nav_button {
-    color: inherit;
-    flex: 1;
-    padding: 20px;
-    transition: .8s;
-}
-
-.nav_button:hover {
-    background-color: #12020D;
-}
-
-
 
 /* Body Beginning and End Styles */
 .beginning {
@@ -92,7 +58,7 @@ h1 {
     margin: 2rem 0px 1.2rem 0px;
 }
 
-h2{
+h2 {
     font-size: 2rem;
     margin: 3rem 0rem 1rem 0rem;
 }
@@ -102,29 +68,7 @@ h3 {
     margin: 1.2rem 0rem 1.2rem 0rem;
 }
 
-p, a {
-    font-size: 1.2rem;
-}
 
-a:link {
-    color: var(--LAccent);
-}
-
-a:visited {
-    color: var(--LAccent2);
-}
-
-a:hover {
-    color:var(--Dark);
-}
-
-a:active {
-    color: var(--Background);
-}
-
-.link-bold {
-    font-weight: bold;
-}
 
 .container {
     max-width: 1000px;

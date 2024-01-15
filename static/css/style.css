@@ -18,6 +18,11 @@ Defining color values to make it easier to change later on
     --LAccent2: #B48FC6;
     --blue: #6176C2;
     --faded: rgb(0, 0, 0, .2);
+
+    --smallGap: 5px;
+    --smallPad: 15px;
+    --medPad: 20px;
+    --lgPad: 30px;
 }
 * {
     box-sizing: border-box;
@@ -39,11 +44,10 @@ body {
 
 h1, h2, h3, h4, body {
     font-family: 'Alegreya Sans', sans-serif;
-    font-weight: 300;
 }
 
 p, a {
-    font-weight: 300;
+    font-weight: 400;
 }
 
 a:link {
@@ -71,7 +75,7 @@ div {
 }
 
 .highlight {
-    color: var(--LMain);
+    color: var(--DAccent);
 }
 
 img {
@@ -80,7 +84,7 @@ img {
 }
 
 hr {
-    border-top: 1px solid var(--Dark-Light);
+    border-top: 1px solid var(--DAccent);
     border-bottom: 0px;
     border-left: 0px;
     border-right: 0px;
@@ -89,6 +93,189 @@ hr {
 
 label {
     font-family: 'Alegreya Sans', sans-serif;
+}
+
+/* GENERAL STYLES */
+h2 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+h3 {
+    font-size: 35px;
+    margin-bottom:10px;
+    text-align: left;
+    margin-top: 10px;
+    position: relative;
+}
+
+h4 {
+    font-size: 1.8rem;
+    margin:5px 5px 5px 0px;
+    font-weight: lighter;
+}
+
+p, a {
+    font-size: 20px;
+}
+
+img {
+    margin-top: 20px;
+}
+
+/* !!! DESKTOP !!! */
+@media screen and (min-width:768px) {
+    h1, h2, h3, h4, body {
+        font-weight: 400;
+    }
+
+    p, a {
+        font-size: 1.2rem;
+    }
+
+
+    /* DESKTOP NAV STYLES */
+    nav {
+        display: flex;
+        justify-content: space-between;
+        color: var(--Dark);
+        background-color: var(--BackgroundL);
+        z-index: 2;
+    
+        /* Stick to top */
+        top: 0;
+        position: sticky;
+    }
+    
+    .mobile-nav {
+        display: none;
+    }
+    
+    .nav_button {
+        color: inherit;
+        flex: 1;
+        padding: 20px;
+        transition: .8s;
+    }
+    
+    .nav_button:hover {
+        background-color: var(--LAccent2);
+        color: var(--Light);
+    }
+}
+
+/* !!! MOBILE !!! */
+@media screen and (max-width:767px) {
+    h1, h2, h3, h4, body {
+        font-weight: 300;
+        color: var(--Dark);
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+        margin: 2rem 0px 1.2rem 0px;
+    }
+
+    h2 {
+        font-size: 3.75rem;
+        margin: 40px 0px 10px 0px;
+        text-align: center;
+    }
+    
+    h3 {
+        font-size: 2.5rem;
+        margin-bottom:10px;
+        text-align: left;
+        margin-top:10px;
+        position: relative;
+    }
+    
+    h4 {
+        font-size: 1.5rem;
+        margin:5px 5px 5px 0px;
+        font-weight: lighter;
+    }
+    
+    p, a {
+        font-size: 1rem;
+    }
+
+
+    /* MOBILE NAV */
+    .mobile-nav-bar {
+        width: 100%;
+    }
+
+    .mobile-nav {
+        display: flex;
+        justify-content: space-between;
+        color: var(--Dark);
+        background-color: var(--Dark);
+        z-index: 2;
+
+        top: 0;
+        position: sticky;
+        transition: .3s;
+    }
+
+    .mobile-nav button {
+        display: block;
+        height: auto;
+        padding: 10px;
+    }
+
+    #mobile-logo, #toggle-logo {
+        width: 25px;
+        height: auto;
+        margin: 0px;
+    }
+
+    nav {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 5fr;
+        grid-template-columns: 100%;
+        justify-content: center;
+        justify-items: center;
+        position: fixed;
+        top: 50px;
+        left: -70%;
+        width: 70%;
+        height: 100%;
+        min-width: 180px;
+        background: var(--Dark);
+        transition: all 0.5s ease;
+        z-index: 1;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+    }
+
+    nav .nav_button {
+        color: var(--Dark);
+        display: block;
+        height: 100%;
+        width: 100%;
+        line-height: 65px;
+        font-size: 1.2rem;
+        padding-left: 40px;
+        box-sizing: border-box;
+        transition: 0.4s;
+        margin-right: 16px;
+    }
+
+    .nav_button {
+        padding-left: 50px;
+        color: inherit;
+        flex: 1;
+        padding: 20px;
+        transition: .8s;
+        width: 100%;
+    }
+
+    .nav_button:hover {
+        padding-left: 60px;
+        border-radius: 0px;
+        background-color: var(--Dark-Light);
+    }
 }
 
 /* BUTTON STYLES */
@@ -127,6 +314,11 @@ button {
 /* GENERAL BODY STYLES */
 .container {
     width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.container-content {
     max-width: 1200px;
 }
 
@@ -144,46 +336,6 @@ button {
 
 #threejs-container {
     position: absolute;
-}
-
-.hero-plants {
-    width: auto;
-    height: 100%;
-    position: absolute;
-    overflow: hidden;
-}
-
-#plant1 {
-    top: 0%;
-    left: -30%;
-    height: 100vh;
-    width: 100%;
-}
-
-#plant2 {
-    top: -20%;
-    left: 0%;
-    width: 100%;
-    height: auto;
-    transform: rotate(10deg);
-}
-
-#plant3 {
-    top: 25%;
-    left: -5%;
-    transform: rotate(-20deg);
-}
-
-#plant4 {
-    top: 0%;
-    right: -20%;
-    transform: rotate(20deg);
-}
-
-#plant5 {
-    top: -10%;
-    left: -20%;
-    transform: rotate(75deg);
 }
 
 #greeting {
@@ -244,19 +396,13 @@ button:focus {
     color: var(--MainD);
 }
 
-.cta-button {
-    background-color: var(--ContrastL) !important;
-    color: var(--Dark);
-    border: none;
-}
-
 .label {
     margin: 0px;
     color: var(--MainL);
     font-weight: 400;
 }
 
-#cta {
+.cta-button {
     font-weight: 500;
     text-decoration: none;
     background-color: var(--DAccent);
@@ -271,14 +417,14 @@ button:focus {
     z-index: +1;
 }
 
-#cta:hover {
+.cta-button:hover {
     background-color: var(--LMain);
     transform: scale(1.1);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden!important;
 }
 
-#cta:focus {
+.cta-button:focus {
     box-shadow: none;
     border: 2px solid var(--LMain);
 }

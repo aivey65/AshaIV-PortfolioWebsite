@@ -390,98 +390,93 @@
         <div id='home' class='container'>
             <h1 id='home_title'>Asha Ivey</h1>
             <h4 id="greeting"></h4>
-            <button id="cta" class="ctaSpread" onclick="ctaAction()">See Projects</button>
+            <button class="cta-button ctaSpread" onclick="ctaAction()">See Projects</button>
             <div id="down-icon-container">
                 <img id='down-icon' onclick='aboutAction()' src="../static/images/down-icon-ashaiv.svg">
             </div>
         </div>
         
         <div id='about' class="container">
-            <h2>About</h2>
-            <div id="about-content">
-                <div id="about-image-mobile">
-                    <p class='center-align'>
-                        <img id='headshot' src='../static/images/grad_pic_pink.jpg'>
-                    </p>
+            <div class="container-content">
+                <div id="about-content">
+                    <h2>About</h2>
+                    <div id="about-image">
+                        <p class='center-align'>
+                        <img id='headshot' src='../static/images/AshaPortrait.png'>
+                        </p>
+                    </div>
+                    <div id='about-text'>
+                        <!-- Ideally, I want there to be a short version and a long version -->
+                        <!-- so that people can chose whether or not they want to read the -->
+                        <!-- whole page or just scroll through. -->
+                        <p id='about-description'></p>
+                    </div> 
+                    
                 </div>
-                <div id='about-text'>
-                    <!-- Ideally, I want there to be a short version and a long version -->
-                    <!-- so that people can chose whether or not they want to read the -->
-                    <!-- whole page or just scroll through. -->
-                    <p id='about-description'></p>
-                </div> 
-                <div id="about-image">
-                    <p class='center-align'>
-                        <img id='headshot' src='../static/images/grad_pic_pink.jpg'>
-                    </p>
-                </div>
+                <h4 id="skills-header">Things I Know How to Use:</h4>
+                <hr>
+                <div id="about-skills"></div>
             </div>
-            <h4 id="skills-header">Things I Know How to Use:</h4>
-            <hr>
-            <div id="about-skills"></div>
         </div>
 
         <div id='projects' class="container">
-            <h2>Projects</h2>
-            <div id='projects-container'></div>
+            <div class="container-content">
+                <h2>Projects</h2>
+                <div id='projects-container'></div>
+            </div>
         </div>
 
         <div id='resume' class="container">
-            <h2>Resume</h2>
-            <div id='resume-container'>
-                <iframe id='most-recent-resume' src='../static/documents/Post-Grad_Resume_Summer2022.pdf#view=FitH'></iframe>
+            <div class="container-content">
+                <h2>Resume</h2>
+                <div id='resume-container'>
+                    <iframe id='most-recent-resume' src='../static/documents/Post-Grad_Resume_Summer2022.pdf#view=Fit' loading="lazy" title="Asha's Resume"></iframe>
+                </div>
             </div>
         </div>
 
         <div id='contact' class="container">
-            <div>
-                <img id="plant1" class="hero-plants" src="../static/images/hero-leaves/leaf1.svg" alt="Hero Leaf 1">
-                <img id="plant2" class="hero-plants" src="../static/images/hero-leaves/leaf2.svg" alt="Hero Leaf 2">
-                <img id="plant3" class="hero-plants" src="../static/images/hero-leaves/leaf3.svg" alt="Hero Leaf 3">
-                <img id="plant4" class="hero-plants" src="../static/images/hero-leaves/leaf4.svg" alt="Hero Leaf 4">
-                <img id="plant5" class="hero-plants" src="../static/images/hero-leaves/leaf1.svg" alt="Hero Leaf 5">
-            </div>
-            <h2>Contact Me</h2>
+            <div class="container-content">
+                <h2>Contact Me</h2>
 
-            <form action="https://api.web3forms.com/submit" method="POST">
-                <input type="hidden" name="access_key" value="5c5de659-ad1d-4cde-802b-b4372560e55b">
-                <input type="hidden" name="subject" value="New Submission from Web3Forms">
-            
-                <div id="name-div">
-                    <label class="required-input" for="name">Name</label>
-                    <input type="text" name="name" required>
-                </div>
-
-                <div id="email-div">
-                    <label class="required-input" for="email">Email</label>
-                    <input type="email" name="email" required>
-                </div>
-
-                <div id="message-div">
-                    <label class="required-input" for="message">Message</label>
-                    <textarea name="message" rows="4" cols="50" required></textarea>
-                </div>
+                <form action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="5c5de659-ad1d-4cde-802b-b4372560e55b">
+                    <input type="hidden" name="subject" value="New Submission from Web3Forms">
                 
-                <button class="cta-button" type="submit">Submit</button>
-            
-            </form>
-            
-            <script src="https://web3forms.com/client/script.js" async defer></script>
-            
-            <div id='contact-methods'> 
-                <div class='contact-icon'>
-                    <a target="_blank" rel="noopener noreferrer" href='https://github.com/aivey65'>
-                        <img src="../static/images/GitHub-Mark-Light-64px.png">
-                        <p class="link-bold">Github</p>
-                    </a>
+                    <div id="name-div">
+                        <label class="required-input" for="name">Name</label>
+                        <input type="text" name="name" required>
+                    </div>
+
+                    <div id="email-div">
+                        <label class="required-input" for="email">Email</label>
+                        <input type="email" name="email" required>
+                    </div>
+
+                    <div id="message-div">
+                        <label class="required-input" for="message">Message</label>
+                        <textarea name="message" rows="4" cols="50" required></textarea>
+                    </div>
+                    
+                    <button class="cta-button" type="submit">Submit</button>
+                
+                </form>
+                
+                <script src="https://web3forms.com/client/script.js" async defer></script>
+                
+                <div id='contact-methods'> 
+                    <div class='contact-icon'>
+                        <a target="_blank" rel="noopener noreferrer" href='https://github.com/aivey65'>
+                            <img src="../static/images/github-mark-white.svg">
+                        </a>
+                    </div> 
+                    <div class='contact-icon'>
+                        <a target="_blank" rel="noopener noreferrer" href='https://www.linkedin.com/in/ashaiv/'>
+                            <img src="../static/images/LI-In-Bug.png">
+                        </a>
+                    <div>
                 </div> 
-                <div class='contact-icon'>
-                    <a target="_blank" rel="noopener noreferrer" href='https://www.linkedin.com/in/ashaiv/'>
-                        <img src="../static/images/LI-In-Bug.png">
-                        <p class="link-bold">LinkedIn</p>
-                    </a>
-                <div>
-            </div> 
+            </div>
         </div>
 
         {% if scroll %}
