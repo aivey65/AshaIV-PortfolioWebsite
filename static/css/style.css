@@ -383,7 +383,7 @@ input[type='text'], textarea, input[type='email'] {
 }
 
 input[type='text'] {
-    width: 120px;
+    width: 50%;
 }
 
 button:focus {
