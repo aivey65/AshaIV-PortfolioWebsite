@@ -147,6 +147,11 @@
     max-height: 1000px;
 }
 
+.transition-wave {
+    width: 100%;
+    margin: 0px;
+}
+
 /* Progess bar inspired by this tutorial: https://gist.github.com/WeiChiaChang/abe92ca2e8da86ef69560b63903e8764*/
 .progress-bar {
     background-color: var(--Dark-Light);

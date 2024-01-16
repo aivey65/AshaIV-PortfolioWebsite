@@ -37,7 +37,7 @@
             const renderer = new THREE.WebGLRenderer({antialias: true});
             renderer.shadowMap.enabled = true;
             renderer.shadowMap.type = THREE.BasicShadowMap;
-            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setSize(window.innerWidth, window.innerHeight + 10);
             renderer.setClearColor(0xEFEFEE);
             
             document.getElementById("threejs-container").appendChild(renderer.domElement);
@@ -395,7 +395,6 @@
                 <img id='down-icon' onclick='aboutAction()' src="../static/images/down-icon-ashaiv.svg" alt="Scroll Down Icon">
             </div>
         </div>
-        
         <div id='about' class="container">
             <div class="container-content">
                 <img id="about-wave" src="../static/images/wavebg2.svg" alt="Wave Background Image">
@@ -442,14 +441,14 @@
                 </div>
             </div>
         </div>
-
+        <img class="transition-wave" src="../static/images/layered-waves-haikei.svg">
         <div id='projects' class="container">
             <div class="container-content">
                 <h2>Projects</h2>
                 <div id='projects-container'></div>
             </div>
         </div>
-
+        <img class="transition-wave" src="../static/images/wave-transition2.svg">
         <div id='resume' class="container">
             <div class="container-content">
                 <h2>Resume</h2>
