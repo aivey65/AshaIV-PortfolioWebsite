@@ -17,8 +17,9 @@ Defining color values to make it easier to change later on
     --LAccent: #AFBFE8;
     --LAccent2: #B48FC6;
     --blue: #6176C2;
-    --faded: rgb(0, 0, 0, .2);
+    --faded: rgb(0, 0, 0, .5);
     --fadedBackground: rgb(37, 12, 25, .9);
+    --borderRadius: 1em;
 
     --smallGap: 5px;
     --smallPad: 15px;
@@ -215,7 +216,7 @@ img {
         display: flex;
         justify-content: space-between;
         color: var(--Dark);
-        background-color: var(--Dark);
+        background-color: var(--Light);
         z-index: 2;
 
         top: 0;
@@ -247,9 +248,9 @@ img {
         width: 70%;
         height: 100%;
         min-width: 180px;
-        background: var(--Dark);
+        background: var(--Light);
         transition: all 0.5s ease;
-        z-index: 1;
+        z-index: +2;
         border-right: 1px solid black;
         border-bottom: 1px solid black;
     }
@@ -264,7 +265,6 @@ img {
         padding-left: 40px;
         box-sizing: border-box;
         transition: 0.4s;
-        margin-right: 16px;
     }
 
     .nav_button {
@@ -279,7 +279,8 @@ img {
     .nav_button:hover {
         padding-left: 60px;
         border-radius: 0px;
-        background-color: var(--Dark-Light);
+        background-color: var(--LAccent2);
+        color: var(--Light);
     }
 }
 

@@ -194,7 +194,7 @@ window.addEventListener('scroll', () => {
         if (prevScrollpos > currentScrollPos) {
             document.getElementsByClassName("mobile-nav")[0].style.transform = "translateY(0px)";
         } else {
-            document.getElementsByClassName("mobile-nav")[0].style.transform = "translateY(-50px)";
+            document.getElementsByClassName("mobile-nav")[0].style.transform = "translateY(-55px)";
         }
         prevScrollpos = currentScrollPos;
     }
