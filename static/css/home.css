@@ -42,6 +42,8 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto .5fr 1fr;
     align-items: center;
+    z-index: +1;
+    position: relative;
 }
 
 #about-content h2 {
@@ -61,7 +63,7 @@
 }
 
 .about-text {
-    background-color: var(--faded);
+    background-color: var(--fadedBackground);
     padding: 40px;
     border-radius: 1em;
     align-self: start;
@@ -137,6 +139,12 @@
 .skill-images {
     height: 60px;
     width: auto;
+}
+
+#about-wave {
+    position: absolute;
+    left: 0px;
+    max-height: 1000px;
 }
 
 /* Progess bar inspired by this tutorial: https://gist.github.com/WeiChiaChang/abe92ca2e8da86ef69560b63903e8764*/
