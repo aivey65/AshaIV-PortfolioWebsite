@@ -26,7 +26,7 @@ function loadSkills(skillsData) {
     const skillsContainer = document.getElementById('about-skills');
     for (const skill of skillsData) {
         const skillName = document.createElement('p');
-        skillName.innerHTML = skill.skillName;
+        skillName.textContent = skill.skillName;
         skillName.classList.add('skill-name')
 
         const skillImage = document.createElement('img');
@@ -60,26 +60,35 @@ function loadProjects(projectsData) {
         condense.classList.add('condensed-info');
         
         const name = document.createElement('h3');
-        name.innerHTML = project.name;
+        name.textContent = project.name;
 
         const year = document.createElement('h4');
-        year.innerHTML = project.year;
+        year.textContent = project.year;
 
         condense.append(name, year)
 
         const des = document.createElement('p');
-        des.innerHTML = project.blurb;
+        des.textContent = project.blurb;
 
         const more = document.createElement('button');
-        more.innerHTML = "Read More";
+        more.textContent = "Details";
         more.classList.add('read-more-button');
         more.onclick = function() {
             showMoreProjectInfo(project.projectNum);
         }
 
+        const live = document.createElement('button');
+        if (project.live != "") {
+            live.textContent = "Live";
+            live.classList.add('live-button');
+            live.onclick = function() {
+               window.open(project.live, '_blank');
+            }
+        }
+
         const projectDiv = document.createElement('div');
         projectDiv.classList.add('project-card');
-        projectDiv.append(img, condense, des, more);
+        projectDiv.append(img, condense, des, more, live);
         projectDiv.onclick = function() {
             showMoreProjectInfo(project.projectNum);
         }
@@ -164,11 +173,6 @@ function toggleMenu() {
 ////////////////////
 // Other Functions//
 ////////////////////
-function copyEmail() {
-    var email = document.getElementById('email-text');
-    navigator.clipboard.writeText(email.innerHTML);
-}
-
 function dist(x1, y1, x2, y2) {
     return Math.sqrt(((x1 - x2) ** 2) + ((y1 - y2) ** 2))
 }
