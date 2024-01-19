@@ -261,8 +261,12 @@
     min-height: 100vh;
 }
 
+#contact h2 {
+    color: var(--Light);
+}
+
 #contact .container-content {
-    width: 50%;
+    width: 100%;
 }
 
 #name-div, #email-div, #message-div {
@@ -284,7 +288,7 @@
 }
 
 .contact-icon {
-    width: 8%;
+    width: 20%;
     transition: .3s;
 }
 
