@@ -37,16 +37,24 @@
             const renderer = new THREE.WebGLRenderer({antialias: true});
             renderer.shadowMap.enabled = true;
             renderer.shadowMap.type = THREE.BasicShadowMap;
-            renderer.setSize(window.innerWidth, window.innerHeight + 10);
             renderer.setClearColor(0xEFEFEE);
-            
             document.getElementById("threejs-container").appendChild(renderer.domElement);
 
             const scene = new THREE.Scene();
             scene.fog = new THREE.Fog(0x2E0F1F, 100, 500);
 
             const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.z = 50;
+            if (window.innerWidth <= 767) {
+                camera.position.z = 80;
+
+                const homeContainer = document.getElementById("home");
+                renderer.setSize(homeContainer.offsetWidth, homeContainer.offsetHeight + document.getElementById("mob-nav").offsetHeight);
+            } else {
+                camera.position.z = 50;
+
+                const homeContainer = document.getElementById("home");
+                renderer.setSize(homeContainer.offsetWidth, homeContainer.offsetHeight + document.getElementById("nav-bar").offsetHeight);
+            }
             scene.add(camera);
 
             // const controls = new OrbitControls( camera, renderer.domElement );
@@ -309,6 +317,11 @@
              **/
             var spreadFlag = 1;
             window.addEventListener("mouseover", (event) => {
+                if (window.innerWidth <= 767) { // Unspread if mobile sized
+                    spreadFlag = 1;
+                    return;
+                }
+
                 if (event.target.classList.contains("unspread")) {
                     spreadFlag = 1;
                 } else if (event.target.classList.contains("ctaSpread")) {
@@ -318,6 +331,11 @@
             });
 
             window.addEventListener("mouseout", (event) => {
+                if (window.innerWidth <= 767) { // Unspread if mobile sized
+                    spreadFlag = 1;
+                    return;
+                }
+
                 if (event.target.classList.contains("unspread") || event.target.classList.contains("ctaSpread")) {
                     spreadFlag = 0;
                     torus.position.spin = true;
@@ -359,6 +377,12 @@
                 
                 camera.aspect = width / height;
                 camera.updateProjectionMatrix();
+                if (width <= 767) {
+                    camera.position.z = 80;
+                } else {
+                    camera.position.z = 50;
+                }
+
                 renderer.setSize(width, height);
                 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
             });
@@ -368,7 +392,7 @@
 
         <div id='top' display='none'></div>
 
-        <div class="mobile-nav mobile-nav-bar">
+        <div id="mob-nav" class="mobile-nav mobile-nav-bar">
             <button class='mobile-nav' onclick='logoAction()'>
                 <img id='mobile-logo' src="../static/images/ashaiv-favicon-32x32.png">
             </button>
@@ -377,7 +401,7 @@
             </button>
         </div>
         
-        <nav> 
+        <nav id="nav-bar"> 
             <button class='nav_button unspread' onclick='homeAction()'>Home</button>
             <button class='nav_button unspread' onclick='aboutAction()'>About</button>
             <button class='nav_button unspread' onclick='projectAction()'>Projects</button>
@@ -390,7 +414,7 @@
         <div id='home' class='container'>
             <h1 id='home_title'>Asha Ivey</h1>
             <h4 id="greeting"></h4>
-            <button class="cta-button ctaSpread" onclick="ctaAction()">See Projects</button>
+            <button class="cta-button" onclick="ctaAction()">See Projects</button>
             <div id="down-icon-container">
                 <img id='down-icon' onclick='aboutAction()' src="../static/images/down-icon-ashaiv.svg" alt="Scroll Down Icon">
             </div>

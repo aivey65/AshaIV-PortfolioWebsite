@@ -187,9 +187,8 @@
 
 .project-card {
     color: var(--Dark);
-
     display: grid;
-    grid-template-rows: 200px 1fr .5fr;
+    grid-template-rows: 200px 1fr auto;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     transition: .3s;
@@ -221,6 +220,10 @@
 
 .project-card:hover p {
     opacity: 100;
+}
+
+.project-card button {
+    margin: 0px;
 }
 
 .read-more-button {
