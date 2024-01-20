@@ -1,3 +1,8 @@
+h2 {
+    font-size: 3rem;
+    text-align: center;
+}
+
 /* BODY CONTENT STYLES */
 .beginning {
     background-color: var(--BackgroundL);
@@ -37,7 +42,7 @@
 #about {
     color: var(--Light);
     background-color: var(--BackgroundD);
-    min-height: 1140px;
+    min-height: 1414px;
 }
 
 #about-content {
@@ -120,15 +125,16 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    gap: 0px var(--lgPad);
+    gap: 0px var(--smallPad);
 }
 
 .skill-div {
     height: fit-content;
     text-align: center;
     max-width: 100px;
+    flex: 0;
 }
 
 #skill-name {
@@ -136,7 +142,7 @@
 }
 
 .skill-images {
-    height: 60px;
+    height: 40px;
     width: auto;
 }
 
@@ -169,7 +175,7 @@
 #projects {
     background: var(--Background);
     color: var(--Dark);
-    min-height: 1330px;
+    min-height: 2566px;
 }
 
 #project-caption {

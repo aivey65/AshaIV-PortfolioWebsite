@@ -98,12 +98,11 @@ label {
     font-family: 'Alegreya Sans', sans-serif;
 }
 
-/* GENERAL STYLES */
-h2 {
-    font-size: 3rem;
-    text-align: center;
+iframe {
+    border: none;
 }
 
+/* GENERAL STYLES */
 h3 {
     font-size: 35px;
     margin-bottom:10px;
@@ -186,7 +185,6 @@ img {
     h2 {
         font-size: 3.75rem;
         margin: 40px 0px 10px 0px;
-        text-align: center;
     }
     
     h3 {
@@ -263,6 +261,7 @@ img {
         width: 100%;
         line-height: 65px;
         font-size: 1.2rem;
+        font-weight: 400;
         padding-left: 40px;
         box-sizing: border-box;
         transition: 0.4s;

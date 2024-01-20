@@ -54,21 +54,27 @@ div {
 }
 
 h1 {
-    font-size: 4.5rem;
+    font-size: 3rem;
     margin: 2rem 0px 1.2rem 0px;
 }
 
 h2 {
-    font-size: 2rem;
-    margin: 3rem 0rem 1rem 0rem;
+    font-size: 1.5rem;
+    margin: 3rem 0rem .5rem 0rem;
 }
 
 h3 {
     font-size: 2rem;
-    margin: 1.2rem 0rem 1.2rem 0rem;
 }
 
+p {
+    margin: 0px;
+}
 
+a {
+    margin-top: var(--smallPad);
+    display: block;
+}
 
 .container {
     max-width: 1000px;
@@ -79,40 +85,19 @@ h3 {
 }
 
 /* Buttons for image slideshow */
-#left-slide-button {
-    color: var(--Dark);
-    background-color: var(--LAccent);
-    height: 50px;
-    width: 50px;
-    margin-left: auto;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-#left-slide-button:hover {
-    background-color: var(--LAccent2);
-}
-
-#left-slide-button:active {
-    background-color: var(--Dark);
-}
-
-#right-slide-button {
-    color: var(--Dark);
-    background-color: var(--LAccent);
+#right-slide-button, #left-slide-button {
+    color: var(--Light);
+    background-color: var(--DAccent);
     height: 50px;
     width: 50px;
     margin-right: auto;
-    padding: 10px;
     border-radius: 5px;
+    line-height: 0px;
+    font-size: 2rem;
 }
 
-#right-slide-button:hover {
-    background-color: var(--LAccent2);
-}
-
-#left-slide-button:active {
-    background-color: var(--Dark);
+#right-slide-button:hover, #left-slide-button:hover {
+    background-color: var(--LMain);
 }
 
 /* Image slideshow */
@@ -122,12 +107,12 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: var(--medPad);
 }
 
 .img_slides {
     width: 70%;
     max-height: 370px;
-    margin: auto;
     object-fit: cover;
     object-position: 0px 0px;
 }
@@ -153,25 +138,26 @@ img {
     height: 15px;
     width: 15px;
     margin: 0 2px;
-    background-color: var(--LAccent);
+    background-color: var(--DAccent);
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.6s ease;
 }
 
 .inactive-dot {
-    background-color: var(--LAccent); 
+    background-color: var(--DAccent); 
 }
 
 .active-dot {
-    background-color: var(--LAccent2);
+    background-color: var(--Dark-Light);
 }
 
 .skill-div {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+    gap: var(--smallPad);
 }
 
 .skill-bubble {

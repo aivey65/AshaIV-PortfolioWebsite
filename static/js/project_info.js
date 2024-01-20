@@ -98,8 +98,6 @@ function loadProjects(projectsData) {
             git.rel = "noopener noreferrer";
         }
 
-        const breakpoint1 = document.createElement('br');
-
         const live = document.createElement('a')
         if (project.live != "") {
             live.innerHTML = "See it Live";
@@ -108,8 +106,6 @@ function loadProjects(projectsData) {
             live.target = "_blank";
             live.rel = "noopener noreferrer";
         }
-
-        const breakpoint2 = document.createElement('br');
 
         const documentation = document.createElement('a')
         if (project.doc != "") {
@@ -135,7 +131,7 @@ function loadProjects(projectsData) {
         
         const projectDiv = document.createElement('div');
         projectDiv.classList.add('project-card');
-        projectDiv.append(name, year, slideshow, summaryDiv, contributionsDiv, git, breakpoint1, documentation, breakpoint2, live, skillHead, skills);
+        projectDiv.append(name, year, slideshow, summaryDiv, contributionsDiv, git, documentation, live, skillHead, skills);
         
         projectsContainer.appendChild(projectDiv);
     }
@@ -180,14 +176,14 @@ function createImageSlideshow(imageList, videoLink) {
     leftButtonDiv.id = 'left-slide-div';
 
     leftButton.id = 'left-slide-button';
-    leftButton.innerHTML = "ᐸ"
+    leftButton.innerHTML = "‹"
     leftButtonDiv.appendChild(leftButton);
 
     rightButtonDiv.onclick = function() { slideLeft();}
     rightButtonDiv.id = 'right-slide-div';
 
     rightButton.id = 'right-slide-button';
-    rightButton.innerHTML = "ᐳ"
+    rightButton.innerHTML = "›"
     rightButtonDiv.appendChild(rightButton);
 
     images.appendChild(leftButtonDiv); //Add the left button first

@@ -38,6 +38,11 @@ html, body {
     color: var(--LMain);
 }
 
+a {
+    margin-top: var(--smallPad);
+    display: block;
+}
+
 /* Body Beginning and End Styles */
 .beginning {
     background-color: var(--Background);
@@ -198,7 +203,8 @@ img {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+    gap: var(--smallPad);
 }
 
 .skill-bubble {
