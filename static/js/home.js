@@ -72,6 +72,9 @@ function loadProjects(projectsData) {
 
         const des = document.createElement('p');
         des.textContent = project.blurb;
+        des.onclick = function() {
+            showMoreProjectInfo(project.projectNum);
+        }
 
         const more = document.createElement('button');
         more.textContent = "Details";
