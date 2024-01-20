@@ -77,21 +77,30 @@ function loadProjects(projectsData) {
             showMoreProjectInfo(project.projectNum);
         }
 
-        const live = document.createElement('button');
+        const demo = document.createElement('button');
         if (project.live != "") {
-            live.textContent = "Live";
-            live.classList.add('live-button');
-            live.onclick = function() {
+            demo.textContent = "Live";
+            demo.classList.add('live-button');
+            demo.onclick = function() {
                window.open(project.live, '_blank');
+            }
+        } else if (project.videoURL != "") {
+            demo.textContent = "Demo";
+            demo.classList.add('live-button');
+            demo.onclick = function() {
+               window.open(project.videoURL, '_blank');
+            }
+        } else if (project.github != "") {
+            demo.textContent = "Github";
+            demo.classList.add('live-button');
+            demo.onclick = function() {
+               window.open(project.github, '_blank');
             }
         }
 
         const projectDiv = document.createElement('div');
         projectDiv.classList.add('project-card');
-        projectDiv.append(img, condense, des, more, live);
-        projectDiv.onclick = function() {
-            showMoreProjectInfo(project.projectNum);
-        }
+        projectDiv.append(img, condense, des, more, demo);
         
         projectsContainer.appendChild(projectDiv);
     }
