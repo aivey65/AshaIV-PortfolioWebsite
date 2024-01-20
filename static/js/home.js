@@ -52,6 +52,9 @@ function loadProjects(projectsData) {
         if (project.images != "") {
             img.src = project.images[0];
             img.classList.add('project-img-icon');
+            img.onclick = function() {
+                showMoreProjectInfo(project.projectNum);
+            }
         } else {
             img.display = 'None';
         }
