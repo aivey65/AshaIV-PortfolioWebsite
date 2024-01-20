@@ -45,7 +45,7 @@
 
             const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
             if (window.innerWidth <= 767) {
-                camera.position.z = 80;
+                camera.position.z = 70;
 
                 const homeContainer = document.getElementById("home");
                 renderer.setSize(homeContainer.offsetWidth, homeContainer.offsetHeight + document.getElementById("mob-nav").offsetHeight);
@@ -132,8 +132,10 @@
             var cubePosition = {
                 x: 0,
                 y: -20,
+                z: 0,
                 newX: 0,
                 newY: 0,
+                newZ: 0,
             }
 
             cube.position.z = 0;
@@ -141,8 +143,10 @@
             var torusPosition = {
                 x: 40,
                 y: -30,
+                z: -10,
                 newX: 0,
                 newY: 0,
+                newZ: -10,
                 spin: true,
             }
 
@@ -151,8 +155,10 @@
             var octoPosition = {
                 x: -55,
                 y: 30,
+                z: -20,
                 newX: 0,
                 newY: 0,
+                newZ: -20
             }
 
             octo.position.z = -20;
@@ -160,8 +166,10 @@
             var cylinderPosition = {
                 x: -50,
                 y: 5,
+                z: -40,
                 newX: 0,
                 newY: 0,
+                newZ: -40
             }
 
             cylinder.position.z = -40;
@@ -191,6 +199,7 @@
 
                 cube.position.x += (cubePosition.newX - cube.position.x) * cubeRate;
                 cube.position.y += (cubePosition.newY - cube.position.y) * cubeRate;
+                cube.position.z += (cubePosition.newZ - cube.position.z) * cubeRate;
                 cube.rotation.x = (cube.rotation.x + cubeRate * spinRate) % TAU;
                 cube.rotation.y = (cube.rotation.y + cubeRate * spinRate) % TAU;
                 cube.rotation.z = (cube.rotation.z + cubeRate * spinRate) % TAU;
@@ -208,6 +217,7 @@
                 
                 octo.position.x += (octoPosition.newX - octo.position.x) * octoRate;
                 octo.position.y += (octoPosition.newY - octo.position.y) * octoRate;
+                octo.position.z += (octoPosition.newZ - octo.position.z) * octoRate;
                 octo.rotation.x = (octo.rotation.x + octoRate * spinRate) % TAU;
                 octo.rotation.y = (octo.rotation.y + octoRate * spinRate) % TAU;
                 octo.rotation.z = (octo.rotation.z + octoRate * spinRate) % TAU;
@@ -225,6 +235,7 @@
                 
                 torus.position.x += (torusPosition.newX - torus.position.x) * torusRate;
                 torus.position.y += (torusPosition.newY - torus.position.y) * torusRate;
+                torus.position.z += (torusPosition.newZ - torus.position.z) * torusRate;
 
                 // Torus is used to emphasize CTA button. At that point, it needs to stop spinning
                 if (torus.position.spin == false) {
@@ -250,6 +261,7 @@
                 
                 cylinder.position.x += (cylinderPosition.newX - cylinder.position.x) * cylinderRate;
                 cylinder.position.y += (cylinderPosition.newY - cylinder.position.y) * cylinderRate;
+                cylinder.position.z += (cylinderPosition.newZ - cylinder.position.z) * cylinderRate;
                 cylinder.rotation.x = (cylinder.rotation.x + cylinderRate * spinRate) % TAU;
                 cylinder.rotation.y = (cylinder.rotation.y + cylinderRate * spinRate) % TAU;
                 cylinder.rotation.z = (cylinder.rotation.z + cylinderRate * spinRate) % TAU;
@@ -263,12 +275,15 @@
 
                 octoPosition.newX = 0;
                 octoPosition.newY = 0;
+                octoPosition.newZ = -150
 
                 torusPosition.newX = 0;
                 torusPosition.newY = 0;
+                torusPosition.newZ = -150
 
                 cylinderPosition.newX = 0;
                 cylinderPosition.newY = 0;
+                cylinderPosition.newZ = -150
             }
 
             function ctaObjects() {
@@ -277,12 +292,14 @@
 
                 octoPosition.newX = 0;
                 octoPosition.newY = 0;
+                octoPosition.newZ = -150
 
                 torusPosition.newX = 35;
                 torusPosition.newY = -30;
 
                 cylinderPosition.newX = 0;
                 cylinderPosition.newY = 0;
+                cylinderPosition.newZ = -150
             }
 
             function updateObjectLocations(clientX, clientY, mouseX, mouseY) {  
@@ -295,18 +312,22 @@
                 // Set cube 'new' positions so that the object can be animated towards that location
                 cubePosition.newX = cubePosition.x + (cubeRatio * mouseX);
                 cubePosition.newY = cubePosition.y + (cubeRatio * mouseY);
+                cubePosition.newZ = 0;
 
                 // Set octo 'new' positions so that the object can be animated towards that location
                 octoPosition.newX = octoPosition.x + (octoRatio * mouseX);
                 octoPosition.newY = octoPosition.y + (octoRatio * mouseY);
+                octoPosition.newZ = -20;
 
                 // Set torus 'new' positions 
                 torusPosition.newX = torusPosition.x + (torusRatio * mouseX);
                 torusPosition.newY = torusPosition.y + (torusRatio * mouseY);
+                torusPosition.newZ = -10;
 
                 // Set cylinder 'new' positions 
                 cylinderPosition.newX = cylinderPosition.x + (cylinderRatio * mouseX);
                 cylinderPosition.newY = cylinderPosition.y + (cylinderRatio * mouseY);
+                cylinderPosition.newZ = -40;
             }
 
             /**
@@ -378,7 +399,7 @@
                 camera.aspect = width / height;
                 camera.updateProjectionMatrix();
                 if (width <= 767) {
-                    camera.position.z = 80;
+                    camera.position.z = 70;
                 } else {
                     camera.position.z = 50;
                 }
