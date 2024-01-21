@@ -125,6 +125,41 @@ img {
     margin-top: 20px;
 }
 
+#download-link {
+    text-decoration: none;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#download-button {
+    background-color: var(--DAccent);
+    color: var(--Light);
+    display: flex;
+    gap: var(--smallPad);
+    padding: 1rem 2rem;
+    border-radius: var(--borderRadius);
+    transition: .3s;
+}
+
+#download-button img {
+    width: 20px;
+    height: auto;
+    margin: 0px;
+}
+
+#resume-collection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    gap: var(--smallPad);
+    margin: var(--medPad);
+}
+
+.resume-container {
+    width: 45%;
+    display: inline;
+}
+
 /* !!! DESKTOP !!! */
 @media screen and (min-width:768px) {
     h1, h2, h3, h4, body {
@@ -294,21 +329,13 @@ button {
     outline: inherit;
 }
 
-.read-more-button:hover, .live-button:hover {
-    top: -2px;
-    background-color: var(--LAccent2);
-    transform: translateY(-5px);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden!important;
-}
-
 .read-more-button:focus, .live-button:focus {
     box-shadow: none;
     border: 2px solid var(--LAccent);
 }
 
 /* GENERAL BODY STYLES */
-.container {
+.asha-container {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -316,6 +343,7 @@ button {
 
 .container-content {
     max-width: 1200px;
+    width: 100%;
 }
 
 /* HOME SECTION */
@@ -406,7 +434,7 @@ button:focus {
     font-weight: 500;
     text-decoration: none;
     background-color: var(--DAccent);
-    border-radius: 8px;
+    border-radius: var(--borderRadius);
     color: var(--BackgroundL);
     padding: 10px 25px 10px 25px;
     transition: .3s;
@@ -416,7 +444,7 @@ button:focus {
     z-index: +1;
 }
 
-.cta-button:hover, .read-more-button:hover, .live-button:hover {
+.cta-button:hover, .read-more-button:hover, .live-button:hover, #download-button:hover {
     background-color: var(--LMain);
     transform: scale(1.1);
     -webkit-backface-visibility: hidden;

@@ -32,6 +32,7 @@ function loadSkills(skillsData) {
         const skillImage = document.createElement('img');
         skillImage.src = skill.image;
         skillImage.classList.add('skill-images');
+        skillImage.loading = "lazy";
         if (skill.contrast == true) {
             skillImage.style.backgroundColor = 'white';
         }
@@ -52,6 +53,7 @@ function loadProjects(projectsData) {
         if (project.images != "") {
             img.src = project.images[0];
             img.classList.add('project-img-icon');
+            img.loading = "lazy";
             img.onclick = function() {
                 showMoreProjectInfo(project.projectNum);
             }
