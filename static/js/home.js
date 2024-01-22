@@ -29,14 +29,10 @@ function loadSkills(skillsData) {
         skillName.textContent = skill.skillName;
         skillName.classList.add('skill-name')
 
-        const skillImage = document.createElement('img');
-        skillImage.src = skill.image;
-        skillImage.classList.add('skill-images');
+        const skillImage = document.createElement('i');
+        skillImage.classList.add('skill-images', skill.image);
         skillImage.loading = "lazy";
         skillImage.alt = skill.skillName + " icon"
-        if (skill.contrast == true) {
-            skillImage.style.backgroundColor = 'white';
-        }
 
         const skillDiv = document.createElement('div');
         skillDiv.classList.add('skill-div')

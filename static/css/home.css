@@ -141,8 +141,10 @@ h2 {
 }
 
 .skill-images {
-    height: 60px;
-    width: auto;
+    font-size: 3.5rem;
+    color: var(--LAccent);
+    background-color: var(--BackgroundD);
+    border-radius: 50%;
 }
 
 #about-wave {
