@@ -10,7 +10,7 @@ h2 {
     flex-direction: column;
 }
 
-.container {
+.asha-container {
     margin-left: auto;
     margin-right: auto;
     padding: 60px 35px;
@@ -253,16 +253,26 @@ h2 {
     min-height: 630px;
 }
 
-#most-recent-resume {
+.most-recent-resume {
     min-height: 50vh;
     min-width: 80vw;
 }
 
-#resume-container {
+#resume-collection {
+    display: block;
+    justify-items: center;
+    margin: var(--medPad) 0px;
+}
+
+.resume-container {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
+}
+
+#download-link {
+    justify-content: center;
 }
 
 #resume-date {

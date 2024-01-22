@@ -279,11 +279,23 @@ h2 {
     min-height: 50vh;
 }
 
+#resume-collection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    gap: var(--smallPad);
+    margin: var(--medPad) 0px;
+}
+
 #resume-container {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
+}
+
+#download-link {
+    justify-content: flex-end;
 }
 
 #resume-date {
