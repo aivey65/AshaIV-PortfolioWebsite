@@ -150,6 +150,7 @@ h2 {
 #about-wave {
     position: absolute;
     left: 0px;
+    top: 90vh;
     max-height: 1000px;
 }
 
