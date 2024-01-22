@@ -221,6 +221,7 @@ h2 {
     height: 100%;
     opacity: 0;
     transition: .3s;
+    margin: 0px;
 }
 
 .project-card:hover p {
