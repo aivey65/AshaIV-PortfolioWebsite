@@ -1,6 +1,6 @@
 /* 
 *** Font Information ***
-font-family: 'Alegreya Sans', sans-serif;
+font-family: 'Open Sans', sans-serif;
 font-family: 'Poppins', sans-serif;
 
 *** Color Information***
@@ -43,10 +43,11 @@ body {
     background-size: cover;
     min-width: 370px;
     overflow-x: hidden;
+    font-family: 'Open Sans', sans-serif !important;
 }
 
-h1, h2, h3, h4, body {
-    font-family: 'Alegreya Sans', sans-serif;
+h2, h3 {
+    margin: 1rem 0px !important;
 }
 
 p, a {
@@ -92,10 +93,6 @@ hr {
     border-left: 0px;
     border-right: 0px;
     width:60%;
-}
-
-label {
-    font-family: 'Alegreya Sans', sans-serif;
 }
 
 iframe {
@@ -167,7 +164,7 @@ img {
     }
 
     p, a, li {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     li {

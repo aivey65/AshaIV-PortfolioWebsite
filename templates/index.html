@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Asha Ivey - Portfolio Website</title>
 
-        <!-- JQuery for one specific issue of getting plain text (rather than html) from database -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content="Asha's portfolio website. Contains information about Asha and the projects she has worked on most recently.">
 
         <link rel='stylesheet' href='../static/css/style.css'>
         <link rel='stylesheet' media='screen and (min-width:768px)' href='../static/css/home.css'>
@@ -28,7 +27,7 @@
         <!-- Font Stuff -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300;400;500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">    
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">    
     </head>
       
     <body class='beginning' onload="loadData()">
@@ -63,26 +62,12 @@
             // controls.update();
 
             // SHAPE GEOMETRY //
-            const loader = new THREE.TextureLoader();
-            const occlusionMap = loader.load('/static/images/MetalTexture/AOMap.png');
-            const specularMap = loader.load('/static/images/MetalTexture/SpecularMap.png');
-
-            occlusionMap.colorSpace = THREE.SRGBColorSpace;
-            specularMap.colorSpace = THREE.SRGBColorSpace;
-
             const shapeMaterialObject = {
                 color: 0xE5FCFF,
                 emissive: 0x2E0F1F,
                 roughness: .4,
-                ior: 1.5,
-                reflectivity: 1,
-                iridescence: 1,
-                aoMap: occlusionMap,
-                aoMapIntensity: 0.2,
-                lightMap: specularMap,
-                lightMapIntensity: 0.2,
             }
-            const shapeMaterial = new THREE.MeshPhysicalMaterial(shapeMaterialObject);
+            const shapeMaterial = new THREE.MeshStandardMaterial(shapeMaterialObject);
 
             const boxGeometry = new THREE.BoxGeometry(20, 20, 20);
             const cube = new THREE.Mesh(boxGeometry, shapeMaterial);
@@ -488,21 +473,21 @@
                 </div>
             </div>
         </div>
-        <img class="transition-wave" src="../static/images/wave-transition1ALT.svg">
+        <img class="transition-wave" src="../static/images/wave-transition1ALT.svg" loading="lazy" alt="Wavy transition image between page sections">
         <div id='projects' class="asha-container">
             <div class="container-content">
                 <h2>Projects</h2>
                 <div id='projects-container'></div>
             </div>
         </div>
-        <img class="transition-wave" src="../static/images/wave-transition2ALT.svg">
+        <img class="transition-wave" src="../static/images/wave-transition2ALT.svg" loading="lazy" alt="Wavy transition image between page sections">
         <div id='resume' class="asha-container">
             <div class="container-content">
                 <h2>Resume</h2>
                 <a id="download-link" href="../static/documents/AshaIvey_Resume.pdf" download>
                     <button id="download-button">
                         Download Resume
-                        <img src="../static/images/downloadIcon.svg" alt="download icon">
+                        <img src="../static/images/downloadIcon.svg" alt="download icon" loading="lazy">
                     </button>
                 </a>
                 <div id="resume-collection">
@@ -515,7 +500,7 @@
                 </div>
             </div>
         </div>
-        <img class="transition-wave" src="../static/images/wave-transition3ALT.svg">
+        <img class="transition-wave" src="../static/images/wave-transition3ALT.svg" loading="lazy" alt="Wavy transition image between page sections">
         <div id='contact' class="asha-container">
             <div class="container-content">
                 <h2>Contact Me</h2>
@@ -526,17 +511,17 @@
                 
                     <div id="name-div">
                         <label class="required-input" for="name">Name</label>
-                        <input type="text" name="name" required>
+                        <input id="name" type="text" name="name" required>
                     </div>
 
                     <div id="email-div">
                         <label class="required-input" for="email">Email</label>
-                        <input type="email" name="email" required>
+                        <input id="email" type="email" name="email" required>
                     </div>
 
                     <div id="message-div">
                         <label class="required-input" for="message">Message</label>
-                        <textarea name="message" rows="4" cols="50" required></textarea>
+                        <textarea id="message" name="message" rows="4" cols="50" required></textarea>
                     </div>
                     
                     <button class="cta-button" type="submit">Submit</button>
@@ -548,12 +533,12 @@
                 <div id='contact-methods'> 
                     <div class='contact-icon'>
                         <a target="_blank" rel="noopener noreferrer" href='https://github.com/aivey65'>
-                            <img src="../static/images/github-mark-white.svg" alt="Github icon and link to github profile">
+                            <img src="../static/images/github-mark-white.svg" alt="Github icon and link to github profile" loading="lazy">
                         </a>
                     </div> 
                     <div class='contact-icon'>
                         <a target="_blank" rel="noopener noreferrer" href='https://www.linkedin.com/in/ashaiv/'>
-                            <img src="../static/images/LI-In-Bug.png" alt="linkedin Logo and link to profile">
+                            <img src="../static/images/LI-In-Bug.png" alt="linkedin Logo and link to profile" loading="lazy">
                         </a>
                     <div>
                 </div> 

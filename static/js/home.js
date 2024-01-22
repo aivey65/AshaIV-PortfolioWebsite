@@ -33,6 +33,7 @@ function loadSkills(skillsData) {
         skillImage.src = skill.image;
         skillImage.classList.add('skill-images');
         skillImage.loading = "lazy";
+        skillImage.alt = skill.skillName + " icon"
         if (skill.contrast == true) {
             skillImage.style.backgroundColor = 'white';
         }
@@ -54,6 +55,7 @@ function loadProjects(projectsData) {
             img.src = project.images[0];
             img.classList.add('project-img-icon');
             img.loading = "lazy";
+            img.alt = "Thumbnail for " + project.name + " project"
             img.onclick = function() {
                 showMoreProjectInfo(project.projectNum);
             }
