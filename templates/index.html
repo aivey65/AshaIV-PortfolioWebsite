@@ -46,6 +46,7 @@
             renderer.shadowMap.enabled = true;
             renderer.shadowMap.type = THREE.BasicShadowMap;
             renderer.setClearColor(0xEFEFEE);
+            renderer.domElement.classList.add("spread");
             document.getElementById("threejs-container").appendChild(renderer.domElement);
 
             const scene = new THREE.Scene();
@@ -124,7 +125,7 @@
             /////////////////////////////
             var cubePosition = {
                 x: 0,
-                y: -20,
+                y: -15,
                 z: 0,
                 newX: 0,
                 newY: 0,
@@ -135,7 +136,7 @@
 
             var torusPosition = {
                 x: 40,
-                y: -30,
+                y: -20,
                 z: -10,
                 newX: 0,
                 newY: 0,
@@ -147,7 +148,7 @@
 
             var octoPosition = {
                 x: -55,
-                y: 30,
+                y: 40,
                 z: -20,
                 newX: 0,
                 newY: 0,
@@ -158,7 +159,7 @@
 
             var cylinderPosition = {
                 x: -50,
-                y: 5,
+                y: 10,
                 z: -40,
                 newX: 0,
                 newY: 0,
@@ -329,15 +330,15 @@
              *     - 1: Unspread (All in center behind rotating cube)
              *     - 2: CTA Spread (All in center except torus, which rotates near the cta button)
              **/
-            var spreadFlag = 1;
+            var spreadFlag = 0;
             window.addEventListener("mouseover", (event) => {
                 if (window.innerWidth <= 767) { // Unspread if mobile sized
                     spreadFlag = 1;
                     return;
                 }
 
-                if (event.target.classList.contains("unspread")) {
-                    spreadFlag = 1;
+                if (event.target.classList.contains("spread")) {
+                    spreadFlag = 0;
                 } else if (event.target.classList.contains("ctaSpread")) {
                     spreadFlag = 2;
                     torus.position.spin = false;
@@ -350,8 +351,8 @@
                     return;
                 }
 
-                if (event.target.classList.contains("unspread") || event.target.classList.contains("ctaSpread")) {
-                    spreadFlag = 0;
+                if (event.target.classList.contains("spread") || event.target.classList.contains("ctaSpread")) {
+                    spreadFlag = 1;
                     torus.position.spin = true;
                 }
             });
@@ -414,25 +415,25 @@
                 <img id='toggle-logo' class="hamburg" src="../static/images/hamburger-icon.svg">
             </button>
         </div>
-        
-        <nav id="nav-bar"> 
-            <button class='nav_button unspread' onclick='homeAction()'>Home</button>
-            <button class='nav_button unspread' onclick='aboutAction()'>About</button>
-            <button class='nav_button unspread' onclick='projectAction()'>Projects</button>
-            <button class='nav_button unspread' onclick='resumeAction()'>Resume</button>
-            <button class='nav_button unspread' onclick='contactAction()'>Contact</button>
-        </nav> 
 
-        <div id="threejs-container"></div>
-
-        <div id='home' class='asha-container'>
-            <h1 id='home_title'>Asha Ivey</h1>
-            <h4 id="greeting"></h4>
-            <button class="cta-button" onclick="ctaAction()">See Projects</button>
-            <div id="down-icon-container">
-                <img id='down-icon' onclick='aboutAction()' src="../static/images/down-icon-ashaiv.svg" alt="Scroll Down Icon">
+        <div id="threejs-container" class="spread"></div>
+        <div id='home' class='asha-container spread'>
+            <h1 id='home_title' class="spread">Asha Ivey</h1>
+            <h4 id="greeting"class="spread"></h4>
+            <button class="cta-button spread" onclick="ctaAction()">See Projects</button>
+            <div id="down-icon-container" class="spread">
+                <img id='down-icon' class="spread" onclick='aboutAction()' src="../static/images/down-icon-ashaiv.svg" alt="Scroll Down Icon">
             </div>
         </div>
+        
+        <nav id="nav-bar"> 
+            <button class='nav_button' onclick='homeAction()'>Home</button>
+            <button class='nav_button' onclick='aboutAction()'>About</button>
+            <button class='nav_button' onclick='projectAction()'>Projects</button>
+            <button class='nav_button' onclick='resumeAction()'>Resume</button>
+            <button class='nav_button' onclick='contactAction()'>Contact</button>
+        </nav> 
+
         <div id='about' class="asha-container">
             <div class="container-content">
                 <img id="about-wave" src="../static/images/wavebg2.svg" alt="Wave Background Image">

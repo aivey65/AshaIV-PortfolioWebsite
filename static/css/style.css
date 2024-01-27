@@ -338,7 +338,7 @@ button {
 
 /* HOME SECTION */
 #home {
-    height: calc(100vh - 50px);
+    height: calc(100vh);
     text-align: left;
     justify-items: left;
     align-items: end;
