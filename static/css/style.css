@@ -281,11 +281,10 @@ img {
     }
 
     nav {
-        display: grid;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 5fr;
-        grid-template-columns: 100%;
-        justify-content: center;
-        justify-items: center;
+        display: flex;
+        flex-direction: column;
+
+        justify-content: start;
         position: fixed;
         top: 50px;
         left: -70%;
@@ -302,7 +301,6 @@ img {
     nav .nav_button {
         color: var(--Dark);
         display: block;
-        height: 100%;
         width: 100%;
         line-height: 65px;
         font-size: 1.2rem;

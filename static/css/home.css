@@ -38,7 +38,7 @@ h2 {
 #about {
     color: var(--Light);
     background-color: var(--BackgroundD);
-    min-height: 955px;
+    min-height: 890px;
 }
 
 #about-content {
@@ -197,13 +197,12 @@ h2 {
     grid-template-columns: 1fr 1fr 1fr;
     padding: var(--medPad);
     align-items: center;
-    transition: .3s;
     width: 100%;
     gap: var(--smallGap) var(--medPad);
     border-radius: var(--borderRadius);
     border: 1px solid transparent;
     opacity: 0;
-    transition: all 1s;
+    transition: all .7s;
 }
 
 .show-animate {
