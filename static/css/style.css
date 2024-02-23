@@ -327,6 +327,10 @@ img {
         background-color: var(--LAccent2);
         color: var(--Light);
     }
+
+    #home_button {
+        display: none;
+    }
 }
 
 /* BUTTON STYLES */
