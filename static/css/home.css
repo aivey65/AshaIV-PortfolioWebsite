@@ -260,6 +260,41 @@ h2 {
     cursor: ew-resize;
 }
 
+.skill-bubbles::-webkit-scrollbar {
+    height: 10px;
+    width: 0px;
+    scrollbar-width: 100%;
+    scrollbar-base-color: var(--Light);
+    -ms-overflow-style: none;
+}
+
+.skill-bubbles::-webkit-scrollbar-corner {
+    height: 0px;
+    scrollbar-width: 0%;
+    scrollbar-base-color: transparent;
+    -ms-overflow-style: none;
+    display: none;
+}
+
+.skill-bubbles::-webkit-scrollbar-thumb {
+    background-color: #00000000;
+    transition: background-color 2s;
+    -webkit-transition: background-color 2s;
+    -moz-transition: background-color 2s;
+}
+
+.skill-bubbles:hover ::-webkit-scrollbar {
+    background-color: var(--Dark);
+    -ms-overflow-style: auto;
+    display: block;
+}
+
+.skill-bubbles:hover::-webkit-scrollbar-thumb {
+    height: 2px;
+    border-radius: var(--borderRadius);
+    background-color: #5b575789;
+}
+
 .project-img-icon {
     object-fit: cover;
     grid-row: 1/5;
