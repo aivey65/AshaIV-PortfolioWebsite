@@ -174,7 +174,7 @@ h2 {
 #projects {
     background: var(--Background);
     color: var(--Dark);
-    min-height: 1060px;
+    min-height: 2317px;
 }
 
 #project-caption {
@@ -290,7 +290,7 @@ h2 {
     align-items: center;
     width: 100%;
     color: var(--BackgroundD);
-    min-height: 630px;
+    min-height: 870px;
 }
 
 #most-recent-resume {
