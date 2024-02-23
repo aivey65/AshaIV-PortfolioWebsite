@@ -171,19 +171,6 @@ h2 {
 }
 
 /* PROJECTS & EXPERIENCE SECTION */
-@keyframes project-slide {
-    from {
-        opacity: 0;
-        left: -10%;
-    }
-
-    to {
-        opacity: 1;
-        left: 0%;
-    }
-}
-
-
 #projects {
     background: var(--Background);
     color: var(--Dark);
@@ -203,6 +190,7 @@ h2 {
 }
 
 .project-card {
+    position: relative;
     color: var(--Dark);
     display: grid;
     grid-template-rows: auto auto auto auto;
@@ -214,12 +202,12 @@ h2 {
     gap: var(--smallGap) var(--medPad);
     border-radius: var(--borderRadius);
     border: 1px solid transparent;
-    left: -100%;
     opacity: 0;
-    animation: project-slide linear;
-    animation-timeline: view();
-    animation-range-start: 80%;
-    animation-range-end: 20%;
+    transition: all 1s;
+}
+
+.show-animate {
+    opacity: 1;
 }
 
 .project-card:hover {

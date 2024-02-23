@@ -45,6 +45,17 @@ function loadSkills(skillsData) {
 function loadProjects(projectsData) {
     const projectsContainer = document.getElementById('projects-container');
 
+    // Create observer to observe the cards as they enter view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show-animate");
+            } else {
+                entry.target.classList.remove("show-animate");
+            }
+        });
+    });
+
     for (const project of projectsData) {
         const img = document.createElement('img')
         if (project.images != "") {
@@ -111,6 +122,9 @@ function loadProjects(projectsData) {
                 showMoreProjectInfo(project.projectNum);
             }
         }
+
+        observer.observe(projectDiv);
+
         
         projectsContainer.appendChild(projectDiv);
     }
