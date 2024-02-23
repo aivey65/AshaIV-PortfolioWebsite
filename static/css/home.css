@@ -194,7 +194,7 @@ h2 {
     color: var(--Dark);
     display: grid;
     grid-template-rows: auto auto auto auto;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 2fr 3fr auto;
     padding: var(--medPad);
     align-items: center;
     width: 100%;
@@ -257,11 +257,12 @@ h2 {
     grid-row: 4;
     grid-column: 2/4;
     margin-top: var(--smallGap);
+    cursor: ew-resize;
 }
 
 .project-img-icon {
     object-fit: cover;
-    grid-row: 1/4;
+    grid-row: 1/5;
     grid-column: 1;
     align-self: start;
     width: 100%;
@@ -275,6 +276,7 @@ h2 {
     grid-column: 2;
     display: inline-block;
     align-self: start;
+    overflow: hidden;
 }
 
 .condensed-info h3 {
