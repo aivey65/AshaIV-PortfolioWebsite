@@ -28,11 +28,17 @@
         </div>
 
         <nav> 
-            <button class='nav_button' onclick='homeAction()'>Home</button>
-            <button class='nav_button' onclick='aboutAction()'>About</button>
-            <button class='nav_button' onclick='projectAction()'>Projects</button>
-            <button class='nav_button' onclick='resumeAction()'>Resume</button>
-            <button class='nav_button' onclick='contactAction()'>Contact</button>
+            <div>
+                <button id="home_button" class='nav_button' onclick='homeAction()'>
+                    <img src="../static/images/AshaIV-logo.svg">
+                </button>
+            </div>
+            <div>
+                <button class='nav_button' onclick='aboutAction()'>About</button>
+                <button class='nav_button' onclick='projectAction()'>Projects</button>
+                <button class='nav_button' onclick='resumeAction()'>Resume</button>
+                <button class='nav_button' onclick='contactAction()'>Contact</button>
+            </div>
         </nav> 
 
         <div id='projects' class="asha-container">

@@ -52,9 +52,6 @@ function loadProjects(projectsData) {
             img.classList.add('project-img-icon');
             img.loading = "lazy";
             img.alt = "Thumbnail for " + project.name + " project"
-            img.onclick = function() {
-                showMoreProjectInfo(project.projectNum);
-            }
         } else {
             img.display = 'None';
         }
@@ -71,42 +68,49 @@ function loadProjects(projectsData) {
         condense.append(name, year)
 
         const des = document.createElement('p');
+        des.classList.add("description-p");
         des.textContent = project.blurb;
-        des.onclick = function() {
-            showMoreProjectInfo(project.projectNum);
-        }
 
-        const more = document.createElement('button');
-        more.textContent = "Details";
+        const more = document.createElement('img');
+        more.src = "../static/images/open-icon.svg";
+        more.title = "See more details"
         more.classList.add('read-more-button');
-        more.onclick = function() {
-            showMoreProjectInfo(project.projectNum);
-        }
 
-        const demo = document.createElement('button');
+        const demo = document.createElement('a');
         if (project.live != "") {
             demo.textContent = "Live";
             demo.classList.add('live-button');
-            demo.onclick = function() {
-               window.open(project.live, '_blank');
-            }
+            demo.href = project.live;
+            demo.target = '_blank';
         } else if (project.videoURL != "") {
             demo.textContent = "Demo";
             demo.classList.add('live-button');
-            demo.onclick = function() {
-               window.open(project.videoURL, '_blank');
-            }
+            demo.href = project.videoURL;
+            demo.target = '_blank'
         } else if (project.github != "") {
             demo.textContent = "Github";
             demo.classList.add('live-button');
-            demo.onclick = function() {
-               window.open(project.github, '_blank');
-            }
+            demo.href = project.github;
+            demo.target = '_blank';
         }
+
+        const skills = document.createElement('div');
+        for (const skill of project.skills) {
+            const s = document.createElement('p');
+            s.innerHTML = skill;
+            s.classList.add('skill-bubble');
+            skills.appendChild(s);
+        }
+        skills.classList.add('skill-bubbles');
 
         const projectDiv = document.createElement('div');
         projectDiv.classList.add('project-card');
-        projectDiv.append(img, condense, des, more, demo);
+        projectDiv.append(img, condense, des, more, demo, skills);
+        projectDiv.onclick = function(event) {
+            if (event.target != demo) {
+                showMoreProjectInfo(project.projectNum);
+            }
+        }
         
         projectsContainer.appendChild(projectDiv);
     }
