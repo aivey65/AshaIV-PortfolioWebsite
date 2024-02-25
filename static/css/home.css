@@ -251,6 +251,7 @@ h2 {
 .skill-bubbles {
     display: flex;
     text-wrap: nowrap;
+    white-space: nowrap;
     overflow-x: auto;
     flex-direction: row;
     gap: var(--smallPad);
