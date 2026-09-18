@@ -1,28 +1,27 @@
-import google.cloud.datastore as datastore
 from flask import jsonify
+import json
 
-client = datastore.Client()
+def readDataFile():
+    with open("data.json") as jsonFile:
+        data = json.load(jsonFile)
+        return data
 
 def getData():
-    results = {}
-
-    results["about"] = list(client.query(kind="about_description").fetch())
+    data = readDataFile()
     
-    projectQuery = client.query(kind="projects")
-    projectQuery.order = ["projectNum"]
-    results["projects"] = list(projectQuery.fetch())
-
-    skillsQuery = client.query(kind="about_skills")
-    skillsQuery.order = ['-skillValue']
-    results["skills"] = list(skillsQuery.fetch())
+    results = {}
+    results["about"] = data["about_description"]
+    results["projects"] = data["projects"]
+    results["skills"] = data["about_skills"]
 
     return jsonify({"data":results})
 
 def getProject(projectID):
+    data = readDataFile()
     results = {}
-    
-    projectQuery = client.query(kind="projects")
-    projectQuery.add_filter("projectNum", "=", projectID)
-    results["project"] = list(projectQuery.fetch())
 
+    for project in data["projects"]:
+        if project["projectNum"] == projectID:
+            results["project"] = project
+    
     return jsonify({"data":results})

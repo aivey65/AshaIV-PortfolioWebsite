@@ -9,12 +9,12 @@ function loadData() {
 }
 
 function loadAbout(aboutData) {
-    document.getElementById('greeting').textContent = aboutData[0].greeting;
-    document.getElementById('description-a').innerHTML = aboutData[0].description;
+    document.getElementById('greeting').textContent = aboutData.greeting;
+    document.getElementById('description-a').innerHTML = aboutData.description;
 
     const hobbyList = document.getElementById('ul-b');
     
-    const hobbyData = aboutData[0].descriptionB;
+    const hobbyData = aboutData.descriptionB;
     for (var item of hobbyData) {
         const newItem = document.createElement("li");
         newItem.textContent = item;

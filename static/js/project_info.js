@@ -49,92 +49,90 @@ function loadData() {
     })
 }
 
-function loadProjects(projectsData) {
+function loadProjects(project) {
     const projectsContainer = document.getElementById('projects-container');
-
-    if (projectsData.length == 0) {
+    if (!project || Object.keys(project).length == 0) {
         const [header, details, backButton] = createPageNotFound();
         projectsContainer.append(header, details, backButton);
         return;
     }
 
-    for (const project of projectsData) {
-        // Used to get rid of any html tags if necessary
-        var tempdiv = document.createElement("div");
-        tempdiv.innerHTML = project.name;
+    // Used to get rid of any html tags if necessary
+    var tempdiv = document.createElement("div");
+    tempdiv.innerHTML = project.name;
 
-        const name = document.createElement('h1');
-        name.innerHTML = tempdiv.textContent || tempdiv.innerText || project.name;
+    const name = document.createElement('h1');
+    name.innerHTML = tempdiv.textContent || tempdiv.innerText || project.name;
 
-        const year = document.createElement('h3');
-        year.innerHTML = project.year;
-        
-        //If there is at least 1 image in the database, show it
-        var slideshow;
-        if (project.images != "" && project.images.length != 0 || project.videoURL != "") {
-            slideshow = createImageSlideshow(project.images, project.videoURL)
-        }
-        
-        const summaryDiv = document.createElement('div');
-        const summaryH = document.createElement('h2');
-        summaryH.innerHTML = "Summary"
-        const summary = document.createElement('p');
-        summary.innerHTML = project.descriptionSummary;
-        summaryDiv.append(summaryH, summary);
-
-        const contributionsDiv = document.createElement('div');
-        const contributionsH = document.createElement('h2');
-        contributionsH.innerHTML = "Development Details"
-        const contributions = document.createElement('p');
-        contributions.innerHTML = project.descriptionCont;
-        contributionsDiv.append(contributionsH, contributions)
-
-        const git = document.createElement('a')
-        if (project.github != "") {
-            git.innerHTML = "Github";
-            git.href = project.github;
-            git.classList.add("link-bold");
-            git.target = "_blank";
-            git.rel = "noopener noreferrer";
-        }
-
-        const live = document.createElement('a')
-        if (project.live != "") {
-            live.innerHTML = "See it Live";
-            live.href = project.live;
-            live.classList.add("link-bold");
-            live.target = "_blank";
-            live.rel = "noopener noreferrer";
-        }
-
-        const documentation = document.createElement('a')
-        if (project.doc != "") {
-            documentation.innerHTML = "Documentation";
-            documentation.href = project.doc;
-            documentation.classList.add("link-bold");
-            documentation.target = "_blank";
-            documentation.rel = "noopener noreferrer";
-        }
-
-        const skillHead = document.createElement('h3');
-        skillHead.innerHTML = "Relevant Skills/Tools";
-        skillHead.style.textAlign = 'center'
-
-        const skills = document.createElement('div');
-        for (const skill of project.skills) {
-            const s = document.createElement('p');
-            s.innerHTML = skill;
-            s.classList.add('skill-bubble');
-            skills.appendChild(s);
-        }
-        skills.classList.add('skill-div');
-        
-        const projectDiv = document.createElement('div');
-        projectDiv.classList.add('project-card');
-        projectDiv.append(name, year, slideshow, summaryDiv, contributionsDiv, git, documentation, live, skillHead, skills);
-        
-        projectsContainer.appendChild(projectDiv);
+    const year = document.createElement('h3');
+    year.innerHTML = project.year;
+    
+    //If there is at least 1 image in the database, show it
+    var slideshow;
+    if (project.images != "" && project.images.length != 0 || project.videoURL != "") {
+        slideshow = createImageSlideshow(project.images, project.videoURL)
     }
+    
+    const summaryDiv = document.createElement('div');
+    const summaryH = document.createElement('h2');
+    summaryH.innerHTML = "Summary"
+    const summary = document.createElement('p');
+    summary.innerHTML = project.descriptionSummary;
+    summaryDiv.append(summaryH, summary);
+
+    const contributionsDiv = document.createElement('div');
+    const contributionsH = document.createElement('h2');
+    contributionsH.innerHTML = "Development Details"
+    const contributions = document.createElement('p');
+    contributions.innerHTML = project.descriptionCont;
+    contributionsDiv.append(contributionsH, contributions)
+
+    const git = document.createElement('a')
+    if (project.github != "") {
+        git.innerHTML = "Github";
+        git.href = project.github;
+        git.classList.add("link-bold");
+        git.target = "_blank";
+        git.rel = "noopener noreferrer";
+    }
+
+    const live = document.createElement('a')
+    if (project.live != "") {
+        live.innerHTML = "See it Live";
+        live.href = project.live;
+        live.classList.add("link-bold");
+        live.target = "_blank";
+        live.rel = "noopener noreferrer";
+    }
+
+    const documentation = document.createElement('a')
+    if (project.doc != "") {
+        documentation.innerHTML = "Documentation";
+        documentation.href = project.doc;
+        documentation.classList.add("link-bold");
+        documentation.target = "_blank";
+        documentation.rel = "noopener noreferrer";
+    }
+
+    const skillHead = document.createElement('h3');
+    skillHead.innerHTML = "Relevant Skills/Tools";
+    skillHead.style.textAlign = 'center'
+
+    const skills = document.createElement('div');
+    for (const skill of project.skills) {
+        const s = document.createElement('p');
+        s.innerHTML = skill;
+        s.classList.add('skill-bubble');
+        skills.appendChild(s);
+    }
+    skills.classList.add('skill-div');
+    
+    const projectDiv = document.createElement('div');
+    projectDiv.classList.add('project-card');
+    projectDiv.append(name, year, slideshow, summaryDiv, contributionsDiv, git, documentation, live, skillHead, skills);
+    
+    projectsContainer.appendChild(projectDiv);
+    
     updateSlide(0)
 }
 

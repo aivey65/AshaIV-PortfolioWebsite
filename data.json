@@ -1,0 +1,157 @@
+{
+    "about_description": {
+        "description": "I graduated from the <span class='highlight'>University of Illinois in Urbana-Champaign</span> with a <span class='highlight'>BA in Linguistics</span> and a <span class='highlight'>minor in Computer Science</span>. I have <span class='highlight'>4+ years</span> of experience in web development and software engineering through courses, internships, and personal projects. I am good at adapting to new tools and technologies to suit whatever a project needs!",
+        "descriptionB": ["Making new clothes with my sewing machine.","Travelling, especially to America's National Parks.","Playing story-driven video games with my siblings, taking turns with the controller.","All things food! Seriously, I can talk for hours about cooking and my restaurant-going experiences."],
+        "greeting": "I'm a software developer. Let's Connect!"
+    },
+    "about_skills": [
+        {
+            "skillName": "Java",
+            "skillValue": "80",
+            "image": "devicon-java-plain",
+            "contrast": "false"
+        }, {
+            "skillName": "Python",
+            "skillValue": "90",
+            "image": "devicon-python-plain",
+            "contrast": "false"
+        }, {
+            "skillName": "CSS",
+            "skillValue": "70",
+            "image": "devicon-css3-plain",
+            "contrast": "false"
+        }, {
+            "skillName": "HTML",
+            "skillValue": "70",
+            "image": "devicon-html5-plain",
+            "contrast": "false"
+        }, {
+            "skillName": "JavaScript",
+            "skillValue": "70",
+            "image": "devicon-javascript-plain",
+            "contrast": "false"
+        }, {
+            "skillName": "GCP",
+            "skillValue": "40",
+            "image": "devicon-googlecloud-plain",
+            "contrast": "false"
+        }, {
+            "skillName": "SQL/MySQL",
+            "skillValue": "40",
+            "image": "devicon-mysql-plain",
+            "contrast": "false"
+        }, {
+            "skillName": "Flask",
+            "skillValue": "75",
+            "image": "devicon-flask-original",
+            "contrast": "true"
+        }
+    ],
+    "projects": [
+        {
+            "blurb": "A cozy cooking simulator featuring donuts and monsters, created using Godot.",
+            "descriptionCont": "",
+            "descriptionSummary": "This game was conceptualized during the 2025 <a href='https://itch.io/jam/-girly-game-jam'>Girly Game Jam</a>.",
+            "doc": "",
+            "github": "https://github.com/aivey65/BobaBananza",
+            "images": ["https://lh3.googleusercontent.com/pw/AP1GczNSBXt_3U2XNK--KsJ8_SJqvMUjAieVN5rVil3_kOTJ0b5a9Qpb9hKTWavpPAlh8hmRYAjiIH7k2aHHZqDpS_-18ye-PlXECEjXfYYfq6zme1v09a4k=w2400","https://lh3.googleusercontent.com/pw/AP1GczNiB7oHGIOxTU5VDnvJtls1qvBnCtuJsErThYXvBH4z9DLd7TjB7ipWbeTfoY362bTWmd7Pv911QV7yGDd4P-4-1Hcl2Z8mKo9dnyZLi9k3PAPjUtki=w2400","https://lh3.googleusercontent.com/pw/AP1GczOBL8otyIxE9NmMmyS7hw_wSxda2AfEymJTfstWi39tpsIMEiPYHFyVRzI6e_SwddU3mWVQ5s0WlH2LklB-ec2LetdHEDId6hRmtA4Yrdzd-mVhdqji=w2400","https://lh3.googleusercontent.com/pw/AP1GczN3UwQphWLbexIO-4jaTkLZc6aSla52jX1G6YSowuZ7PDamPgdGbDvrGlICT0bsMtX7ACCzVmAWnnouUYY4c0Vjh7jll6yC8GmtRGJn6IPv7es-I1VA=w2400"],
+            "live": "https://cetusstudios.itch.io/ghoulong",
+            "name": "Ghoulong Tea",
+            "projectNum": "0",
+            "skills": ["Godot"],
+            "videoURL": "https://www.youtube.com/embed/6byMY28EWeo?si=wWY_uVOX4LznCBDX",
+            "year": "2025"
+        }, {
+            "blurb": "Chary is a budgeting app that helps users make plans for their money. The word 'chary' means to be cautious or hesitant in doing something.",
+            "descriptionCont": "Chary was created using <span class='highlight'>Python</span> and <span class='highlight'>Flask</span> for the backend, and HTML, CSS, and JavaScript for the front end. It uses a <span class='highlight'>Cloud Firestore database</span> to store user information. It also utilizes Google sign in for <span class='highlight'>Oauth2.0 authentication</span>. The charts are created using Chart.js. Some of the images are from undraw.co, like the profile images and the icons on the landing page.",
+            "descriptionSummary": "Chary is a budgeting app that helps users keep track of their daily expenses. Users can use Chary to make financial plans and visualize how well they've stayed within budget each month. 'Chary' sounds like 'cherry', but has a meaning of cautiousness or hesitancy in doing something. We want our users to be cautious—or chary—while spending money.",          
+            "doc": "",
+            "github": "https://github.com/aivey65/Chary",
+            "images": ["https://lh3.googleusercontent.com/pw/ABLVV86-SCXj3eI40lUO3PAZ6nBEGqQzqad65FmBQ4PMUgV8OkEtI_np7Vn409Wp9LCYlSKA2_z4YKPewGkNJLEOVCsf5Dus7VJYSic-4Q0gUkm9JfUPYoGW=w2400","https://lh3.googleusercontent.com/pw/ABLVV85gPXR_uffpZ9ptERo2SFfIAY57G_EZhcoH8NoqamUk56ZjbtR2ky6IEhS8XAEqCfO0OA7P7vB3EzPNb4sagpSrgaB4VYVAETL1ntCRm37f8wc6r7hz=w2400","https://lh3.googleusercontent.com/pw/ABLVV86MciyFDtzp6sR3Z2XeStZbZntb-sT7cBlaIqZhJ5GuBp4ljnELaeFVLkaZ-V504p-R4oJXYyewIxQVKx8qszCSlaOEH-s4IKxy4ffdSveDOESGFWWq=w2400","https://lh3.googleusercontent.com/pw/ABLVV86cPxIxr9AyHKQ5uc3RUGFDBLQSi1sQUBo97k4rJxuHOqW0rjMgxwlxiHRraCaAYAocFKHfUqdHXWuPIEZ6A5mgw5w6O7cLMs_QGbbpoxe2-1B34zed=w2400","https://lh3.googleusercontent.com/pw/ABLVV86lE-sLxbiYA3lK1kCbvbsmbouT9hgL2f3XqPbsslU1wwvgAljtiU5I4u5_T8X_tMUn5xvcOoNLbx6Pt3QNkBz-bKCaAlr_QCz_SuSiPS3cc_UZNV0U=w2400"],
+            "live": "https://www.charypie.com",
+            "name": "Chary",
+            "projectNum": "1",
+            "skills": ["Python","Flask","JavaScript","Google Cloud Platform (GCP)","Authentication","Chart.js","CRUD Functionality","HTML","CSS"],
+            "videoURL": "https://www.youtube.com/embed/rht4Mn2jG2c?si=CqWwLmbT3s-Vlibi",
+            "year": "2023"
+        }, {
+            "blurb": "Asha's portfolio website (the one you are currently looking at), containing information about her more notable projects.",
+            "descriptionCont": "This app uses <span class='highlight'>Python</span> and a <span class='highlight'>Flask server</span> for the backend. The frontend was created with <span class='highlight'>JavaScript</span>, HTML, and CSS. This website uses <span class='highlight'>Google Cloud's Datastore</span> to store all of the content on the page, which is retrieved and procedurally added to the UI. I decided to use a database so it would be easier to make updates to the website content in the Google Cloud console from anywhere without needing to modify the source code or redeploy the app. This app has been deployed using <span class='highlight'>Google App Engine</span>.",
+            "descriptionSummary": "This is my personal portfolio website—the one you are currently looking at! This website was created in 2021, but a majority of its changes were done during the winter of 2023 through 2024. The images here show the evolution of the design, from where it started to where it is right now. This portfolio will likely grow as I grow as a developer.<br><br>Even though I learned the basics of web development in high school, it took me a while to sit down and actually make my own portfolio. I learned a lot, using a database rather than hard-coding the content. I also learned about various aspects of web design, and what goes into hosting a website.",          
+            "doc": "",
+            "github": "https://github.com/aivey65/AshaIV-PortfolioWebsite",
+            "images": ["https://lh3.googleusercontent.com/pw/AP1GczP8dpiL1cFn5RQQppTcvmRgQN8Cg5kZTo96s8MjMmWWhWaDCMRT_tcLhTJ0KVBcB4a2xG65cRJiRKT-oDVlHlDCkFUv-Qr2Ly4mn5Z9341MEkONufi8=w2400","https://lh3.googleusercontent.com/pw/AP1GczOj9fzWK4DGMb-0VuaAceYb27GgGhQyGBgVH4WTt28puGdoyMIYzZWipEMiaix8HG24-jXb91OgC3nMKeBnZMzxt9-xQdgqO2cS9smL8PCrFXecbGfO=w2400","https://lh3.googleusercontent.com/pw/AP1GczOjXQelWsyEiKtzLdPtEwFL4lqAv94zpISB0citwWnQoDbvl-MtCYxFMfqZrHVwGA0hIExz496meCvJy80q4T9y1OQ5cuWsZdddzkf3V0TWGhk3a3TJ=w2400","https://lh3.googleusercontent.com/pw/AP1GczPl0001fI2i-EYy05yL8PPPG1O__nrUmIBPoMehdTHnbOsTrcxA6OHmipOxITOz4ORJ3QkIoGCnYAxTSU-JHh9Z46ZW_ONmlssUpgnhFOuTXEvja7eV=w2400","https://lh3.googleusercontent.com/pw/AP1GczMOboHW4BmisqcSfafPnt8dB4paKyYLx-u9As-1pwMWHYNqlEAl-aOhmZa-HzbZHqBuZCB3BpXqV3uxrD7PQUYvdL9_k13ymoS0aK1s2af8BMYT9tLJ=w2400","https://lh3.googleusercontent.com/pw/AP1GczOcr2Zss_0dgBP_uDWnNC1SsCJCR6jyTxhAXH2Zit8uWAZDKd6e7MN95iepLzBDn2hX_TX0m6Dh6lb0fJ8Erzie4AcLpo7hQI6-xQGAnazUxtvCCnrB=w2400"],
+            "live": "https://www.ashaiv.com/",
+            "name": "Portfolio Website",
+            "projectNum": "2",
+            "skills": ["Python","Flask","JavaScript","HTML","CSS","Google Cloud Datastore","Google App Engine","Three.js"],
+            "videoURL": "",
+            "year": "2021"
+        }, {
+            "blurb": "A simple Tic Tac Toe game created using React.",
+            "descriptionCont": "This project was created using React.js, JavaScipt, HTML, and CSS.",
+            "descriptionSummary": "This simple Tic Tac Toe game is played in the browser. This project was created alongside a few other React projects to help improve my knowledge of React components and the different ways they can be used.",          
+            "doc": "",
+            "github": "https://github.com/aivey65/TicTacToe",
+            "images": ["https://lh3.googleusercontent.com/pw/ABLVV85jPFJT9XDajJ9XdZYn81M2oJzIju2GAso9CfUp_Zgw0ok4TqiV3STFgIZnlCT51s1zzf55mIMu47lsX6Ym5tr9pf4yL8ukaCpUoMKKuEzY96jZkhZT=w2400","https://lh3.googleusercontent.com/pw/ABLVV86tr6qHPqRj8sdJtfI-atgmFba7TWehShJ6mJ9MkyyFzqLW8KBobJvF3d-3PGufJFNEh41smB9Q4tULL37N4ntVxE2eVYuo4hR_dZuO54ka57Ws_e7u=w2400","https://lh3.googleusercontent.com/pw/ABLVV84tFcRd0Zmw_Xk9iEQcwMhj2RSO--eEXrUr7uTBNPvpHgQMK-7AOLlM_vERuym8cmYXxc-6IkdOZ0sPEkBjOgbX3BJbUCnE8Z9c5k-52BXUvKE6T7LQ=w2400","https://lh3.googleusercontent.com/pw/ABLVV85fkLE4ubv8Qe4KQRP_1i3aNNeNUD7yjJJFv_oZLrwDmjkt5I9bG7Bt_J2kFhqL8T5D7uOJc3Dnwa-tCFvXUhOgz_EMkuNzsv4k2mkV2mVQD4J2lfa_=w2400"],
+            "live": "",
+            "name": "Tic Tac Toe",
+            "projectNum": "3",
+            "skills": ["React.js","JavaScript","HTML","CSS"],
+            "videoURL": "",
+            "year": "2024"
+        }, {
+            "blurb": "A chrome extension that quickly shows the definition of a word when highlighted.",
+            "descriptionCont": "The biggest limitation of this chrome extension is the API that I used. The Free Dictionary API is appealing because it does not require an API key, but there is no data in the API about which definition is most likely to be helpful or relevant. Words with straightforward definitions like 'quick' returns 'Raw or sensitive flesh, especially that underneath finger and toe nails' as the first value. I noticed a trend where the most common definitions were found under the part of speech with the most definitions, but there are still times when a result is not what I would expect. An idea for how to extend this project if money weren't an issue, one could create a backend to connect to a database to keep track of which results were most helpful. Quick Dictionary could get user feedback on the results, so that it can offer a better definition the next time a word is searched. Another more simple possibility is to just create a link to a reputable dictionary to open in a new tab automatically. ",
+            "descriptionSummary": "Quick Dictionary is a chrome extension that finds the definition of a word when highlighted. It can be used on any tab, and can be disabled or enabled by clicking on the extension icon in the browser and toggling the setting. This extension was written using JavaScript, HTML, and CSS. It also uses the <a target='_blank' rel='noopener noreferrer' href='https://dictionaryapi.dev/'>Free Dictionary API.</a> This API does not require an API key, so there is no secret or API key to hide.",          
+            "doc": "",
+            "github": "https://github.com/aivey65/QuickDictionary",
+            "images": ["https://lh3.googleusercontent.com/pw/ABLVV84P2MqZk9Lxt_u1EzfrAQ6ckqMkiq-XVqiy9LR4XL5hek0vCFsMAbMlMnIyJv1xf9N5WVEvo1y8VNOwgvMiBmGO0X8ck5g4vREO_ESyfHyyLdWeZOjq=w2400","https://lh3.googleusercontent.com/pw/ABLVV84MoG8mEfVozYl_iZq15tXJrwL0EPUW4BBRwC0LMMUcZKy3Fbhf3je3ab3qjGHecLF4CTICTCa3p1wZJAjTTfPShEf9tS0ygDPOGNVig8NppHofOefR=w2400","https://lh3.googleusercontent.com/pw/ABLVV87jnseQxMk44e14QSfekLIrw_xi_ewgCiFTfZot62_Si0xLKsTYRUyzMyS_zPC0b7jESvVBiCiTGNAa95R6nyfcCXogO7XMGrNLCuy6uQOjkD5AjDoZ=w2400","https://lh3.googleusercontent.com/pw/ABLVV85EkFtiPrRm_fEUP5eNiZke4UkZhfRwry4p_Vm9ek_bAF0pixPm0g8KLneIs6xC7xoGXWls9znGrKFgElduh8p2TvejWKLCLcRUkCxXdENogutzrUmQ=w2400"],
+            "live": "",
+            "name": "Quick Dictionary",
+            "projectNum": "4",
+            "skills": ["JavaScript","HTML","CSS","Chrome Extension"],
+            "videoURL": "",
+            "year": "2024" 
+        }, {
+            "blurb": "A restaurant search app that allows multiple users to collaborate, updating the results in real time as users input their information.",
+            "descriptionCont": "I worked with two other interns to create this web app. I was responsible for setting up the real-time events that refreshed the results for each participant using a tool called <span class='highlight'>Socket.io</span>. I was also responsible for converting addresses to latitude-longitude coordinates using Google’s <span class='highlight'>Geocoding API</span> and writing the script that parsed the API responses from <span class='highlight'>Google’s Places API</span>, displaying the results on the results page. Lastly, I contributed several <span class='highlight'>UI/UX design</span> elements.",
+            "descriptionSummary": "Ogene is a restaurant searching app created for an internship at <span class='highlight'>Google</span> in 2020. The app allows for multiple users to collaboratively search for restaurants in order to make it easier to find restaurants to meet up. As participants input their location and preferences, results are updated and displayed in real-time for everyone in the group. The app looks for restaurants that are equidistant from every participant.<br><br>In the results section, the app displays a list of restaurants with information like address, overall rating, hours of operation, etc., taken using <span class='highlight'>Google's Places API</span>. There is also a map generated with Google's <span class='highlight'>Maps API</span> that shows pinpoints for the restaurant locations as well as pins for the location inputs given by the participants in the group.",
+            "doc": "",
+            "github": "https://github.com/googleinterns/step121-2020",
+            "images": ["https://lh3.googleusercontent.com/LiAehwJMXNokIM6kLR5rH7UUpoF16MCdT3xxRtnz6jnNzM3QtwocyRacfKjcKVz2rJOkBIQP8oqQp03YaTyB2rUwi7dqnOhH7ikAOWB6-dHjtcDsxfTQiDQ2Es9O3O12B7Awf-T6JA=w2400","https://lh3.googleusercontent.com/3qoxx9AFNaufdEdbpaZYF0Wo7CfRrV6-xvsEonVP8hX0IoN2J8NvW82UDzfPGyfQch81wsnBm_PY0M5IqpFELJLPbvm9qEWl1FQTwJdQ3VDcqfLXBkEBVYwL3A-OGoDW-i38U52ZHw=w2400","https://lh3.googleusercontent.com/iBXHTadOtXocsPa3u9TglrB1wjo5FUCml2jd9IgRzpv50QwDnVYT3AydUiVtvvD6wIvtXk1G_ptyaswpk13nsPKvqpoHnJdCOGPlz-YoNX1cr4zZ45OtRUkqVHoSnZOJR-SA9uujbQ=w2400"],
+            "live": "",
+            "name": "Ogene",
+            "projectNum": "5",
+            "skills": ["JavaScript","HTML","CSS","Google Maps Platform APIs"],
+            "videoURL": "",
+            "year": "2020" 
+        }, {
+            "blurb": "Demonstrates SQL database design and implementation skills. This app not only has create, read, write, and delete capabilities, but it also features more complex queries, stored procedures, and triggers.",
+            "descriptionCont": "My team worked collaboratively for most of the early database design steps, including design documents, schemas, and Unified Modeling Language (UML) and Entity Relationship (ER) diagrams. <br><br>I was specifically responsible for setting up the <span class='highlight'>Cloud SQL</span> instance on Google Cloud, creating the SQL tables on the server according to our schemas, and using CSV files of data provided by my teammates to populate the database. On the web app, I was also responsible for the search section, including querying the server with information from the user, and parsing the results to display back to the front end.",
+            "descriptionSummary": "This project was created for a database systems class at the <span class='highlight'>University of Illinois at Urbana-Champaign</span>. It is a web app that allows users to search for Pokemon cards by different categories (Pokemon name, type, hp, etc.), add cards to custom decks, and compare their decks to other users’ decks as well as decks used in Pokemon TCG tournaments. There is also a feature that takes a user’s budget and gives suggestions for cards to trade out.<br><br>It uses a Google Cloud Platform <span class='highlight'>MySQL</span> server to store Pokemon card information, user information, and the user-created decks of cards. The Pokemon card information comes from an open-source <a target='_blank' rel='noopener noreferrer' href='https://pokemontcg.io/'>Pokemon Trading Card Game API.</a>",          
+            "doc": "https://docs.google.com/document/d/1ugxRFAGlEKAUeaE0nZKvhG_5fDp8HSnolMf8svC1EMw/edit?usp=sharing",
+            "github": "",
+            "images": ["https://lh3.googleusercontent.com/yU7-B92mKbvyn0jlOhaudJJuoAbbT6kdNw4WoJcMleeUx8_2NIKABeUsBQapUMjn-3qNc99c4f84AUa6A5RLqPUmX76U0SRB5on0QMAp8fz4nqWzE1XoHLticSZxPA5-wS4BImCovg=w2400"],
+            "live": "",
+            "name": "SQL Database Design Demonstration",
+            "projectNum": "6",
+            "skills": ["SQL","HTML","CSS","Flask","Python","Google Cloud Platform (GCP)"],
+            "videoURL": "https://www.youtube.com/embed/LXS9Leaz7Ic",
+            "year": "2021"
+        }, {
+            "blurb": "A 3D fighting-adventure game created using Unreal Engine 4. This project demonstrates basic knowledge of game development and related technologies.",
+            "descriptionCont": "This game was created for a game development course I took at the <span class='highlight'>University of Illinois at Urbana-Champaign</span>. This was not my first time working on a video game project, but it was the first one that felt most complete. I worked with 3 other students, and was responsible for the inventory system, the level design of the 2nd level, and various <span class='highlight'>UI</span> components and 3D asset tools. We communicated and held regular meetings throughout the creation of the project, and we used <span class='highlight'>Perforce</span> for version control.</span><br><br>In other assignments for the same course, I learned how to create <span class='highlight'>enemy AI</span> and other basic game systems.",
+            "descriptionSummary": "The Woodlands is a third person 3D platformer game set in a cartoonish woodland world created using <span class='highlight'>Unreal Engine 4</span>. The game takes stylistic and thematic inspiration from Slime Rancher, Super Mario Odyssey, and Sky: Children of the Light. <br><br>The player can explore each level, collecting exploration tokens. Each level is scattered with various enemies that can be defeated in melee combat to earn combat tokens, which can be used to buy consumables. The levels also contain doors to different paths which can be unlocked by collecting enough exploration or combat tokens. To complete a level, the player must unlock the final golden door in the map.",
+            "doc": "",
+            "github": "",
+            "images": ["https://lh3.googleusercontent.com/hM9zcv9g6l6BgJEdcbd7v_YUX0GswZHshbUud90SfT6Hw8Z-aSlO1zk26sH6zgD1KpzFUdg1XY-Alxqku5cvrVRWJeZv2fvMJjueLFOQDhNuxvYDFdvt3VHvL_IhI65uX1vdVREaTw=w2400","https://lh3.googleusercontent.com/HqBoqw-AD8iRg9KykOIMQ04mr7yfoHKQX3U4F2hOhUFbsVbS8Uf31cg_Cmmjj8FBDDCO9-pv1jr7WLq-gsUW2Qn8FzbbfMxnxOCI-QmGYR2RLKuQUWf-a27_gk0GvQJR4Vjf6WtllA=w2400","https://lh3.googleusercontent.com/qbSTskreG38F8rNbmA3UBGdsTRCBetWXo5XW_ZTB5gE-bA0yIHAUQQgUm6zlE91kJJ6d37O5avBNpZnTX5N7RY29Hu1mK3J7sDySyrh8K2ezax1w326rRk3E9LBE4B6dkJ_nxgfDgQ=w2400","https://lh3.googleusercontent.com/qZwff9pcA2FMGJrkqLQui05ypq4HONiGQvkK1PlFAO8tePDo5YXsKol3eJK712Hfho0bqnf7wPzWB5ZV7P3UACrk8lf5dH9YGBgAe92frF92rWi8H2otQtuTZRZvdTpuPbVu_cnimA=w2400"],
+            "live": "",
+            "name": "The Woodlands",
+            "projectNum": "7",
+            "skills": ["Unreal Engine 4","Perforce"],
+            "videoURL": "https://www.youtube.com/embed/qvggN6aHAbk",
+            "year": "2022" 
+        }
+    ]
+}
